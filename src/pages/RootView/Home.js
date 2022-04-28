@@ -1,11 +1,13 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import HomeContainer from '../styled/HomeContainer';
 
 // 가장 먼저 보여지는 페이지
 const Home = () => {
-    const [visible, setVisible] = useState(false);
-
+    const [isMouseOver, setMouseOver] = useState(false);
+    const [isMouseLive, setMouseLeave] = useState(false);
+    
+    
     /*
         const [who, setWho] = useState("모이야이야");
 
@@ -67,9 +69,11 @@ const Home = () => {
                             <div className="coffeeTI">
                                 <Link to="/coffeesTI" style={{ textDecoration: 'none', color: '#F2F2F2' }}>커피티아이</Link>
                             </div>
-                            <div className="notice">
+                            <div className="notice"
+                                onMouseOver={()=>{console.log("zz"); setMouseOver(true);}} 
+                                onMouseLeave={()=>{console.log("fdssrggsrs"); setMouseLeave(false);}}
+                            >
                                 <Link to="/notice" style={{ textDecoration: 'none', color: '#F2F2F2' }}>공지사항</Link>
-                            </div>
                                 <div className="sub">
                                     <ul>
                                         <li>
@@ -90,6 +94,8 @@ const Home = () => {
                                     </ul>
                             </div>
                         </div>
+                            </div>
+
                     </div>
                 </section>
             </header>
@@ -98,6 +104,7 @@ const Home = () => {
             </main>
         </HomeContainer>
 
+    
     );
 };
 
