@@ -1,7 +1,5 @@
 const ServiceCenter = () => {
-    <div>
-        ServiceCenter
-    </div>
+  <div>ServiceCenter</div>;
 };
 
 export default ServiceCenter;

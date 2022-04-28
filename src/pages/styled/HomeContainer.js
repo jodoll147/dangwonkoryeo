@@ -93,7 +93,6 @@ const HomeContainer = styled.div`
         font-size: 35px;
         color: #F2F2F2;
     }
-    
     .notice{
         position: absolute;
         left: 701px;
@@ -101,30 +100,31 @@ const HomeContainer = styled.div`
         font-weight: 700;
         font-size: 35px;
         color: #F2F2F2;
+        cursor: pointer;
+
         
     }
-
     .sub{
-        font-weight: 700;
-        font-size: 35px;
-        opacity: 0;
+            font-weight: 700;
+            font-size: 35px;
+    
+            ul{
 
-        ul{
-            position: absolute;
-            top: 35px;
-            left: 640px;
-            list-style: none;
-            display: block;
+                position: relative;
+                top: -25px;
+                left: 500x;
+                list-style: none;
+            }
+            li{
 
+                display: block;
+                padding: 20px 20px 20px 20px;
+                text-align:left;
+                background: #F2F2F2;
+            }
+    
         }
-        li{
-            padding: 20px 20px 20px 20px;
-            text-align:left;
-            background: #F2F2F2;
-        }
-
-    }
-
+    
     
    
 }
