@@ -9,15 +9,8 @@ const Home = () => {
   const onMouseView = (
     <div
       className='onMouse'
-      onMouseOver={() => 
-        
-        
-        setVisible(!visible)}
-      onMouseDown={() => 
-        
-        
-        
-        setVisible(!visible)}
+      onMouseOver={() => setVisible(!visible)}
+      onMouseDown={() => setVisible(!visible)}
     >
       <div className='notice'>
         <Link
