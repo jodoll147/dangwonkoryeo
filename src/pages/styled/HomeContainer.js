@@ -23,7 +23,7 @@ const HomeContainer = styled.div`
         color: #4EA6A6;
     }
     .join{
-        position: absolute;
+        position: relative;
         right: 60px;
         top: 63px;
         text-align: right;
@@ -70,61 +70,56 @@ const HomeContainer = styled.div`
             text-align: center;
         }
     }
-    .statebar{
-        position: absolute;
-        width: 100%;
-        height: 70px;
-        top: 263px;
-        background: #4EA6A6;
-    }
-    .intro{
-        position: absolute;
-        left: 109px;
-        top:13px;
-        font-weight: 700;
-        font-size: 35px;
-        color: #F2F2F2;
-    }
-    .coffeeTI{
-        position: absolute;
-        left: 426px;
-        top:13px;
-        font-weight: 700;
-        font-size: 35px;
-        color: #F2F2F2;
-    }
-    .notice{
-        position: absolute;
-        left: 701px;
-        top:13px;
-        font-weight: 700;
-        font-size: 35px;
-        color: #F2F2F2;
-        cursor: pointer;
 
-        
+
+   .main{
+    positon: absolute;
+    width: 100%;
+    backgroud: 4EA6A6;
+    text-align: left;
+    overflow: hidden;
+
+    ul{
+        position: absolute;
+        position: block;
+        top: 213px;
+        left: -40px;
+        list-style: none;
+        width : 100%;
+
+    }
+    li{
+        display: inline-block;
+        padding: 20px 20px 20px 20px;
+        text-align: center;
+        float: left;
+        background: #4EA6A6;
+        width: 29%;
+        hight: 70px;
+    }
+
+    .main: after{
+        content: "";
+        display: block;
+        clear: both;
     }
     .sub{
-            font-weight: 700;
-            font-size: 35px;
-    
-            ul{
+        font-weight: 700;
+        font-size: 25px;
 
-                position: relative;
-                top: -25px;
-                left: 500x;
-                list-style: none;
-            }
-            li{
-
-                display: block;
-                padding: 20px 20px 20px 20px;
-                text-align:left;
-                background: #F2F2F2;
-            }
-    
+        li{
+            positon: absolute;
+            display: block;
+            width: 10%;
+            padding: 0px;
+            background: #F2F2F2;
         }
-    
+    }
+
+}
+
+
+}
     
    
 }

@@ -60,72 +60,57 @@ const Home = () => {
             <div className='search_btn'>
               <input type={'button'} value={'검색'} />
             </div>
-            <div className='statebar'>
-              <ul>
-                <li>
-                  <Link to='/intro' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
-                    당원커여 소개
-                  </Link>
-                </li>
-                <li>
-                  <Link to='/coffeeTI' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
-                    커피티아이
-                  </Link>
-                </li>
-                <li>
-                  <Link to='/notice' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
-                    공지사항
-                  </Link>
-                </li>
-              </ul>
-              <div className='intro'>
+            <ul>
+              <li>
                 <Link to='/intro' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
                   당원커여 소개
                 </Link>
-              </div>
-              <div className='coffeeTI'>
+              </li>
+              <li>
                 <Link to='/coffeeTI' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
                   커피티아이
                 </Link>
-              </div>
-              <div
-                className='notice'
-                onMouseOver={() => {
-                  setMouseOver(true);
-                }}
-                onMouseLeave={() => {
-                  setMouseOver(false);
-                }}
-              >
-                <Link to='/notice' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
-                  공지사항
-                </Link>
-                {isMouseOver && (
-                  <div className='sub'>
-                    <ul>
-                      <li>
-                        <Link to='/notice' style={{ textDecoration: 'none', color: '#594031' }}>
-                          공지사항
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to='/FAQ' style={{ textDecoration: 'none', color: '#594031' }}>
-                          FAQ
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to='/service_center'
-                          style={{ textDecoration: 'none', color: '#594031' }}
-                        >
-                          고객센터
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </div>
-            </div>
+              </li>
+              <li>
+                <div
+                  className='notice'
+                  onMouseOver={() => {
+                    setMouseOver(true);
+                  }}
+                  onMouseLeave={() => {
+                    setMouseOver(false);
+                  }}
+                >
+                  <Link to='/notice' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
+                    공지사항
+                  </Link>
+                  {isMouseOver && (
+                    <div className='sub'>
+                      <ul>
+                        <li>
+                          <Link to='/notice' style={{ textDecoration: 'none', color: '#594031' }}>
+                            공지사항
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to='/FAQ' style={{ textDecoration: 'none', color: '#594031' }}>
+                            FAQ
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to='/service_center'
+                            style={{ textDecoration: 'none', color: '#594031' }}
+                          >
+                            고객센터
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </li>
+            </ul>
           </div>
         </section>
       </header>
