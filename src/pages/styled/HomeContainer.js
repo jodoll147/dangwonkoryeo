@@ -22,8 +22,9 @@ const HomeContainer = styled.div`
         font-size: 20px;
         color: #4EA6A6;
     }
+
     .join{
-        position: relative;
+        position: absolute;
         right: 60px;
         top: 63px;
         text-align: right;
@@ -73,19 +74,18 @@ const HomeContainer = styled.div`
 
 
    .main{
-    positon: absolute;
     width: 100%;
     backgroud: 4EA6A6;
     text-align: left;
-    overflow: hidden;
 
     ul{
         position: absolute;
         position: block;
         top: 213px;
-        left: -40px;
+        left: -50px;
         list-style: none;
         width : 100%;
+
 
     }
     li{
@@ -97,21 +97,22 @@ const HomeContainer = styled.div`
         width: 29%;
         hight: 70px;
     }
-
-    .main: after{
-        content: "";
-        display: block;
-        clear: both;
-    }
+    
     .sub{
         font-weight: 700;
         font-size: 25px;
+        ul{
+            position: absolute;
+            width: 100%;
+            top: 0px;
+            left: 642px;
+        }
 
         li{
-            positon: absolute;
+            clear: both;
+            text-align: left;
             display: block;
-            width: 10%;
-            padding: 0px;
+            padding: 20px 20px 20px 20px;
             background: #F2F2F2;
         }
     }

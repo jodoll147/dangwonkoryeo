@@ -41,14 +41,16 @@ const Home = () => {
             </div>
             <div className='login'>
               <Link to='/login' style={{ textDecoration: 'none', color: '#4EA6A6' }}>
-                login
+                LOGIN
               </Link>
             </div>
+
             <div className='join'>
               <Link to='/join' style={{ textDecoration: 'none', color: '#4EA6A6' }}>
-                join
+                JOIN
               </Link>
             </div>
+
             <div className='home'>
               <Link to='/' style={{ textDecoration: 'none', color: '#4EA6A6' }}>
                 당원커여
