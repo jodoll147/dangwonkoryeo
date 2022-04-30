@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import HomeContainer from '../styled/HomeContainer';
-
+import hashTag from '../img/hashTag.png';
 // 가장 먼저 보여지는 페이지
 const Home = () => {
   const [isMouseOver, setMouseOver] = useState(false);
@@ -62,6 +62,11 @@ const Home = () => {
             <div className='search_btn'>
               <input type={'button'} value={'검색'} />
             </div>
+
+            <div className='hash'>
+              <img src={hashTag} alt='hashTag' />
+            </div>
+
             <ul>
               <li>
                 <Link to='/intro' style={{ textDecoration: 'none', color: '#F2F2F2' }}>

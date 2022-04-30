@@ -32,34 +32,34 @@ const HomeContainer = styled.div`
         font-size: 20px;
         color: #4EA6A6;
     }
-     .home{
+    .home{
         position: absolute;
         top: 163px;
-        left: 50px;
+        left: 19px;
         font-weight: 800;
         font-size: 50px;
         text-align: left;
         color: #4EA6A6;
-     }
-     .search_box{
+    }
+    .search_box{
         input{
             position: absolute;
             width: 530px;
             height: 50px;
             top: 173px;
-            left: 260px;
+            left: 227px;
             background: #F2F2F2;
             border: 5px solid #4EA6A6;
             box-sizing: border-box;
             border-radius: 20px;
             text-align: left;
         }
-     }
-     .search_btn{
+    }
+    .search_btn{
         input{
             position: absolute;
             top: 173px;
-            left: 810px;
+            left: 774px;
             width: 80px;
             height: 50px;
             background: #4EA6A6;
@@ -72,6 +72,15 @@ const HomeContainer = styled.div`
         }
     }
 
+    .hash{
+        img{
+            position: absolute;
+            top: 182px;
+            left: 872px;
+            width: 50px;
+            height: 30px;
+        }
+    }
 
    .main{
     width: 100%;
