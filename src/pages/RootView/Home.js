@@ -5,7 +5,6 @@ import hashTag from '../img/hashTag.png';
 // 가장 먼저 보여지는 페이지
 const Home = () => {
   const [isMouseOver, setMouseOver] = useState(false);
-  const [isMouseLive, setMouseLeave] = useState(false);
 
   /*
       const [who, setWho] = useState("모이야이야");
