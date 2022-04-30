@@ -3,7 +3,6 @@ import JoinContainer from './styled/JoinContainer';
 const Join = () => {
   return (
     <JoinContainer>
-      <div className='hr' />
       <section align='center'>
         <div className='joinbox' />
         <h2>회원가입</h2>

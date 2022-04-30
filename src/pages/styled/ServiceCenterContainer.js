@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const NoticeContainer = styled.div`
+const ServiceCenterContainer = styled.div`
   .section {
     position: relative;
     font-family: 'NanumGothic';
@@ -8,13 +8,13 @@ const NoticeContainer = styled.div`
     font-weight: 400;
     font-size: 30px;
     letter-spacing: -0.333333px;
-    color: #000000;
+    color: #594031;
   }
   .notice_title {
     p {
       position: absolute;
       left: 50px;
-      top: 335px;
+      top: 370px;
       font-style: normal;
       font-weight: 800;
       font-size: 35px;
@@ -22,12 +22,25 @@ const NoticeContainer = styled.div`
       color: #594031;
     }
   }
+  .inquiry {
+    p {
+      position: absolute;
+      width: 120px;
+      height: 50px;
+      top: 450px;
+      left: 50px;
+      color: #594031;
+      background: #f2f2f2;
+      border-radius: 20px;
+      text-align: center;
+    }
+  }
   .write_table {
     table {
       position: absolute;
       width: 100%;
       height: 50px;
-      top: 450px;
+      top: 560px;
       left: -10px;
       border-top: 1px solid #4ea6a6;
       border-collapse: collapse;
@@ -66,4 +79,4 @@ const NoticeContainer = styled.div`
   }
 `;
 
-export default NoticeContainer;
+export default ServiceCenterContainer;

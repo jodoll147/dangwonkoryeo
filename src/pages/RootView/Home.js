@@ -105,7 +105,7 @@ const Home = () => {
                         </li>
                         <li>
                           <Link
-                            to='/service_center'
+                            to='/servicecenter'
                             style={{ textDecoration: 'none', color: '#594031' }}
                           >
                             고객센터
