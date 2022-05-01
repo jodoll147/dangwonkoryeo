@@ -17,7 +17,6 @@ const CoffeeTIContainer = styled.div`
       text-align: center;
       background: linear-gradient(180deg, rgba(166, 140, 118, 0.61) 0%, #ccd9d5 63.26%);
     }
-
   }
 
   .box{
@@ -52,14 +51,31 @@ const CoffeeTIContainer = styled.div`
     }
   }
 
+  .first{
+    position: relative;
+    input{
+      font-weight: 800;
+      font-size: 40px;
+      text-align: center;
+      color: #F2F2F2;
+      width: 510px;
+      height: 120px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      :not(:disabled) {
+        cursor: pointer;
+      }
+    }
 
-  
+    .button1{
+      position: relative;
+      top: 160px;
+    }
 
-
-
-
-
-
+    .button2{
+      position: relative;
+      top: 200px;
+    }
   }
 `;
 
