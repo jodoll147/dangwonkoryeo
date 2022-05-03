@@ -1,9 +1,9 @@
 import react, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { css, styled } from 'styled-components';
 import CoffeTIContainer from './styled/CoffeeTIContainer';
 import CoffeeTIFirst from './CoffeeTIPage/CoffeeTIFirst';
 import CoffeeTISelect from './CoffeeTIPage/CoffeeTISelect';
+import CoffeeTIFlavour from './CoffeeTIPage/CoffeeTIFlavour';
 
 const CoffeeTI = () => {
   return (
@@ -20,7 +20,7 @@ const CoffeeTI = () => {
               <p>CoffeeTI</p>
             </div>
             <div className='box'>
-              <CoffeeTIFirst />
+              <CoffeeTISelect />
             </div>
           </div>
         </div>

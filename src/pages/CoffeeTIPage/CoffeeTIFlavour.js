@@ -1,7 +1,7 @@
 import CoffeeTIContainer from '../styled/CoffeeTIContainer';
-import { css, styled } from 'styled-components';
+import styled from 'styled-components';
 
-const Button = styled.Button`
+const Button = styled.button`
   width: 190px;
   height: 80px;
   font-family: 'NanumGothic';

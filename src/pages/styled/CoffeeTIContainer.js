@@ -77,6 +77,51 @@ const CoffeeTIContainer = styled.div`
       top: 200px;
     }
   }
+
+  .select{
+    font-weight: 800;
+    font-size: 30px;
+    text-align: center;
+    color: #A68C76;
+
+    .que{
+      p{
+        position: relative;
+        top: 180px;  
+        color: black;
+      }
+    }
+
+    .weak{
+      p{
+        position: relative;
+        top: 230px;
+        left: 86px;
+        text-align: left;
+      }
+    }
+
+    .strong{
+      p{
+        position: relative;
+        top: 30px;
+        right: 86px;
+        text-align: right;
+      }
+    }
+
+    input{
+      position: relative;
+      top: 130px;
+      width: 60px;
+      height: 60px;
+      margin: 20px;
+      :not(:disabled) {
+        cursor: pointer;
+      }
+    }
+
+  }
 `;
 
 export default CoffeeTIContainer;
