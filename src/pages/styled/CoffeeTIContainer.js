@@ -13,16 +13,17 @@ const CoffeeTIContainer = styled.div`
     .back {
       position: relative;
       width: 100%;
-      height: 100vh;
+      height: 1024px;
       text-align: center;
       background: linear-gradient(180deg, rgba(166, 140, 118, 0.61) 0%, #ccd9d5 63.26%);
     }
   }
+  
 
   .box{
     position: relative;
     left: 145px;
-    top: 10px;
+    top: 5px;
     width: 650px;
     height: 600px;
     background: #FFFFFF;
@@ -32,7 +33,7 @@ const CoffeeTIContainer = styled.div`
 
   .logo {
     position: relative;
-    top: 90px;
+    top: 50px;
     left: 145px;
     font-weight: 800;
     font-size: 30px;
@@ -52,67 +53,89 @@ const CoffeeTIContainer = styled.div`
   }
 
   .first{
-    position: relative;
-    input{
+    section {
+      position: relative;
+      width: 940px;
+      height: 100vh: 
+      font-family: 'NanumGothic';
+      font-style: normal;
       font-weight: 800;
       font-size: 40px;
-      text-align: center;
-      color: #F2F2F2;
-      width: 510px;
-      height: 120px;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      border-radius: 10px;
+      letter-spacing: -0.333333px;
+      margin: 0 auto;
+      color: #f2f2f2;
       :not(:disabled) {
         cursor: pointer;
       }
-    }
-
-    .button1{
-      position: relative;
-      top: 160px;
-    }
-
-    .button2{
-      position: relative;
-      top: 200px;
+  
+      .button1 {
+          position: relative;
+          width: 510px;
+          height: 120px;
+          top: -600px;
+          left: 230px;
+          background: #a68c76;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          border-radius: 10px;
+          text-align: center;
+          display: table-cell;
+          vertical-align: middle;
+        }
+      
+        .button2 {
+          position: relative;
+          width: 510px;
+          height: 120px;
+          top: -450px;
+          left: -240px;
+          background: #4ea6a6;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          border-radius: 10px;
+          text-align: center;
+          display: table-cell;
+          vertical-align: middle;
+        }
     }
   }
 
+  .que{
+    p{
+      position: relative;
+      top: -650px;  
+      color: black;
+      font-weight: 800;
+      font-size: 30px;
+      text-align: center;
+    }
+  }
+  
   .select{
     font-weight: 800;
     font-size: 30px;
     text-align: center;
     color: #A68C76;
 
-    .que{
-      p{
-        position: relative;
-        top: 180px;  
-        color: black;
-      }
-    }
-
     .weak{
       p{
         position: relative;
-        top: 230px;
-        left: 86px;
-        text-align: left;
+        top: -600px;
+        left: -250px;
+        text-align: center;
       }
     }
 
     .strong{
       p{
         position: relative;
-        top: 30px;
-        right: 86px;
-        text-align: right;
+        top: -800px;
+        right: -250px;
+        text-align: center;
       }
     }
 
     input{
       position: relative;
-      top: 130px;
+      top: -700px;
       width: 60px;
       height: 60px;
       margin: 20px;
@@ -121,6 +144,25 @@ const CoffeeTIContainer = styled.div`
       }
     }
 
+  }
+
+  .nextButton{
+    position: relative;
+    top: -630px;
+    left: 230px;
+    width: 100px;
+    height: 50px;
+    font-weight: 800;
+    font-size: 30px;
+    color: #F2F2F2;
+    background: #D2D9CC;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: #D2D9CC;
+    border-radius: 10px;
+    text-align: center;
+    :not(:disabled) {
+        cursor: pointer;
+      }
   }
 `;
 

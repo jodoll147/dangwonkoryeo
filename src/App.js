@@ -10,6 +10,11 @@ import Find from './pages/Find';
 import FAQ from './pages/FAQ';
 import ServiceCenter from './pages/ServiceCenter';
 import NoticeWrite from './pages/NoticeWrite';
+import CoffeeTIFlavour from './pages/CoffeeTIPage/CoffeeTIFlavour';
+import CoffeeTIFirst from './pages/CoffeeTIPage/CoffeeTIFirst';
+import CoffeeTIResult from './pages/CoffeeTIPage/CoffeeTIResult';
+import CoffeeTIBody from './pages/CoffeeTIPage/CoffeeTIBody';
+import CoffeeTISour from './pages/CoffeeTIPage/CoffeeTISour';
 
 const App = () => {
   return (
@@ -24,7 +29,13 @@ const App = () => {
         <Route path='/FAQ' element={<FAQ />} />
         <Route path='/notice/notice_write' element={<NoticeWrite />} />
       </Route>
-      <Route path='/coffeeTI' element={<CoffeeTI />} />
+      <Route path='/coffeeTI' element={<CoffeeTI />}>
+        <Route path='/coffeeTI/first' element={<CoffeeTIFirst />} />
+        <Route path='/coffeeTI/flavour' element={<CoffeeTIFlavour />} />
+        <Route path='/coffeeTI/result' element={<CoffeeTIResult />} />
+        <Route path='/coffeeTI/body' element={<CoffeeTIBody />} />
+        <Route path='/coffeeTI/sour' element={<CoffeeTISour />} />
+      </Route>
       <Route path='/login' element={<Login />} />
     </Routes>
   );

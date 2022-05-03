@@ -73,7 +73,7 @@ const Home = () => {
                 </Link>
               </li>
               <li>
-                <Link to='/coffeeTI' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
+                <Link to='/coffeeTI/first' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
                   커피티아이
                 </Link>
               </li>
