@@ -97,23 +97,23 @@ const CoffeeTIContainer = styled.div`
         }
     }
   }
-
-  .que{
-    p{
-      position: relative;
-      top: -650px;  
-      color: black;
-      font-weight: 800;
-      font-size: 30px;
-      text-align: center;
-    }
-  }
   
   .select{
     font-weight: 800;
     font-size: 30px;
     text-align: center;
     color: #A68C76;
+
+    .que{
+      p{
+        position: relative;
+        top: -650px;  
+        color: black;
+        font-weight: 800;
+        font-size: 30px;
+        text-align: center;
+      }
+    }
 
     .weak{
       p{
@@ -144,26 +144,35 @@ const CoffeeTIContainer = styled.div`
       }
     }
 
+    .nextButton{
+      position: relative;
+      top: -610px;
+      left: 675px;
+      width: 100px;
+      height: 50px;
+      font-weight: 800;
+      font-size: 30px;
+      color: #F2F2F2;
+      background: #D2D9CC;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border: #D2D9CC;
+      border-radius: 10px;
+      text-align: center;
+      display: table-cell;
+      vertical-align: middle;
+      :not(:disabled) {
+          cursor: pointer;
+        }
+    }
+
+    .nuts{
+      position: relative;
+      background: #A68C76;
+    }
+
   }
 
-  .nextButton{
-    position: relative;
-    top: -630px;
-    left: 230px;
-    width: 100px;
-    height: 50px;
-    font-weight: 800;
-    font-size: 30px;
-    color: #F2F2F2;
-    background: #D2D9CC;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border: #D2D9CC;
-    border-radius: 10px;
-    text-align: center;
-    :not(:disabled) {
-        cursor: pointer;
-      }
-  }
+
 `;
 
 export default CoffeeTIContainer;
