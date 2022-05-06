@@ -20,22 +20,18 @@ const Button = styled.button`
 `;
 
 const CoffeeTIFlavour = () => {
-  const [checkedList, setCheckedList] = useState([
-    { name: '견과류' },
-    { name: '과일' },
-    { name: '초콜릿' },
-    { name: '꽃' },
-  ]);
-
-  const list = checkedList.map(checklist => <Button>{checklist.name}</Button>);
+  const [clickList, setClickList] = useState({ background: '' });
+  const checkedList = ['견과류', '과일', '초콜릿', '꽃'];
+  const list = checkedList.map(checklist => <Button>{checklist}</Button>);
 
   return (
     <CoffeeTIContainer className='select'>
       <section>
         <div className='que'>
-          <p>원하는 향을 두 가지 선택해주세요.</p>
+          <p>원하는 향을 한 가지 선택해주세요.</p>
         </div>
-        {list}
+        <div className='flavour'>{list}</div>
+
         <div className='nextButton'>
           <Link to='/coffeeTI/result' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
             다음

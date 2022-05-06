@@ -104,6 +104,13 @@ const CoffeeTIContainer = styled.div`
     text-align: center;
     color: #A68C76;
 
+    .flavour{
+      position: relative;
+      top: -650px;
+      left: 350px;
+      
+    }
+
     .que{
       p{
         position: relative;
@@ -133,6 +140,8 @@ const CoffeeTIContainer = styled.div`
       }
     }
 
+
+
     input{
       position: relative;
       top: -700px;
@@ -143,6 +152,8 @@ const CoffeeTIContainer = styled.div`
         cursor: pointer;
       }
     }
+
+
 
     .nextButton{
       position: relative;
@@ -165,10 +176,7 @@ const CoffeeTIContainer = styled.div`
         }
     }
 
-    .nuts{
-      position: relative;
-      background: #A68C76;
-    }
+
 
   }
 
