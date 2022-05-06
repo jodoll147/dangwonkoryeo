@@ -86,6 +86,7 @@ const HomeContainer = styled.div`
     width: 100%;
     backgroud: 4EA6A6;
     text-align: left;
+    font-style: 'NanumGothic';
 
     ul{
         position: absolute;
