@@ -16,3 +16,16 @@
   url(font/NanumGothicBold.ttf) format('truetype');;
 }
 
+@font-face{
+  font-family: 'NanumGothicExtraBold';
+  src: url(font/NanumGothicExtraBold.ttf),
+  url(font/NanumGothicBold.ttf) format('woff2'),
+  url(font/NanumGothicBold.ttf) format('woff'),
+  url(font/NanumGothicBold.ttf) format('truetype');;
+}
+
+.container{
+  width: 100vw;
+  height: 100vh;
+}
+

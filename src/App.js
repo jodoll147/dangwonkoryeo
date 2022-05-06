@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import Statebar from './pages/RootView/Statebar';
 import Home from './pages/RootView/Home';
 import Login from './pages/Login';
 import Join from './pages/Join';
@@ -20,7 +19,7 @@ import CoffeeTISour from './pages/CoffeeTIPage/CoffeeTISour';
 const App = () => {
   return (
     <Routes>
-      <Route path='/' element={<Statebar />}>
+      <Route path='/' element={<Home />}>
         <Route path='/join' element={<Join />} />
         <Route path='/mypage' element={<MyPage />} />
         <Route path='/intro' element={<Intro />} />
