@@ -22,6 +22,7 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Statebar />}>
         <Route path='/home' element={<Home />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/join' element={<Join />} />
         <Route path='/mypage' element={<MyPage />} />
         <Route path='/intro' element={<Intro />} />
@@ -38,7 +39,6 @@ const App = () => {
         <Route path='/coffeeTI/body' element={<CoffeeTIBody />} />
         <Route path='/coffeeTI/sour' element={<CoffeeTISour />} />
       </Route>
-      <Route path='/login' element={<Login />} />
     </Routes>
   );
 };

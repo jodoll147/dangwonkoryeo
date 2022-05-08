@@ -15,12 +15,11 @@ const HomeContainer = styled.div`
     }
 
     .cafe_list {
-      position: relative;
       p {
+        font-family: 'NanumGothicExtrabold';
         position: relative;
         left: 20px;
         top: 30px;
-        font-family: 'NanumGothic';
         font-style: normal;
         font-weight: 700;
         font-size: 16px;

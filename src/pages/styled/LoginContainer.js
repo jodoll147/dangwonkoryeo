@@ -1,105 +1,118 @@
 import styled from 'styled-components';
 
 const LoginContainer = styled.div`
-  section{
+  section {
     position: relative;
     width: 940px;
-    height: 100%: 
-    font-family: 'NanumGothic';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 40px;
-    margin: 0 auto;
-    letter-spacing: -0.333333px;
-  }
-  .home{
-    position: relative;
-    font-size: 60px;
-    font-weight: 800;
-    top: 140px;
-    left: 340px;
-    color: #4EA6A6;
-  }
-  .id{
-    p{
-        position: absolute;
-        font-size: 40px;
-        color: #4EA6A6;
-        left: 244px;
-        top: 270px;
-        text-align: left;
+    height: 400px;
+    top: 20px;
 
+    p {
+      font-family: 'NanumGothicExtrabold';
+      font-style: normal;
+      font-weight: 800;
+      font-size: 20px;
+      color: #4ea6a6;
     }
-    input{
-        position: absolute;
-        width: 350px;
-        height: 40px;
-        left: 367px;
-        top: 310px;
-        text-align: left;
-        background: #D2D9CC;
-        border-radius: 50px;
-        font-size: 30px;
-        border: 1px solid #D2D9CC;
-    }
-}
-  .pwd{
-      p{
-        position: absolute;
-        font-size: 40px;
-        color: #4EA6A6;
-        top: 335px;
-        left: 207px;
-        text-align: left;
-        
-      }
-      input{
-        position: absolute;
-        width: 350px;
-        height: 40px;
-        left: 367px;        
-        top: 375px;
-        text-align: left;
-        background: #D2D9CC;
-        border-radius: 50px;
-        border: 1px solid #D2D9CC;
-      }
-  }
-  .login_btn{
-      input{
-          position: absolute;
-          width: 510px;
-          height: 70px;
-          left: 212px;
-          top: 475px;          
-          text-align: left;
-          background: #D2D9CC;
-          border-radius: 50px;
-          background: #4EA6A6;
-          border-radius: 20px;
-          font-weight: 800;
-          font-size: 50px;
-          text-align: center;
-          color: #F2F2F2;
-          border: 1px solid #4EA6A6;
 
+    .id {
+      position: relative;
+      display: table;
+      width: 264px;
+      height: 35px;
+      left: 347px;
+      top: 30px;
+      display: table;
+
+      p {
+        position: relative;
+        top: 22.86%;
+        bottom: 20%;
+        display: table-cell;
+        vertical-align: middle;
+        font-family: 'NanumGothic';
+        font-style: normal;
+        font-weight: 700;
       }
-  }
-  .id_find{
-    position: absolute;
-    left: 304px;
-    top: 589px;
-    color: #A68C76;
-    font-weight: 700;
-    font-size: 35px;
-  }
-  .join{
-    position: absolute;
-    left: 410px;
-    top: 639px;
-    color: #A68C76;
-    font-weight: 700;
-    font-size: 35px;
+
+      input {
+        position: relative;
+        width: 190px;
+        height: 35px;
+        display: table-cell;
+        vertical-align: middle;
+        background: #d2d9cc;
+        border: 1px #d2d9cc;
+        border-radius: 10px;
+        font-family: 'NanumGothic';
+        font-style: normal;
+        font-weight: 700;
+      }
+    }
+
+    .pwd {
+      position: relative;
+      width: 282px;
+      height: 35px;
+      left: 329px;
+      top: 45px;
+      display: table;
+
+      p {
+        position: relative;
+        top: 22.86%;
+        bottom: 20%;
+        display: table-cell;
+        vertical-align: middle;
+        font-family: 'NanumGothic';
+        font-style: normal;
+        font-weight: 700;
+      }
+
+      input {
+        position: relative;
+        width: 190px;
+        height: 35px;
+        display: table-cell;
+        vertical-align: middle;
+        background: #d2d9cc;
+        border: 1px #d2d9cc;
+        border-radius: 10px;
+        font-family: 'NanumGothic';
+        font-style: normal;
+        font-weight: 700;
+      }
+    }
+
+    .login_btn {
+      position: relative;
+      width: 282px;
+      height: 45px;
+      left: 329px;
+      top: 44px;
+      background: #4ea6a6;
+      border-radius: 10px;
+
+      p {
+        position: relative;
+        font-family: 'NanumGothic';
+        font-style: normal;
+        font-weight: 700;
+        color: #f2f2f2;
+        line-height: 45px;
+        text-align: center;
+      }
+    }
+
+    .find {
+      position: relative;
+      top: 75px;
+    }
+
+    .join {
+      position: relative;
+      top: 85px;
+    }
   }
 `;
 
