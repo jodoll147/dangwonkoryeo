@@ -2,115 +2,244 @@ import styled from 'styled-components';
 
 const FindContainer = styled.div`
   section {
-    position: relative;
-    font-family: 'NanumGothic';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 25px;
-    text-align: left;
-    letter-spacing: -0.333333px;
-    color: #4ea6a6;
-  }
-  .name {
-    input {
-      position: absolute;
-      width: 150px;
-      height: 35px;
-      top: -5px;
-      left: 75px;
-      text-align: left;
-      background: #f2f2f2;
-      border: 3px solid #d2d9cc;
-      box-sizing: border-box;
-      border-radius: 15px;
-      font-size: 25px;
-      font-family: 'NanumGothic';
+    positon: relative;
+    width: 940px;
+    height: 400px;
+    display: table;
+
+    .id_find {
+      positon: relative;
+      padding-top: 20px;
+      padding-left: 120px;
+      padding-right: 120px;
+      display: table-cell;
+
+      p {
+        font-family: 'NanumGothicExtrabold';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 16px;
+        color: #4ea6a6;
+        text-align: left;
+      }
+      .name {
+        position: relative;
+        display: table;
+        padding-bottom: 15px;
+        p {
+          position: relative;
+          font-family: 'NanumGothic';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 14px;
+          display: table-cell;
+          padding-right: 10px;
+        }
+        input {
+          position: relative;
+          width: 90px;
+          height: 20px;
+          display: table-cell;
+          background: #d2d9cc;
+          border-radius: 5px;
+          border: #d2d9cc;
+        }
+      }
+      .birthday {
+        position: relative;
+        display: table;
+        padding-bottom: 15px;
+        p {
+          position: relative;
+          font-family: 'NanumGothic';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 14px;
+          display: table-cell;
+          padding-right: 10px;
+        }
+        input {
+          position: relative;
+          width: 90px;
+          height: 20px;
+          display: table-cell;
+          background: #d2d9cc;
+          border-radius: 5px;
+          border: #d2d9cc;
+        }
+      }
+      .phone {
+        position: relative;
+        display: table;
+        p {
+          position: relative;
+          font-family: 'NanumGothic';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 14px;
+          display: table-cell;
+          padding-right: 10px;
+        }
+        input {
+          position: relative;
+          width: 50px;
+          height: 20px;
+          background: #d2d9cc;
+          border-radius: 5px;
+          border: #d2d9cc;
+          margin-right: 10px;
+        }
+      }
+      .find {
+        position: relative;
+        top: 50px;
+        height: 43px;
+        width: 250px;
+        background: #4ea6a6;
+        border-radius: 10px;
+        p {
+          font-family: 'NanumGothic';
+          font-style: normal;
+          font-weight: 800;
+          font-size: 20px;
+          line-height: 43px;
+          text-align: center;
+          color: #ffffff;
+        }
+      }
     }
-  }
-  .birthday {
-    p {
-      position: absolute;
-      top: 30px;
-    }
-    input {
-      position: absolute;
-      width: 150px;
-      height: 35px;
-      top: 53px;
-      left: 125px;
-      text-align: left;
-      background: #f2f2f2;
-      border: 3px solid #d2d9cc;
-      box-sizing: border-box;
-      border-radius: 15px;
-      font-size: 20px;
-      font-family: 'NanumGothic';
-    }
-  }
-  .phonenum_1 {
-    p {
-      position: absolute;
-      top: 80px;
-    }
-    input {
-      position: absolute;
-      width: 60px;
-      height: 35px;
-      top: 105px;
-      left: 125px;
-      text-align: left;
-      background: #f2f2f2;
-      border: 3px solid #d2d9cc;
-      box-sizing: border-box;
-      border-radius: 15px;
-      font-size: 25px;
-      font-family: 'NanumGothic';
-    }
-  }
-  .phonenum_2 {
-    input {
-      position: absolute;
-      width: 70px;
-      height: 35px;
-      top: 105px;
-      left: 206px;
-      text-align: left;
-      background: #f2f2f2;
-      border: 3px solid #d2d9cc;
-      box-sizing: border-box;
-      border-radius: 15px;
-      font-family: 'NanumGothic';
-    }
-  }
-  .phonenum_3 {
-    input {
-      position: absolute;
-      width: 70px;
-      height: 35px;
-      top: 105px;
-      left: 297px;
-      text-align: left;
-      background: #f2f2f2;
-      border: 3px solid #d2d9cc;
-      box-sizing: border-box;
-      border-radius: 15px;
-      font-family: 'NanumGothic';
-    }
-  }
-  .find_btn {
-    input {
-      position: absolute;
-      top: 240px;
-      left: 297px;
-      font-weight: 700;
-      font-size: 25px;
-      text-align: center;
-      color: #f2f2f2;
-      width: 80px;
-      height: 50px;
-      background: #4ea6a6;
-      border-radius: 20px;
-      border: 1px solid #4ea6a6;
+
+    .pwd_find {
+      positon: relative;
+      width: 286px;
+      height: 264px;
+      display: table;
+      p {
+        position: relative;
+        font-family: 'NanumGothicExtrabold';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 16px;
+        color: #4ea6a6;
+        text-align: left;
+      }
+      .name {
+        position: relative;
+        display: table;
+        padding-bottom: 15px;
+        p {
+          position: relative;
+          font-family: 'NanumGothic';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 14px;
+          display: table-cell;
+          padding-right: 10px;
+        }
+        input {
+          position: relative;
+          width: 90px;
+          height: 20px;
+          display: table-cell;
+          background: #d2d9cc;
+          border-radius: 5px;
+          border: #d2d9cc;
+        }
+      }
+      .id {
+        position: relative;
+        display: table;
+        padding-bottom: 15px;
+        p {
+          position: relative;
+          font-family: 'NanumGothic';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 14px;
+          display: table-cell;
+          padding-right: 10px;
+        }
+        input {
+          position: relative;
+          width: 90px;
+          height: 20px;
+          display: table-cell;
+          background: #d2d9cc;
+          border-radius: 5px;
+          border: #d2d9cc;
+        }
+      }
+      .birthday {
+        position: relative;
+        display: table;
+        padding-bottom: 15px;
+        p {
+          position: relative;
+          font-family: 'NanumGothic';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 14px;
+          display: table-cell;
+          padding-right: 10px;
+        }
+        input {
+          position: relative;
+          width: 90px;
+          height: 20px;
+          display: table-cell;
+          background: #d2d9cc;
+          border-radius: 5px;
+          border: #d2d9cc;
+        }
+      }
+      .phone {
+        position: relative;
+        display: table;
+        p {
+          position: relative;
+          font-family: 'NanumGothic';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 14px;
+          display: table-cell;
+          padding-right: 10px;
+        }
+        input {
+          position: relative;
+          width: 50px;
+          height: 20px;
+          background: #d2d9cc;
+          border-radius: 5px;
+          border: #d2d9cc;
+          margin-right: 10px;
+        }
+      }
+      .find {
+        position: relative;
+        top: 10px;
+        height: 43px;
+        width: 250px;
+        background: #4ea6a6;
+        border-radius: 10px;
+        p {
+          font-family: 'NanumGothic';
+          font-style: normal;
+          font-weight: 800;
+          font-size: 20px;
+          line-height: 43px;
+          text-align: center;
+          color: #ffffff;
+        }
+      }
     }
   }
 `;
