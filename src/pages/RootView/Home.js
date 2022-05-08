@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import HomeContainer from '../styled/HomeContainer';
-import Statebar from '../RootView/Statebar';
+import sample from '../img/sample.png';
 
 const Home = () => {
   return (
     <HomeContainer>
       <section>
-        <Statebar />
         <div className='event_img'>
-          <img src='' alt='예제' />
+          <img src={sample} alt='예제' />
+        </div>
+        <div className='cafe_list'>
+          <p>추천 카페</p>
         </div>
       </section>
     </HomeContainer>

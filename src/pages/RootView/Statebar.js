@@ -14,7 +14,7 @@ const Home = () => {
             <ul>
               <li>
                 <div className='home'>
-                  <Link to='/' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
+                  <Link to='/home' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
                     당원커여
                   </Link>
                 </div>
