@@ -3,44 +3,37 @@ import JoinContainer from './styled/JoinContainer';
 const Join = () => {
   return (
     <JoinContainer>
-      <section align='center'>
-        <div className='joinbox' />
-        <h2>회원가입</h2>
+      <section>
+        <div className='join' style={{ color: '#594031', fontFamily: 'NanumGothicBold' }}>
+          <p>회원가입</p>
+        </div>
         <div className='name'>
           <p>이름</p>
-          <input type={'text'} name={'name'} maxLength={'10'} />
+          <input type={'text'} />
         </div>
         <div className='id'>
           <p>아이디</p>
-          <input type={'text'} name={'id'} maxLength={'10'} />
-        </div>
-        <div className='id_dup'>
-          <input type={'button'} name={'id_dup'} value={'중복확인'} />
+          <input type={'text'} />
+          <div className='id_check'>
+            <p>중복검사</p>
+          </div>
         </div>
         <div className='pwd'>
           <p>비밀번호</p>
-          <input type={'password'} name={'pwd'} maxLength={'12'} />
+          <input type={'password'} />
         </div>
         <div className='birthday'>
           <p>생년월일</p>
           <input type={'date'} />
         </div>
-        <div className='phone_num1'>
+        <div className='phone'>
           <p>전화번호</p>
-          <input type={'text'} name={'phone_num1'} maxLength={'3'} />
+          <input type={'text'} />
+          <input type={'text'} />
+          <input type={'text'} />
         </div>
-        <div className='phone_num2'>
-          <input type={'text'} name={'phone_num2'} maxLength={'4'} />
-        </div>
-        <div className='phone_num3'>
-          <input type={'text'} name={'phone_num3'} maxLength={'4'} />
-        </div>
-        <div className='nick_name'>
-          <p>닉네임</p>
-          <input type={'text'} name={'nicname'} />
-        </div>
-        <div className='join'>
-          <input type={'button'} name={'join'} value={'등록'} />
+        <div className='complete'>
+          <p>등록</p>
         </div>
       </section>
     </JoinContainer>
