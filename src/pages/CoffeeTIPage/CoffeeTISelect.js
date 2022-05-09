@@ -1,21 +1,64 @@
-import CoffeeTIContainer from '../styled/CoffeeTIContainer';
+import styled from 'styled-components';
+
+const Select = styled.div`
+  .box {
+    position: relative;
+    display: table;
+
+    .weak {
+      position: relative;
+      display: table-cell;
+      font-family: 'NanumGothic';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 16px;
+      color: black;
+    }
+    .check {
+      position: relative;
+      input {
+        position: relative;
+        margin-left: 20px;
+        margin-right: 60px;
+        top: 40px;
+        display: table-cell;
+        width: 30px;
+        height: 30px;
+        border: 3px solid black;
+      }
+    }
+    .strong {
+      position: relative;
+      left: -40px;
+      display: table-cell;
+      font-family: 'NanumGothic';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 16px;
+      color: black;
+    }
+  }
+`;
 
 const CoffeeTISelect = () => {
   return (
-    <CoffeeTIContainer className='select'>
-      <div className='weak'>
-        <p>약</p>
+    <Select>
+      <div className='box'>
+        <p className='weak'>약</p>
+        <div className='check'>
+          <label>
+            <input type={'radio'} name='check' value={1} />
+            <input type={'radio'} name='check' value={2} />
+            <input type={'radio'} name='check' value={3} />
+            <input type={'radio'} name='check' value={4} />
+          </label>
+        </div>
+
+        <p className='strong'>강</p>
       </div>
-      <label>
-        <input type={'radio'} name='body' value={1} />
-        <input type={'radio'} name='body' value={2} />
-        <input type={'radio'} name='body' value={3} />
-        <input type={'radio'} name='body' value={4} />
-      </label>
-      <div className='strong'>
-        <p>강</p>
-      </div>
-    </CoffeeTIContainer>
+    </Select>
   );
 };
 
