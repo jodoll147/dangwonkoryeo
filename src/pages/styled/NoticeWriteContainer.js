@@ -1,61 +1,41 @@
 import styled from 'styled-components';
 
 const NoticeWrtieContainer = styled.div`
-  .noticeWrite {
+  section {
     position: relative;
-    top: 300px;
-    font-family: 'NanumGothic';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 30px;
-    letter-spacing: -0.333333px;
-    color: #594031;
-
+    margin-top: 20px;
     h1 {
-      position: absolute;
-      top: 50px;
-      left: 43px;
+      position: relative;
+      padding-top: 20px;
+      padding-left: 30px;
+      padding-bottom: 20px;
+      font-family: 'NanumGothicExtraBold';
       font-style: normal;
-      font-weight: 1000;
-      font-size: 40px;
+      font-weight: 800;
+      font-size: 18px;
+      line-height: 18px;
+      color: #594031;
       text-align: left;
     }
-
-    p {
-      position: absolute;
-      top: 120px;
-      left: 43px;
-      font-weight: 700;
-      font-size: 30px;
-      line-height: 50px;
-      width: 120px;
-      height: 50px;
-      background: #f2f2f2;
-      border-radius: 20px;
-      text-align: center;
-    }
-
-    input {
+    .complete {
       position: relative;
-      width: 95px;
-      height: 50px;
-      top: 1300px;
-      left: 845px;
-      font-weight: 700;
-      font-size: 30px;
-      line-height: 50px;
-      text-align: center;
-      color: #f2f2f2;
-      background: #4ea6a6;
-      border: 1px solid #4ea6a6;
-      border-radius: 20px;
+      width: 60px;
+      height: 35px;
+      top: 25px;
+      left: 850px;
+      background: #d2d9cc;
+      border-radius: 10px;
+      p {
+        position: relative;
+        font-family: 'NanumGothicBold';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 35px;
+        text-align: center;
+        color: #f2f2f2;
+      }
     }
-  }
-
-  .editor {
-    position: relative;
-    top: 480px;
   }
 `;
 

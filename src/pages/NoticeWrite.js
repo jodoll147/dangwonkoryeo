@@ -6,14 +6,13 @@ const NoticeWrite = () => {
   return (
     <Responsive>
       <NoticeWrtieContainerContainer>
-        <div className='noticeWrite'>
+        <section>
           <h1>공지사항</h1>
-          <p>글쓰기</p>
-          <input type={'submit'} value='등록' />
-        </div>
-        <div className='editor'>
           <Editor />
-        </div>
+          <div className='complete'>
+            <p>등록</p>
+          </div>
+        </section>
       </NoticeWrtieContainerContainer>
     </Responsive>
   );

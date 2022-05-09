@@ -1,67 +1,63 @@
 import styled from 'styled-components';
 
 const NoticeContainer = styled.div`
-  .section {
+  section {
     position: relative;
-    font-family: 'NanumGothic';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    letter-spacing: -0.333333px;
-    color: #000000;
-  }
-  .notice_title {
     p {
-      position: absolute;
-      left: 50px;
-      top: 335px;
+      position: relative;
+      font-family: 'NanumGothicExtraBold';
       font-style: normal;
       font-weight: 800;
-      font-size: 35px;
-      text-align: left;
+      font-size: 18px;
+      line-height: 18px;
       color: #594031;
+      text-align: left;
     }
-  }
-  .write_table {
-    table {
-      position: absolute;
+    .write_th {
+      position: relative;
       width: 100%;
-      height: 50px;
-      top: 450px;
-      left: -10px;
-      border-top: 1px solid #4ea6a6;
-      border-collapse: collapse;
-      background: #f2f2f2;
-      font-size: 30px;
-      color: #4ea6a6;
-      text-align: center;
-    }
-    th,
-    td {
-      border-bottom: 1px solid #4ea6a6;
-      text-align: center;
-    }
-  }
-  .writing {
-    position: absolute;
-    width: 125px;
-    height: 50px;
-    top: 1346px;
-    left: 810px;
-    background: #4ea6a6;
-    border-radius: 20px;
-    line-height: 50px;
-    text-align: center;
+      height: 35px;
+      display: table;
+      background: #d2d9cc;
 
-    Link {
-      position: absolute;
-      top: 1346px;
-      left: 810px;
+      p {
+        font-family: 'NanumGothic';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 18px;
+        line-height: 35px;
+        color: #f2f2f2;
+      }
+      .title {
+        position: relative;
+        left: 250px;
+        display: table-cell;
+      }
+      .date {
+        position: relative;
+        left: 250px;
+        display: table-cell;
+      }
+    }
+    .noticeList {
+      position: relative;
+      width: 938px;
+      height: 50px;
+      border: 1px solid #f2f2f2;
+    }
+    .writing {
+      position: relative;
+      margin-top: 50px;
+      margin-left: 850px;
+      width: 60px;
+      height: 35px;
+      font-family: 'NanumGothicBold';
+      font-style: normal;
       font-weight: 700;
-      font-size: 30px;
-      color: #f2f2f2;
-      text-align: center;
-      line-height: 50px;
+      font-size: 16px;
+      line-height: 35px;
+      background: #d2d9cc;
+      border-radius: 10px;
     }
   }
 `;
