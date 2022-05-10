@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import HomeContainer from '../styled/HomeContainer';
 import sample from '../img/sample.png';
-import CafeList from '../CafeList';
+import CafeList from '../RootView/CafeList';
 
 const Home = () => {
   return (
