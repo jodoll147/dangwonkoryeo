@@ -3,17 +3,20 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Button = styled.button`
-  width: 190px;
-  height: 80px;
+const Flavour = styled.div`
+  position: relative;
+  top: 36px;
+  width: 100px;
+  height: 50px;
+  display: table-cell;
+  background: rgba(166, 140, 118, 0.7);
+  border-radius: 10px;
   font-family: 'NanumGothic';
-  font-size: 30px;
   font-style: normal;
-  font-weight: 800;
-  text-align: center;
-  letter-spacing: -0.333333px;
-  color: #ffffff;
-  border-radius: 20px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 50px;
+  color: #f2f2f2;
   :not(:disabled) {
     cursor: pointer;
   }
@@ -22,11 +25,12 @@ const Button = styled.button`
 const CoffeeTIFlavour = () => {
   const [clickList, setClickList] = useState({ background: '' });
   const checkedList = ['견과류', '과일', '초콜릿', '꽃'];
-  const list = checkedList.map(checklist => <Button>{checklist}</Button>);
+  const list = checkedList.map(checklist => <Flavour>{checklist}</Flavour>);
 
   return (
-    <CoffeeTIContainer className='select'>
+    <CoffeeTIContainer>
       <section>
+        <p>coffeeTI</p>
         <div className='que'>
           <p>원하는 향을 한 가지 선택해주세요.</p>
         </div>

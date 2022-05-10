@@ -47,6 +47,37 @@ const CoffeeTIContainer = styled.div`
       line-height: 60px;
       color: #f2f2f2;
     }
+    .que {
+      p {
+        position: relative;
+        top: 30px;
+        font-family: 'NanumGothic';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 16px;
+        color: black;
+      }
+    }
+    .select {
+      position: relative;
+      top: 20px;
+    }
+
+    .nextButton {
+      position: relative;
+      top: 221px;
+      left: 620px;
+      width: 60px;
+      height: 35px;
+      font-family: 'NanumGothicBold';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 35px;
+      background: #d2d9cc;
+      border-radius: 10px;
+    }
   }
 `;
 

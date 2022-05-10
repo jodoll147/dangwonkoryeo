@@ -3,8 +3,9 @@ import styled from 'styled-components';
 const Select = styled.div`
   .box {
     position: relative;
+    top: 65px;
+    left: 275px;
     display: table;
-
     .weak {
       position: relative;
       display: table-cell;
@@ -20,7 +21,7 @@ const Select = styled.div`
       input {
         position: relative;
         margin-left: 20px;
-        margin-right: 60px;
+        margin-right: 50px;
         top: 40px;
         display: table-cell;
         width: 30px;
