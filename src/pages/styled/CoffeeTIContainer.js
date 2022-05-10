@@ -65,8 +65,8 @@ const CoffeeTIContainer = styled.div`
     }
 
     .nextButton {
-      position: relative;
-      top: 221px;
+      position: absolute;
+      bottom: 60px;
       left: 620px;
       width: 60px;
       height: 35px;
@@ -77,6 +77,14 @@ const CoffeeTIContainer = styled.div`
       line-height: 35px;
       background: #d2d9cc;
       border-radius: 10px;
+    }
+    .flavour {
+      position: relative;
+      display: flex;
+      margin: 20px 345px 20px 345px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-content: flex-start;
     }
   }
 `;

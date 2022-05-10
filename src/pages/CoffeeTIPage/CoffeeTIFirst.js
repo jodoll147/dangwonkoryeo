@@ -11,14 +11,14 @@ const CoffeeTIFirst = () => {
         <p>coffeeTI</p>
         <Link
           className='next'
-          to='/coffeeTI/body'
+          to='/coffeeTI/result'
           style={{ textDecoration: 'none', color: '#F2F2F2' }}
         >
           입문자용 커피 추천 받기
         </Link>
         <Link
           className='result'
-          to='/coffeeTI/result'
+          to='/coffeeTI/body'
           style={{ textDecoration: 'none', color: '#F2F2F2' }}
         >
           나에게 맞는 향 추천 받기

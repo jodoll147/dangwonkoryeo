@@ -5,13 +5,14 @@ import styled from 'styled-components';
 
 const Flavour = styled.div`
   position: relative;
+  display: line;
   top: 36px;
   width: 100px;
   height: 50px;
-  display: table-cell;
+  margin-bottom: 15px;
   background: rgba(166, 140, 118, 0.7);
   border-radius: 10px;
-  font-family: 'NanumGothic';
+  font-family: 'NanumGothic';s
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
