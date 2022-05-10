@@ -12,24 +12,36 @@ const CafeListContainer = styled.div`
       left: 20px;
       width: 940px;
       height: 240px;
-      overflow: hidden;
-      float: left;
 
       img {
         position: relative;
         top: 20px;
-        padding-right: 20px;
-        text-align: left;
+        float: left;
       }
 
-      p {
-        position: relative;
-        display: inline-block;
-        font-family: 'NanumGothic';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 32px;
-        float: right;
+      .subBox {
+        text-align: left;
+        float: left;
+        margin-top: 20px;
+
+        .cafe_name {
+          position: relative;
+          margin-left: 20px;
+          width: 680px;
+          font-family: 'NanumGothic';
+          font-style: normal;
+          font-weight: 700;
+          font-size: 32px;
+          float: left;
+        }
+
+        .hashTag {
+          position: relative;
+
+          float: left;
+
+          top: 0px;
+        }
       }
     }
   }
