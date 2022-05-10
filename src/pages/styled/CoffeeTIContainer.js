@@ -68,13 +68,11 @@ const CoffeeTIContainer = styled.div`
       position: absolute;
       bottom: 60px;
       left: 620px;
-      width: 60px;
-      height: 35px;
+      padding: 5px 12px 5px 12px;
       font-family: 'NanumGothicBold';
       font-style: normal;
       font-weight: 700;
       font-size: 16px;
-      line-height: 35px;
       background: #d2d9cc;
       border-radius: 10px;
     }
@@ -85,6 +83,11 @@ const CoffeeTIContainer = styled.div`
       flex-wrap: wrap;
       justify-content: space-between;
       align-content: flex-start;
+    }
+    img {
+      position: relative;
+      top: 39px;
+      margin-bottom: 10px;
     }
   }
 `;

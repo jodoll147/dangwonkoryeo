@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const CoffeeTIBody = () => {
   return (
-    <CoffeeTIContainer className='select'>
+    <CoffeeTIContainer>
       <section>
         <p>coffeeTI</p>
         <div className='que'>
