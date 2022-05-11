@@ -7,8 +7,6 @@ import MyPage from './pages/MyPage';
 import Intro from './pages/Intro';
 import Notice from './pages/Notice';
 import Find from './pages/Find';
-import FAQ from './pages/FAQ';
-import ServiceCenter from './pages/ServiceCenter';
 import NoticeWrite from './pages/NoticeWrite';
 import CoffeeTIFlavour from './pages/CoffeeTIPage/CoffeeTIFlavour';
 import CoffeeTIFirst from './pages/CoffeeTIPage/CoffeeTIFirst';
@@ -26,9 +24,7 @@ const App = () => {
         <Route path='/mypage' element={<MyPage />} />
         <Route path='/intro' element={<Intro />} />
         <Route path='/notice' element={<Notice />} />
-        <Route path='/servicecenter' element={<ServiceCenter />} />
         <Route path='/find' element={<Find />} />
-        <Route path='/FAQ' element={<FAQ />} />
         <Route path='/notice/notice_write' element={<NoticeWrite />} />
         <Route path='/coffeeTI/first' element={<CoffeeTIFirst />} />
         <Route path='/coffeeTI/body' element={<CoffeeTIBody />} />

@@ -4,6 +4,11 @@ const CafeListContainer = styled.div`
   section {
     position: relative;
     text-align: left;
+    .hash {
+      position: relative;
+      float: left;
+      top: 0px;
+    }
 
     .box {
       position: relative;
@@ -20,27 +25,32 @@ const CafeListContainer = styled.div`
       }
 
       .subBox {
+        position: relative;
+        width: 680px;
+        height: 200px;
+        margin: 20px 20px 20px 20px;
         text-align: left;
         float: left;
-        margin-top: 20px;
 
-        .cafe_name {
+        .cafeName {
           position: relative;
-          margin-left: 20px;
           width: 680px;
+          height: 39px;
+          padding-bottom: 20px;
           font-family: 'NanumGothic';
           font-style: normal;
           font-weight: 700;
           font-size: 32px;
-          float: left;
+          line-height: 39px;
         }
-
-        .hashTag {
+        .hashBox {
           position: relative;
-
-          float: left;
-
-          top: 0px;
+          width: 680px;
+          height: 141px;
+          .hashList {
+            position: relative;
+            display: flex;
+          }
         }
       }
     }
