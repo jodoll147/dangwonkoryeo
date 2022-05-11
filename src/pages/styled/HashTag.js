@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import CoffeeTIContainer from './CoffeeTIContainer';
 import React, { useState } from 'react';
 
 const HashTag = () => {
@@ -17,11 +16,9 @@ const HashTag = () => {
   const hashTag = ['해시태그', '아무거나', '그냥'];
   const hashList = hashTag.map(hash => <HashTagContainer>#{hash}</HashTagContainer>);
   return (
-    <CoffeeTIContainer>
-      <div className='hashBox'>
-        <div className='hashList'>{hashList}</div>
-      </div>
-    </CoffeeTIContainer>
+    <div className='hashBox'>
+      <div className='hashList'>{hashList}</div>
+    </div>
   );
 };
 
