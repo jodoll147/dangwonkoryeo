@@ -11,76 +11,69 @@ const HomeContainer = styled.div`
         margin: 0 auto;
         text-align: center;
 
-        ul{
-            list-style: none;
-        }
-        li{
-            display: inline-block;
-            padding: 25px;
-            text-align: center;
-            float: left;
-        }
-
         .statebar{
             position: relative;
             width: 100%;
             height: 70px;
+            display: flex;
             background: rgba(78, 166, 166, 0.8);
             
             .home{
                 position: relative;
-                left: 5.32%;
-                right: 86.6%;
-                font-family: 'NanumGothicExtrabold';
+                margin-left: 50px;
+                font-family: 'Locus';
                 font-style: normal;
-                font-weight: 800;
+                font-weight: 400;
                 font-size: 20px;
-                line-height: 20px;
+                line-height: 70px;
             }
             .intro{
                 position: relative;
-                left: 20.85%;
-                right: 69.04%;
-                font-family: 'NanumGothic';
+                margin-left: 70px;
+                font-family: 'Cafe24';
                 font-style: normal;
                 font-weight: 400;
+                line-height: 70px;
             }
             .coffeeTI{
                 position: relative;
-                font-family: 'NanumGothic';
-                left: 38.4%;
-                right: 53.51%;
+                margin-left: 70px;
+                font-family: 'Cafe24';
                 font-style: normal;
                 font-weight: 400;
+                line-height: 70px;
             }
             .notice{
                 position: relative;
-                font-family: 'NanumGothic';
-                left: 53.94%;
-                right: 39.57%;
+                margin-left: 70px;
+                font-family: 'Cafe24';
                 font-style: normal;
                 font-weight: 400;
+                line-height: 70px;
             }
             .login{
                 position: relative;
-                font-family: 'NanumGothic';
-                left: 130px;
+                margin-left: 100px;
+                font-family: 'Cafe24';
                 font-style: normal;
                 font-weight: 400;
+                line-height: 70px;
             }
             .join{
                 position: relative;
-                font-family: 'NanumGothic';
-                left:100px;
+                margin-left: 20px;
+                font-family: 'Cafe24';
                 font-style: normal;
                 font-weight: 400;
+                line-height: 70px;
             }
             .hash{
                 position: relative;
+                margin-left: 70px;
+                margin-top: 20px;
                 width: 32px;
                 height: 16px;
-                left: 100px;
-                top: -5px;
+                
             }
         }
     }

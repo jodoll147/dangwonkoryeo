@@ -15,7 +15,7 @@ const FindContainer = styled.div`
       display: table-cell;
 
       p {
-        font-family: 'NanumGothicExtrabold';
+        font-family: 'Cafe24';
         font-style: normal;
         font-weight: 800;
         font-size: 16px;
@@ -29,7 +29,7 @@ const FindContainer = styled.div`
         padding-bottom: 15px;
         p {
           position: relative;
-          font-family: 'NanumGothic';
+          font-family: 'Cafe24';
           font-style: normal;
           font-weight: 400;
           font-size: 14px;
@@ -53,7 +53,7 @@ const FindContainer = styled.div`
         padding-bottom: 15px;
         p {
           position: relative;
-          font-family: 'NanumGothic';
+          font-family: 'Cafe24';
           font-style: normal;
           font-weight: 400;
           font-size: 14px;
@@ -76,7 +76,7 @@ const FindContainer = styled.div`
         display: table;
         p {
           position: relative;
-          font-family: 'NanumGothic';
+          font-family: 'Cafe24';
           font-style: normal;
           font-weight: 400;
           font-size: 14px;
@@ -102,7 +102,7 @@ const FindContainer = styled.div`
         background: #4ea6a6;
         border-radius: 10px;
         p {
-          font-family: 'NanumGothic';
+          font-family: 'Cafe24';
           font-style: normal;
           font-weight: 800;
           font-size: 20px;
@@ -120,7 +120,7 @@ const FindContainer = styled.div`
       display: table;
       p {
         position: relative;
-        font-family: 'NanumGothicExtrabold';
+        font-family: 'Cafe24';
         font-style: normal;
         font-weight: 800;
         font-size: 16px;
@@ -134,7 +134,7 @@ const FindContainer = styled.div`
         padding-bottom: 15px;
         p {
           position: relative;
-          font-family: 'NanumGothic';
+          font-family: 'Cafe24';
           font-style: normal;
           font-weight: 400;
           font-size: 14px;
@@ -158,7 +158,7 @@ const FindContainer = styled.div`
         padding-bottom: 15px;
         p {
           position: relative;
-          font-family: 'NanumGothic';
+          font-family: 'Cafe24';
           font-style: normal;
           font-weight: 400;
           font-size: 14px;
@@ -182,7 +182,7 @@ const FindContainer = styled.div`
         padding-bottom: 15px;
         p {
           position: relative;
-          font-family: 'NanumGothic';
+          font-family: 'Cafe24';
           font-style: normal;
           font-weight: 400;
           font-size: 14px;
@@ -205,7 +205,7 @@ const FindContainer = styled.div`
         display: table;
         p {
           position: relative;
-          font-family: 'NanumGothic';
+          font-family: 'Cafe24';
           font-style: normal;
           font-weight: 400;
           font-size: 14px;
@@ -231,7 +231,7 @@ const FindContainer = styled.div`
         background: #4ea6a6;
         border-radius: 10px;
         p {
-          font-family: 'NanumGothic';
+          font-family: 'Cafe24';
           font-style: normal;
           font-weight: 800;
           font-size: 20px;

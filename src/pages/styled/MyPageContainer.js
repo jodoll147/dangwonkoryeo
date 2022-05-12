@@ -7,7 +7,7 @@ const MyPageContainer = styeld.div`
         height: 648px;
         .myPage{
             position: relative;
-            font-family: 'NanumGothic';
+            font-family: 'Cafe24Bold';
             font-style: normal;
             font-weight: 800;
             font-size: 18px;
@@ -25,7 +25,7 @@ const MyPageContainer = styeld.div`
             .name{
                 position: relative;
                 margin-right: 10px;
-                font-family: 'NanumGothic';
+                font-family: 'Cafe24';
                 font-style: normal;
                 font-weight: 700;
                 font-size: 16px;
@@ -34,7 +34,7 @@ const MyPageContainer = styeld.div`
             }
             .userName{
                 position: relative;
-                font-family: 'NanumGothic';
+                font-family: 'Cafe24';
                 font-style: normal;
                 font-weight: 400;
                 font-size: 16px;
@@ -45,12 +45,14 @@ const MyPageContainer = styeld.div`
         .coffeeTIBox{
             position: relative;
             display: flex;
+            margin-top: 20px;
+            align-items: baseline;
+
             .coffeeTI{
                 position: relative;
-                margin-top: 20px;
                 margin-left: 30px;
                 margin-right: 10px;
-                font-family: 'NanumGothic';
+                font-family: 'Cafe24';
                 font-style: normal;
                 font-weight: 700;
                 font-size: 16px;
@@ -60,9 +62,8 @@ const MyPageContainer = styeld.div`
             }
             .type{
                 position: relative;
-                margin-top: 20px;
                 margin-right: 10px;
-                font-family: 'NanumGothic';
+                font-family: 'Cafe24';
                 font-style: normal;
                 font-weight: 400;
                 font-size: 16px;
@@ -71,12 +72,11 @@ const MyPageContainer = styeld.div`
             }
             .check{
                 position: relative;
-                margin-top: 15px;
                 width: 80px;
                 height: 25px;
                 background: #D2D9CC;
                 border-radius: 10px;
-                font-family: 'NanumGothic';
+                font-family: 'Cafe24';
                 font-style: normal;
                 font-weight: 800;
                 font-size: 16px;
@@ -102,7 +102,7 @@ const MyPageContainer = styeld.div`
                 margin-bottom: 10px;
                 margin-top: 20px;
                 margin-left: 30px;
-                font-family: 'NanumGothic';
+                font-family: 'Cafe24';
                 font-style: normal;
                 font-weight: 700;
                 font-size: 16px;
@@ -117,7 +117,7 @@ const MyPageContainer = styeld.div`
             height: 40px;
             margin-left: 796px;
             margin-top: 40px;
-            font-family: 'NanumGothicBold';
+            font-family: 'Cafe24Bold';
             font-style: normal;
             font-weight: 700;
             font-size: 16px;
@@ -125,7 +125,6 @@ const MyPageContainer = styeld.div`
             color: black;
             border: 3px solid #4EA6A6;
             border-radius: 10px;
-        
         }
     }
 `;

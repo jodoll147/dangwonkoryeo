@@ -8,7 +8,7 @@ const LoginContainer = styled.div`
     top: 20px;
 
     p {
-      font-family: 'NanumGothicExtrabold';
+      font-family: 'Cafe24Bold';
       font-style: normal;
       font-weight: 800;
       font-size: 20px;
@@ -30,7 +30,7 @@ const LoginContainer = styled.div`
         bottom: 20%;
         display: table-cell;
         vertical-align: middle;
-        font-family: 'NanumGothic';
+        font-family: 'Cafe24';
         font-style: normal;
         font-weight: 700;
       }
@@ -44,7 +44,7 @@ const LoginContainer = styled.div`
         background: #d2d9cc;
         border: 1px #d2d9cc;
         border-radius: 10px;
-        font-family: 'NanumGothic';
+        font-family: 'Cafe24';
         font-style: normal;
         font-weight: 700;
       }
@@ -64,7 +64,7 @@ const LoginContainer = styled.div`
         bottom: 20%;
         display: table-cell;
         vertical-align: middle;
-        font-family: 'NanumGothic';
+        font-family: 'Cafe24';
         font-style: normal;
         font-weight: 700;
       }
@@ -78,7 +78,7 @@ const LoginContainer = styled.div`
         background: #d2d9cc;
         border: 1px #d2d9cc;
         border-radius: 10px;
-        font-family: 'NanumGothic';
+        font-family: 'Cafe24';
         font-style: normal;
         font-weight: 700;
       }
@@ -95,7 +95,7 @@ const LoginContainer = styled.div`
 
       p {
         position: relative;
-        font-family: 'NanumGothic';
+        font-family: 'Cafe24';
         font-style: normal;
         font-weight: 700;
         color: #f2f2f2;
@@ -106,11 +106,13 @@ const LoginContainer = styled.div`
 
     .find {
       position: relative;
+      font-family: 'Cafe24';
       top: 75px;
     }
 
     .join {
       position: relative;
+      font-family: 'Cafe24';
       top: 85px;
     }
   }

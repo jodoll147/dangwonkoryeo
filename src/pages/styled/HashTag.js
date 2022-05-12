@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 const HashTag = () => {
   const HashTagContainer = styled.div`
     position: relative;
-    font-family: 'NanumGothic';
+    font-family: 'Cafe24';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;

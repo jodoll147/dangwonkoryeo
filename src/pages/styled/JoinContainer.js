@@ -3,189 +3,149 @@ import styled from 'styled-components';
 const JoinContainer = styled.div`
   section {
     position: relative;
-    left: 336px;
-    margin-top: 40px;
-
-    .join{
-        p{
-            position: relative;
-            font-family: 'NanumGothicBold';
-            font-style: normal;
-            font-weight: 800;
-            font-size: 18px;
-            line-height: 18px
-            color: #594031;
-            text-align: left;
-        }
-    }
-
-    .name {
+    font-family: 'Cafe24';
+    font-size: 14px;
+    line-height: 14px;
+    color: black;
+    .joinBox {
       position: relative;
-      display: table;
-      padding-bottom: 15px;
-      p {
+      width: 353px;
+      height: 350px;
+      margin-top: 20px;
+      margin-left: 353px;
+      text-align: left;
+      .join {
         position: relative;
-        font-family: 'NanumGothic';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 14px;
-        display: table-cell;
-        padding-right: 10px;
+        padding-top: 40px;
+        margin-bottom: 20px;
+        font-family: 'Cafe24Bold';
+        font-size: 18px;
+        line-height: 18px;
+        color: #594031;
       }
-      input {
+      .name {
         position: relative;
-        width: 90px;
-        height: 20px;
-        display: table-cell;
-        background: #d2d9cc;
-        border-radius: 5px;
-        border: #d2d9cc;
-        font-family: 'NanumGothic';
-      }
-    }
-    .id {
-      position: relative;
-      display: table;
-      padding-bottom: 15px;
-      p {
-        position: relative;
-        font-family: 'NanumGothic';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 14px;
-        display: table-cell;
-        padding-right: 10px;
-        
-      }
-      input {
-        position: relative;
-        width: 90px;
-        height: 20px;
-        display: table-cell;
-        background: #d2d9cc;
-        border-radius: 5px;
-        border: #d2d9cc;s
-        font-family: 'NanumGothic';
-        margin-right: 10px;
-      }
-      
-      .id_check{
-        position: relative;
-        width: 60px;
-        height: 20px;
-        display: table-cell;
-        background: #4EA6A6;
-        border-radius: 5px;
-        border: 1px #4EA6A6;
-        text-align: middle;
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 15px;
 
-        p{
+        p {
           position: relative;
-          left: 5px;
-          font-family: 'NanumGothicBold';
-          font-style: normal;
-          font-weight: 700;
+          margin-right: 10px;
+        }
+        input {
+          position: relative;
+          width: 90px;
+          height: 20px;
+          background: #d2d9cc;
+          border-radius: 5px;
+          border: #d2d9cc;
+        }
+      }
+      .id {
+        position: relative;
+        display: flex;
+        align-items: baseline;
+
+        margin-bottom: 15px;
+
+        p {
+          position: relative;
+          margin-right: 10px;
+        }
+        input {
+          position: relative;
+          margin-right: 10px;
+          width: 90px;
+          height: 20px;
+          background: #d2d9cc;
+          border-radius: 5px;
+          border: #d2d9cc;
+        }
+        .idCheck {
+          position: relative;
+          width: 55px;
+          height: 20px;
+          background: #4ea6a6;
+          border-radius: 5px;
+          border: #4ea6a6;
           font-size: 12px;
           line-height: 20px;
-          color: #F2F2F2;
+          color: #f2f2f2;
+          text-align: center;
         }
+      }
+      .pwd {
+        position: relative;
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 15px;
 
+        p {
+          position: relative;
+          margin-right: 10px;
+        }
+        input {
+          position: relative;
+          width: 90px;
+          height: 20px;
+          background: #d2d9cc;
+          border-radius: 5px;
+          border: #d2d9cc;
+        }
       }
-    }
-    .pwd {
-      position: relative;
-      display: table;
-      padding-bottom: 15px;
-      p {
+      .phone {
         position: relative;
-        font-family: 'NanumGothic';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 14px;
-        display: table-cell;
-        padding-right: 10px;
-      }
-      input {
-        position: relative;
-        width: 90px;
-        height: 20px;
-        display: table-cell;
-        background: #d2d9cc;
-        border-radius: 5px;
-        border: #d2d9cc;
-        font-family: 'NanumGothic';
-      }
-    }
-    .birthday {
-      position: relative;
-      display: table;
-      padding-bottom: 15px;
-      p {
-        position: relative;
-        font-family: 'NanumGothic';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 14px;
-        display: table-cell;
-        padding-right: 10px;
-      }
-      input {
-        position: relative;
-        width: 90px;
-        height: 20px;
-        display: table-cell;
-        background: #d2d9cc;
-        border-radius: 5px;
-        border: #d2d9cc;
-        font-family: 'NanumGothic';
-      }
-    }
-    .phone {
-      position: relative;
-      display: table;
-      p {
-        position: relative;
-        font-family: 'NanumGothic';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 14px;
-        display: table-cell;
-        padding-right: 10px;
-      }
-      input {
-        position: relative;
-        width: 50px;
-        height: 20px;
-        background: #d2d9cc;
-        border-radius: 5px;
-        border: #d2d9cc;
-        margin-right: 10px;
-        font-family: 'NanumGothic';
-      }
-    }
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 15px;
 
-    .complete{
-      position: relative;
-      top: 62px;
-      left: 240px;
-      width: 60px;
-      height: 35px;
-      background: #D2D9CC;
-      border-radius: 10px;
-      border: 1px #D2D9CC;
-
-      p{
+        p {
+          position: relative;
+          margin-right: 10px;
+        }
+        input {
+          position: relative;
+          width: 50px;
+          height: 20px;
+          margin-right: 10px;
+          background: #d2d9cc;
+          border-radius: 5px;
+          border: #d2d9cc;
+        }
+      }
+      .birthday {
         position: relative;
-        font-style: normal;
-        font-weight: 700;
+        display: flex;
+        align-items: baseline;
+
+        margin-bottom: 74px;
+
+        p {
+          position: relative;
+          margin-right: 10px;
+        }
+        input {
+          position: relative;
+          width: 90px;
+          height: 20px;
+          background: #d2d9cc;
+          border-radius: 5px;
+          border: #d2d9cc;
+        }
+      }
+      .complete {
+        position: relative;
+        margin-left: 263px;
+        width: 60px;
+        height: 35px;
+        font-family: Cafe24Bold;
         font-size: 16px;
-        line-height: 35px;
-        color: #F2F2F2;
+        line-height: 40px;
+        color: #f2f2f2;
+        background: #d2d9cc;
+        border-radius: 10px;
+        text-align: center;
       }
     }
   }

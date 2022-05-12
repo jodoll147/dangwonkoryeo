@@ -12,7 +12,7 @@ const Flavour = styled.div`
   margin-bottom: 15px;
   background: rgba(166, 140, 118, 0.7);
   border-radius: 10px;
-  font-family: 'NanumGothic';s
+  font-family: 'Cafe24';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;

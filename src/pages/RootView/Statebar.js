@@ -11,55 +11,45 @@ const Home = () => {
       <header>
         <section>
           <div className='statebar'>
-            <ul>
-              <li>
-                <div className='home'>
-                  <Link to='/home' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
-                    당원커여
-                  </Link>
-                </div>
-              </li>
-              <li>
-                <div className='intro'>
-                  <Link to='/intro' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
-                    당원커여 소개
-                  </Link>
-                </div>
-              </li>
-              <li>
-                <div className='coffeeTI'>
-                  <Link to='/coffeeTI/first' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
-                    커피티아이
-                  </Link>
-                </div>
-              </li>
-              <li>
-                <div className='notice'>
-                  <Link to='/notice' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
-                    공지사항
-                  </Link>
-                </div>
-              </li>
-              <li>
-                <div className='login'>
-                  <Link to='/login' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
-                    LOGIN
-                  </Link>
-                </div>
-              </li>
-              <li>
-                <div className='join'>
-                  <Link to='/join' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
-                    JOIN
-                  </Link>
-                </div>
-              </li>
-              <li>
-                <div className='hash'>
-                  <img src={hashTag} alt='hashTag' />
-                </div>
-              </li>
-            </ul>
+            <div className='home'>
+              <Link to='/home' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
+                당원커여
+              </Link>
+            </div>
+
+            <div className='intro'>
+              <Link to='/intro' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
+                당원커여 소개
+              </Link>
+            </div>
+
+            <div className='coffeeTI'>
+              <Link to='/coffeeTI/first' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
+                커피티아이
+              </Link>
+            </div>
+
+            <div className='notice'>
+              <Link to='/notice' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
+                공지사항
+              </Link>
+            </div>
+
+            <div className='login'>
+              <Link to='/login' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
+                LOGIN
+              </Link>
+            </div>
+
+            <div className='join'>
+              <Link to='/join' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
+                JOIN
+              </Link>
+            </div>
+
+            <div className='hash'>
+              <img src={hashTag} alt='hashTag' />
+            </div>
           </div>
         </section>
       </header>

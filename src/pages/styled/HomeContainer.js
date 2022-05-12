@@ -16,7 +16,7 @@ const HomeContainer = styled.div`
 
     .cafe_list {
       p {
-        font-family: 'NanumGothicExtrabold';
+        font-family: 'Cafe24Bold';
         position: relative;
         left: 20px;
         top: 30px;

@@ -21,7 +21,7 @@ const Cafe = () => {
         .cafeName {
           position: relative;
           margin-right: 10px;
-          font-family: 'NanumGothic';
+          font-family: 'Cafe24';
           font-style: normal;
           font-weight: 700;
           font-size: 16px;
@@ -30,7 +30,7 @@ const Cafe = () => {
         }
         .cafeInfo {
           position: relative;
-          font-family: 'NanumGothic';
+          font-family: 'Cafe24';
           font-style: normal;
           font-weight: 400;
           font-size: 16px;

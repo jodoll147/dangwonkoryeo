@@ -5,7 +5,7 @@ const NoticeContainer = styled.div`
     position: relative;
     p {
       position: relative;
-      font-family: 'NanumGothicExtraBold';
+      font-family: 'ExtraBold';
       font-style: normal;
       font-weight: 800;
       font-size: 18px;
@@ -21,7 +21,7 @@ const NoticeContainer = styled.div`
       background: #d2d9cc;
 
       p {
-        font-family: 'NanumGothic';
+        font-family: '';
         font-style: normal;
         font-weight: 800;
         font-size: 18px;
@@ -51,7 +51,7 @@ const NoticeContainer = styled.div`
       margin-left: 850px;
       width: 60px;
       height: 35px;
-      font-family: 'NanumGothicBold';
+      font-family: 'Bold';
       font-style: normal;
       font-weight: 700;
       font-size: 16px;

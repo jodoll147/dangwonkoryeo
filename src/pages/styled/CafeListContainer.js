@@ -37,7 +37,7 @@ const CafeListContainer = styled.div`
           width: 680px;
           height: 39px;
           padding-bottom: 20px;
-          font-family: 'NanumGothic';
+          font-family: 'Cafe24Bold';
           font-style: normal;
           font-weight: 700;
           font-size: 32px;
