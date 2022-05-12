@@ -97,10 +97,11 @@ const MyPageContainer = styeld.div`
         }
         .cafeListBox{
             position: relative;
-            margin-top: 20px;
-            margin-left: 30px;
             .cafeList{
                 position: relative;
+                margin-bottom: 10px;
+                margin-top: 20px;
+                margin-left: 30px;
                 font-family: 'NanumGothic';
                 font-style: normal;
                 font-weight: 700;
@@ -109,6 +110,22 @@ const MyPageContainer = styeld.div`
                 color: black;
                 text-align: left;
             }
+        }
+        .busniessPage{
+            position: relative;
+            width: 114px;
+            height: 40px;
+            margin-left: 796px;
+            margin-top: 40px;
+            font-family: 'NanumGothicBold';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 40px;
+            color: black;
+            border: 3px solid #4EA6A6;
+            border-radius: 10px;
+        
         }
     }
 `;

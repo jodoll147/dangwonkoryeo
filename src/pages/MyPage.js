@@ -1,19 +1,23 @@
 import { Link } from 'react-router-dom';
+import React from 'react';
 import MyPageContainer from './styled/MyPageContainer';
 import HashTag from './styled/HashTag';
 import styled from 'styled-components';
 
-const MyPage = () => {
+const Cafe = () => {
   const CafeContainer = styled.div`
     .cafeBox {
       position: relative;
       width: 940px;
       height: 104px;
+      border: 1px solid #f2f2f2;
+
       .cafe {
         position: relative;
         display: flex;
-        margin-top: 15px;
+        margin-top: 20px;
         margin-left: 30px;
+        margin-top: 15px;
         .cafeName {
           position: relative;
           margin-right: 10px;
@@ -33,15 +37,21 @@ const MyPage = () => {
           line-height: 16px;
           color: #594031;
         }
-        .hashBox {
+      }
+      .hashBox {
+        position: relative;
+        margin-top: 10px;
+        margin-left: 15px;
+        width: 940px;
+        height: 30px;
+        .hashList {
           position: relative;
           display: flex;
-          margin: 6px 30px 10px 20px;
         }
       }
     }
   `;
-  const Cafe = () => {
+  return (
     <CafeContainer>
       <div className='cafeBox'>
         <div className='cafe'>
@@ -52,8 +62,12 @@ const MyPage = () => {
           <HashTag />
         </div>
       </div>
-    </CafeContainer>;
-  };
+    </CafeContainer>
+  );
+};
+const MyPage = () => {
+  const cafelist = [Cafe, Cafe, Cafe, Cafe];
+  const cafelistMap = cafelist.map(temp => <div>{temp}</div>);
   return (
     <MyPageContainer>
       <section>
@@ -71,7 +85,9 @@ const MyPage = () => {
         <div className='cafeListBox'>
           <div className='cafeList'>찜한 카페 목록</div>
           <Cafe />
+          <Cafe />
         </div>
+        <div className='busniessPage'>사장님 페이지</div>
       </section>
     </MyPageContainer>
   );
