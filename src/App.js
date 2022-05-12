@@ -8,6 +8,7 @@ import Intro from './pages/Intro';
 import Notice from './pages/Notice';
 import Find from './pages/Find';
 import NoticeWrite from './pages/NoticeWrite';
+import Business from './pages/Business';
 import CoffeeTIFlavour from './pages/CoffeeTIPage/CoffeeTIFlavour';
 import CoffeeTIFirst from './pages/CoffeeTIPage/CoffeeTIFirst';
 import CoffeeTIResult from './pages/CoffeeTIPage/CoffeeTIResult';
@@ -27,6 +28,7 @@ const App = () => {
         <Route path='/notice' element={<Notice />} />
         <Route path='/find' element={<Find />} />
         <Route path='/notice/notice_write' element={<NoticeWrite />} />
+        <Route path='/business' element={<Business />} />
         <Route path='/coffeeTI/first' element={<CoffeeTIFirst />} />
         <Route path='/coffeeTI/body' element={<CoffeeTIBody />} />
         <Route path='/coffeeTI/sour' element={<CoffeeTISour />} />
