@@ -138,11 +138,26 @@ const BusinessContainer = styled.div`
         font-weight: 800;
         font-size: 18px;
         line-height: 18px;
-        z p {
+        p {
           position: relative;
           margin-top: 40px;
           margin-left: 30px;
         }
+      }
+      .shopadd {
+        position: relative;
+        float: right;
+        margin-top: 30px;
+        margin-right: 30px;
+        width: 60px;
+        height: 35px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 35px;
+        background: #d2d9cc;
+        border-radius: 10px;
+        text-align: center;
       }
     }
   }

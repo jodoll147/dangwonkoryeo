@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import BusinessContainer from './styled/BusinessContainer';
 
 const CafeListContainer = styled.div`
@@ -25,34 +26,6 @@ const CafeListContainer = styled.div`
     color: black;
   }
 `;
-
-const RegeShop = () => {
-  const [files, setFiles] = useState('');
-
-  const onLoadFile = e => {
-    const file = e.target.files;
-    setFiles(file);
-  };
-
-  return (
-    <div className='regeShopBox'>
-      <div className='title'>BusinessPage</div>
-      <div className='explan'>사업자 등록이 필요한 페이지 입니다.</div>
-      <div className='shopBox'>
-        <p>가게명</p>
-        <input type={'text'} />
-      </div>
-      <div className='documentBox'>
-        <p>사업자등록증</p>
-        <input type={'file'} accept='img/*' onChange={onLoadFile} />
-      </div>
-      <div className='infoBox'>
-        <p>사업자 등록은 3~4일 정도 소요됩니다.</p>
-        <p>가게 이미지, 메뉴, 해시태그 등은 사업자등록 후 수정하기를 통해 사용하실 수 있습니다.</p>
-      </div>
-    </div>
-  );
-};
 
 const CafeList = () => {
   const [cafe, setcafe] = useState([
@@ -80,6 +53,11 @@ const ShopModify = () => {
       <div className='shop'>
         <p>내 가게 관리하기</p>
         <CafeList />
+        <div className='shopadd'>
+          <Link to='/shopadd' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
+            추가
+          </Link>
+        </div>
       </div>
     </div>
   );
