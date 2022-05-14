@@ -10,6 +10,7 @@ const Cafe = () => {
       position: relative;
       width: 940px;
       height: 104px;
+      align-items: baseline;
       border: 1px solid #f2f2f2;
 
       .cafe {
@@ -87,7 +88,13 @@ const MyPage = () => {
           <Cafe />
           <Cafe />
         </div>
-        <div className='busniessPage'>사장님 페이지</div>
+        <Link
+          to='/business'
+          className='busniessPage'
+          style={{ textDecoration: 'none', color: 'black' }}
+        >
+          사장님 페이지
+        </Link>
       </section>
     </MyPageContainer>
   );

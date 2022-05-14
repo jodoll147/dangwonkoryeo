@@ -21,7 +21,7 @@ const HomeContainer = styled.div`
             .home{
                 position: relative;
                 margin-left: 50px;
-                font-family: 'Locus';
+                font-family: 'Cafe24Bold';
                 font-style: normal;
                 font-weight: 400;
                 font-size: 20px;
