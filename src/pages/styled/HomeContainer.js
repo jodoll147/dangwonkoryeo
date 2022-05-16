@@ -7,9 +7,9 @@ const HomeContainer = styled.div`
 
     .event_img {
       position: relative;
+      x-index: 300;
       width: 940px;
       height: 300px;
-      left: 0px;
       top: 10px;
       text-align: center;
     }

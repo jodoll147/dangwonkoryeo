@@ -73,7 +73,7 @@ const HomeContainer = styled.div`
                 margin-top: 20px;
                 width: 32px;
                 height: 16px;
-                
+                cursor: pointer;
             }
         }
     }

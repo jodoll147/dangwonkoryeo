@@ -4,19 +4,26 @@ import CafeListContainer from '../styled/CafeListContainer';
 import HashTag from '../styled/HashTag';
 
 const CafeList = () => {
-  return (
+  const [cafe, setCafe] = useState([
+    { img: cafeImg, name: 'sample카페명' },
+    { img: cafeImg, name: 'sample카페명' },
+  ]);
+
+  const cafeList = cafe.map(cafe => (
     <CafeListContainer>
       <section>
         <div className='box'>
-          <img src={cafeImg} alt='cafe_img' />
+          <img src={cafe.img} alt='cafe_img' />
           <div className='subBox'>
-            <div className='cafeName'>카페명</div>
+            <div className='cafeName'>{cafe.name}</div>
             <HashTag />
           </div>
         </div>
       </section>
     </CafeListContainer>
-  );
+  ));
+
+  return cafeList;
 };
 
 export default CafeList;

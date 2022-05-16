@@ -27,7 +27,7 @@ const App = () => {
         <Route path='/join' element={<Join />} />
         <Route path='/mypage' element={<MyPage />} />
         <Route path='/intro' element={<Intro />} />
-        <Route path='/notice' element={<Notice />} />
+        <Route path='/notice' element={<Notice />} />z
         <Route path='/find' element={<Find />} />
         <Route path='/notice/notices_write' element={<NoticeWrite />} />
         <Route path='/business' element={<Business />} />

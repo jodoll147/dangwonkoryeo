@@ -13,7 +13,7 @@ const HashTag = () => {
     padding-right: 10px;
   `;
 
-  const hashTag = ['해시태그', '아무거나', '그냥'];
+  const [hashTag, setHashTags] = useState(['sampe', 'data']);
   const hashList = hashTag.map(hash => <HashTagContainer>#{hash}</HashTagContainer>);
   return (
     <div className='hashBox'>
