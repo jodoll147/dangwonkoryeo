@@ -64,7 +64,6 @@ const Notice = () => {
             <div className='title'>제목</div>
             <div className='date'>날짜</div>
           </div>
-
           <WriteList />
         </div>
         <div className='writing'>
