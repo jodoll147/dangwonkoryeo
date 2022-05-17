@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import HomeContainer from '../styled/HomeContainer';
-import sample from '../img/sample.png';
+import banner from '../img/banner.png';
 import CafeList from '../RootView/CafeList';
 
 const Home = () => {
@@ -9,7 +9,9 @@ const Home = () => {
     <HomeContainer>
       <section>
         <div className='event_img'>
-          <img src={sample} alt='예제' />
+          <Link to={'/coffeeTI/first'}>
+            <img src={banner} alt='예제' />
+          </Link>
         </div>
         <div className='cafe_list'>
           <p>추천 카페</p>
