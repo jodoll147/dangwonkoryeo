@@ -6,19 +6,19 @@ import styled from 'styled-components';
 
 const HashTagContainer = styled.div`
   .hashTagBox {
-    position: relative;
-    float: right;
-    z-index: 1;
+    position: absolute;
+    z-index: 100;
     width: 500px;
-    height: 100%;
+    height: 100vh;
+    left: 438px;
     text-align: left;
     font-family: 'Cafe24';
     background: white;
     border: 1px solid #c4c4c4;
     .hashTitle {
       position: relative;
-      margin-top: 20px;
-      margin-left: 30px;
+      top: 20px;
+      left: 30px;
       font-family: 'Cafe24Bold';
       font-style: normal;
       font-weight: 700;
@@ -38,8 +38,8 @@ const HashTagContainer = styled.div`
         position: relative;
         display: flex;
         align-items: baseline;
-        margin-left: 30px;
-        margin-top: 10px;
+        left: 30px;
+        top: 10px;
         margin-bottom: 40px;
         .hash {
           position: relative;

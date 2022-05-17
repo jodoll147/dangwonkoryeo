@@ -1,5 +1,11 @@
+import intro from './img/intro.png';
+
 const Intro = () => {
-  return <div>소개글</div>;
+  return (
+    <div style={{ textAlign: 'center' }}>
+      <img src={intro} alt='intro' />
+    </div>
+  );
 };
 
 export default Intro;

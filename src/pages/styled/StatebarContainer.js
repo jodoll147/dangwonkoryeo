@@ -4,7 +4,7 @@ const HomeContainer = styled.div`
     section{
         position: relative;
         width: 940px;
-        height: 100vh: 
+        height: 100hv: 
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
@@ -17,7 +17,6 @@ const HomeContainer = styled.div`
             height: 70px;
             display: flex;
             background: rgba(78, 166, 166, 0.8);
-            
             .home{
                 position: relative;
                 margin-left: 50px;
@@ -26,6 +25,7 @@ const HomeContainer = styled.div`
                 font-weight: 400;
                 font-size: 20px;
                 line-height: 70px;
+
             }
             .intro{
                 position: relative;
