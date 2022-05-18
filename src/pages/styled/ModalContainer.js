@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 const ModalContainer = styled.div`
   section {
-    position: absolute;
+    position: fixed;
+    animation: modal-show 0.3s;
     width: 400px;
     height: 500px;
     background: white;

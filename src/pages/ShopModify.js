@@ -145,6 +145,11 @@ const ShopModify = () => {
   const [textValue, setTextValue] = useState('');
   const [hashTags, setHashTags] = useState([]);
 
+  const hashClick = () => {
+    console.log('yes');
+    return <HashTagModal />;
+  };
+
   const handleSetValue = e => {
     setTextValue(e.target.value);
   };
@@ -182,7 +187,7 @@ const ShopModify = () => {
           <div className='hash'>
             <p>해시태그</p>
             <HashTag items={hashTags} />
-            <input type={'button'} className='add' value={'추가'} />
+            <input type={'button'} className='add' value={'추가'} onClick={hashClick} />
           </div>
           <div className='imgBox'>
             <p>이미지</p>

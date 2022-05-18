@@ -5,7 +5,6 @@ const ShopModifyContainer = styled.div`
     position: relative;
     font-family: 'Cafe24';
     text-align: left;
-
     .title {
       position: relative;
       margin-top: 30px;
@@ -157,6 +156,7 @@ const ShopModifyContainer = styled.div`
           font-size: 16px;
           line-height: 30px;
           text-align: center;
+          cursor: pointer;
         }
       }
       .hash {
@@ -182,6 +182,7 @@ const ShopModifyContainer = styled.div`
           font-size: 16px;
           line-height: 30px;
           text-align: center;
+          cursor: pointer;
         }
       }
       .imgBox {
@@ -217,6 +218,7 @@ const ShopModifyContainer = styled.div`
         font-size: 16px;
         line-height: 30px;
         text-align: center;
+        cursor: pointer;
       }
     }
   }
