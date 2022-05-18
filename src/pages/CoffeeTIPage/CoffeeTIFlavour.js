@@ -7,6 +7,7 @@ const Flavour = styled.div`
   position: relative;
   display: line;
   top: 36px;
+  margin-bottom: 20px;
   width: 100px;
   height: 50px;
   background: rgba(166, 140, 118, 0.7);
@@ -17,9 +18,7 @@ const Flavour = styled.div`
   font-size: 16px;
   line-height: 50px;
   color: #f2f2f2;
-  :not(:disabled) {
-    cursor: pointer;
-  }
+  cursor: pointer;
 `;
 
 const CoffeeTIFlavour = () => {

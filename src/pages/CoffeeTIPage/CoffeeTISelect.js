@@ -3,12 +3,12 @@ import styled from 'styled-components';
 const Select = styled.div`
   .box {
     position: relative;
-    top: 65px;
-    left: 275px;
-    display: table;
+    display: flex;
+    margin-top: 100px;
+    margin-left: 190px;
     .weak {
       position: relative;
-      display: table-cell;
+      margin-top: 10px;
       font-family: 'NanumGothic';
       font-style: normal;
       font-weight: 400;
@@ -16,23 +16,22 @@ const Select = styled.div`
       line-height: 16px;
       color: black;
     }
-    .check {
+
+    label {
       position: relative;
       input {
         position: relative;
-        margin-left: 20px;
-        margin-right: 50px;
-        top: 40px;
-        display: table-cell;
+        margin-left: 38px;
+        margin-right: 38px;
         width: 30px;
         height: 30px;
         border: 3px solid black;
       }
     }
+
     .strong {
       position: relative;
-      left: -40px;
-      display: table-cell;
+      margin-top: 10px;
       font-family: 'NanumGothic';
       font-style: normal;
       font-weight: 400;
@@ -47,7 +46,7 @@ const CoffeeTISelect = () => {
   return (
     <Select>
       <div className='box'>
-        <p className='weak'>약</p>
+        <div className='weak'>약</div>
         <div className='check'>
           <label>
             <input type={'radio'} name='check' value={1} />
@@ -58,7 +57,7 @@ const CoffeeTISelect = () => {
           </label>
         </div>
 
-        <p className='strong'>강</p>
+        <div className='strong'>강</div>
       </div>
     </Select>
   );

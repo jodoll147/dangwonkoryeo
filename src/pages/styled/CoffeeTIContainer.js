@@ -32,6 +32,7 @@ const CoffeeTIContainer = styled.div`
       line-height: 60px;
       color: #f2f2f2;
     }
+
     .result {
       position: relative;
       left: 320px;
@@ -50,7 +51,7 @@ const CoffeeTIContainer = styled.div`
     .que {
       p {
         position: relative;
-        top: 30px;
+        margin-top: 30px;
         font-family: 'Cafe24';
         font-style: normal;
         font-weight: 700;
