@@ -9,7 +9,6 @@ const Flavour = styled.div`
   top: 36px;
   width: 100px;
   height: 50px;
-  margin-bottom: 15px;
   background: rgba(166, 140, 118, 0.7);
   border-radius: 10px;
   font-family: 'Cafe24';

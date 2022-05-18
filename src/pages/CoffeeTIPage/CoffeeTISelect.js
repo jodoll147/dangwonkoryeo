@@ -54,6 +54,7 @@ const CoffeeTISelect = () => {
             <input type={'radio'} name='check' value={2} />
             <input type={'radio'} name='check' value={3} />
             <input type={'radio'} name='check' value={4} />
+            <input type={'radio'} name='check' value={5} />
           </label>
         </div>
 
