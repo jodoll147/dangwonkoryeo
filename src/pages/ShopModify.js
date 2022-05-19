@@ -89,12 +89,10 @@ const ShopModify = () => {
 
   const hashClick = () => {
     setOnHashClick(true);
-    console.log('yes');
   };
 
   const closeClick = () => {
     setOnHashClick(false);
-    console.log('돼');
   };
 
   const handleSetValue = e => {
