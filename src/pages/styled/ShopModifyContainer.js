@@ -30,7 +30,7 @@ const ShopModifyContainer = styled.div`
     .shopModifyBox {
       position: relative;
       width: 940px;
-      height: 800px;
+      height: 1000px;
       border: 1px solid #f2f2f2;
       font-weight: 400;
       font-size: 14px;
@@ -187,24 +187,25 @@ const ShopModifyContainer = styled.div`
       }
       .imgBox {
         position: relative;
-        display: flex;
-        align-items: baseline;
         margin-top: 20px;
         margin-left: 30px;
         p {
           position: relative;
         }
-        .img {
+        img {
           position: relative;
+          width: 200px;
+          height: 200px;
         }
-        .upload {
+        input {
           position: relative;
+          margin-left: 20px;
         }
       }
-      .add {
+      .imgAdd {
         position: relative;
         float: right;
-        margin-bottom: 30px;
+        margin-top: 190px;
         margin-right: 30px;
         width: 50px;
         height: 30px;

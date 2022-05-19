@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import close from './img/close.png';
 import closeBlack from './img/closeBlack.png';
 import ModalContainer from './styled/ModalContainer';
+import shopImg from './img/shopImg.png';
 
 const HashTagDiv = styled.div`
 position: relative;
@@ -84,6 +85,7 @@ const ShopModify = () => {
   const [onHashClick, setOnHashClick] = useState(false);
   const flavours = ['견과류', '초콜릿', '꽃', '과일'];
   const flavourList = flavours.map(flavour => <Button>{flavour}</Button>);
+  const [fileImage, setFileImage] = useState(shopImg);
 
   const hashClick = () => {
     setOnHashClick(true);
@@ -101,6 +103,11 @@ const ShopModify = () => {
 
   const onRemove = name => {
     setHashTags(hashTags.filter(name => hashTags !== name));
+  };
+
+  // 이미지 파일 저장
+  const saveFileImage = e => {
+    setFileImage(URL.createObjectURL(e.target.files[0]));
   };
 
   const HashTag = () => {
@@ -220,10 +227,10 @@ const ShopModify = () => {
           </div>
           <div className='imgBox'>
             <p>이미지</p>
-            <div className='img'></div>
-            <div className='upload'>업로드</div>
+            <img alt='sample' src={fileImage} />
+            <input type={'file'} accept={'image/*'} onChange={saveFileImage} />
           </div>
-          <input type={'button'} className='add' value={'수정'} />
+          <div className='imgAdd'>수정</div>
         </div>
         {onHashClick ? <Modal /> : ''}
       </section>
