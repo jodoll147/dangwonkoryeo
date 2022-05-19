@@ -3,7 +3,11 @@ import styled from 'styled-components';
 const ModalContainer = styled.div`
   section {
     position: fixed;
-    animation: modal-show 0.3s;
+    top: 150px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
     width: 400px;
     height: 500px;
     background: white;
@@ -84,7 +88,7 @@ const ModalContainer = styled.div`
         .bodyBox {
           position: relative;
           margin-left: 20px;
-          .title {
+          .bodyTitle {
             position: relative;
             font-style: normal;
             font-weight: 700;
@@ -97,8 +101,7 @@ const ModalContainer = styled.div`
         .sourBox {
           position: relative;
           margin-left: 20px;
-          margin-top: 10px;
-          .title {
+          .sourTitle {
             position: relative;
             font-style: normal;
             font-weight: 700;

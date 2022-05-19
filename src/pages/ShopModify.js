@@ -60,20 +60,6 @@ const RadioContainer = styled.div`
   }
 `;
 
-const HashTag = props => {
-  const hashAdd = props.items;
-  const hashAddList = hashAdd.map(hash => (
-    <HashTagDiv>
-      <div className='hash'>
-        {hash}
-        <img src={close} alt='x' />
-      </div>
-    </HashTagDiv>
-  ));
-
-  return hashAddList;
-};
-
 const RadioBox = () => {
   return (
     <RadioContainer>
@@ -92,66 +78,109 @@ const RadioBox = () => {
   );
 };
 
-const HashTagModal = () => {
-  const flavours = ['견과류', '초콜릿', '꽃', '과일'];
-  const flavourList = flavours.map(flavour => <Button>{flavour}</Button>);
-
-  return (
-    <ModalContainer>
-      <section>
-        <div className='top'>
-          <div className='hashTitle'>해시태그 등록</div>
-          <img src={closeBlack} alt={'close'} />
-        </div>
-        <div className='hashBox'>
-          <div className='nameBox'>
-            <p>이름</p>
-            <input type={'text'} />
-            <select>
-              <option value={'원두'} select={'seletcted'}>
-                원두
-              </option>
-              <option value={'기타'}>기타</option>
-            </select>
-          </div>
-          <div className='coffeeSelectBox'>
-            <div className='bodyBox'>
-              <div className='title'>바디감</div>
-              <div className='radioBox'>
-                <RadioBox />
-              </div>
-            </div>
-            <div className='sourBox'>
-              <div className='title'>산미</div>
-              <div className='radioBox'>
-                <RadioBox />
-              </div>
-            </div>
-            <div className='flavourBox'>
-              <p>대표 향 (한 가지만 선택)</p>
-              <div className='flavour'>{flavourList}</div>
-            </div>
-          </div>
-          <div className='modifyBtn'>
-            <input type={'button'} value='추가' />
-          </div>
-        </div>
-      </section>
-    </ModalContainer>
-  );
-};
-
 const ShopModify = () => {
   const [textValue, setTextValue] = useState('');
   const [hashTags, setHashTags] = useState([]);
+  const [onHashClick, setOnHashClick] = useState(false);
+  const flavours = ['견과류', '초콜릿', '꽃', '과일'];
+  const flavourList = flavours.map(flavour => <Button>{flavour}</Button>);
 
   const hashClick = () => {
+    setOnHashClick(true);
     console.log('yes');
-    return <HashTagModal />;
+  };
+
+  const closeClick = () => {
+    setOnHashClick(false);
+    console.log('돼');
   };
 
   const handleSetValue = e => {
     setTextValue(e.target.value);
+  };
+
+  const onRemove = name => {
+    setHashTags(hashTags.filter(name => hashTags !== name));
+  };
+
+  const HashTag = () => {
+    const hashAddList = hashTags.map(hash => (
+      <HashTagDiv>
+        <div className='hash'>
+          {hash}
+          <img src={close} alt='x' onClick={console.log('df')} />
+        </div>
+      </HashTagDiv>
+    ));
+
+    return hashAddList;
+  };
+
+  const Modal = () => {
+    const selectList = ['원두', '기타'];
+    const [Selected, setSelected] = useState('');
+    const handleSelect = e => {
+      setSelected(e.target.value);
+    };
+    const [value, setValue] = useState('');
+
+    const onChange = e => {
+      setValue(e.target.value);
+    };
+
+    const onClick = () => {
+      setHashTags(p => p.concat(value));
+      setOnHashClick(false);
+    };
+
+    return (
+      <ModalContainer>
+        <section>
+          <div className='top'>
+            <div className='hashTitle'>해시태그 등록</div>
+            <img src={closeBlack} alt={'close'} onClick={closeClick} />
+          </div>
+          <div className='hashBox'>
+            <div className='nameBox'>
+              <p>이름</p>
+              <input type={'text'} name='name' onChange={onChange} />
+              <select onChange={handleSelect} value={Selected}>
+                {selectList.map(item => (
+                  <option value={item} key={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
+            </div>
+            {Selected === '원두' ? (
+              <div className='coffeeSelectBox'>
+                <div className='bodyBox'>
+                  <p className='bodyTitle'>바디감</p>
+                  <div className='radioBox'>
+                    <RadioBox />
+                  </div>
+                </div>
+                <div className='sourBox'>
+                  <p className='sourTitle'>산미</p>
+                  <div className='radioBox'>
+                    <RadioBox />
+                  </div>
+                </div>
+                <div className='flavourBox'>
+                  <p>대표 향 (한 가지만 선택)</p>
+                  <div className='flavour'>{flavourList}</div>
+                </div>
+              </div>
+            ) : (
+              ''
+            )}
+            <div className='modifyBtn'>
+              <input type={'button'} value='추가' onClick={onClick} />
+            </div>
+          </div>
+        </section>
+      </ModalContainer>
+    );
   };
 
   return (
@@ -196,6 +225,7 @@ const ShopModify = () => {
           </div>
           <input type={'button'} className='add' value={'수정'} />
         </div>
+        {onHashClick ? <Modal /> : ''}
       </section>
     </ShopModifyContainer>
   );
