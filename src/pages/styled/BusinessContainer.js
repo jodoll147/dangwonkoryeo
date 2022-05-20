@@ -73,6 +73,21 @@ const BusinessContainer = styled.div`
           line-height: 14px;
         }
       }
+      .saveButton {
+        position: relative;
+        width: 290px;
+        height: 54px;
+        margin-left: 325px;
+        margin-top: 30px;
+        background: #4ea6a6;
+        border-radius: 10px;
+        font-family: 'Cafe24Bold';
+        font-style: normal;
+        font-size: 20px;
+        line-height: 54px;
+        color: #f2f2f2;
+        cursor: pointer;
+      }
       .infoBox {
         position: relative;
         margin-top: 50px;

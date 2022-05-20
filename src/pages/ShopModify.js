@@ -1,4 +1,5 @@
 import React, { Component, useState } from 'react';
+import axios from 'axios';
 import ShopModifyContainer from './styled/ShopModifyContainer';
 import styled from 'styled-components';
 import close from './img/close.png';
@@ -87,6 +88,22 @@ const ShopModify = () => {
   const flavourList = flavours.map(flavour => <Button>{flavour}</Button>);
   const [fileImage, setFileImage] = useState(shopImg);
 
+  const [user, setUser] = useState(); // 결과값
+
+  /**
+   * 
+    const Shop = async () => {
+    try {
+      const response = await axios.get('http://127.0.0.1:8000/api/shop/?format=json');
+      setUser(response.data);
+    } catch (e) {
+      console.log('error');
+    }
+
+    return console.log(user.shop_name);
+  };
+   */
+
   const hashClick = () => {
     setOnHashClick(true);
   };
@@ -97,10 +114,6 @@ const ShopModify = () => {
 
   const handleSetValue = e => {
     setTextValue(e.target.value);
-  };
-
-  const onRemove = name => {
-    setHashTags(hashTags.filter(name => hashTags !== name));
   };
 
   // 이미지 파일 저장

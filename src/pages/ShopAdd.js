@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import BusinessContainer from './styled/BusinessContainer';
 
 const ShopAdd = () => {
-  const [files, setFiles] = useState('');
+  const [fileImage, setFileImage] = useState('');
 
-  const onLoadFile = e => {
-    const file = e.target.files;
-    setFiles(file);
+  // 이미지 파일 저장
+  const saveFileImage = e => {
+    setFileImage(URL.createObjectURL(e.target.files[0]));
   };
 
   return (
@@ -21,8 +21,9 @@ const ShopAdd = () => {
           </div>
           <div className='documentBox'>
             <p>사업자등록증</p>
-            <input type={'file'} accept='img/*' onChange={onLoadFile} />
+            <input type={'file'} accept='img/*' onChange={saveFileImage} />
           </div>
+          <div className='saveButton'>등록</div>
           <div className='infoBox'>
             <p>사업자 등록은 3~4일 정도 소요됩니다.</p>
             <p>
