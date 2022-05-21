@@ -3,8 +3,7 @@ import styled from 'styled-components';
 const HomeContainer = styled.div`
   section {
     position: relative;
-    text-align: center;
-
+    width: 940px;
     .event_img {
       position: relative;
       x-index: 300;

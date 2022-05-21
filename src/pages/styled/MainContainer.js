@@ -3,7 +3,8 @@ import styled from 'styled-components';
 const MainContainer = styled.div`
   section {
     position: relative;
-    margin-bottom: 200px;
+    margin: 0 auto;
+    width: 940px;
     text-align: center;
   }
 `;

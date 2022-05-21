@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const NoticeContainer = styled.div`
   section {
     position: relative;
+    width: 940px;
     margin-top: 20px;
     p {
       position: relative;

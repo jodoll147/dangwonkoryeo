@@ -6,7 +6,6 @@ const LoginContainer = styled.div`
     width: 940px;
     height: 400px;
     top: 20px;
-
     p {
       font-family: 'Cafe24Bold';
       font-style: normal;

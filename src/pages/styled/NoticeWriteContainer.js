@@ -3,7 +3,10 @@ import styled from 'styled-components';
 const NoticeWrtieContainer = styled.div`
   section {
     position: relative;
+    width: 940px;
     margin-top: 20px;
+    text-align: center;
+
     h1 {
       position: relative;
       padding-top: 20px;

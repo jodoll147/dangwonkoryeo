@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const JoinContainer = styled.div`
   section {
     position: relative;
+    width: 940px;
     font-family: 'Cafe24';
     font-size: 14px;
     line-height: 14px;

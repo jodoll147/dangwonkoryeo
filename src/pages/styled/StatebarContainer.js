@@ -4,7 +4,7 @@ const HomeContainer = styled.div`
     section{
         position: relative;
         width: 940px;
-        height: 100hv: 
+        height: 100vh: 
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
@@ -13,7 +13,7 @@ const HomeContainer = styled.div`
 
         .statebar{
             position: relative;
-            width: 100%;
+            width: 940px;
             height: 70px;
             display: flex;
             background: rgba(78, 166, 166, 0.8);

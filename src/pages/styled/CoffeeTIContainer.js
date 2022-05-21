@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const CoffeeTIContainer = styled.div`
   section {
+    position: relative;
     width: 940px;
     height: 400px;
     background: #f2f2f2;
