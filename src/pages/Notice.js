@@ -68,7 +68,7 @@ const Notice = () => {
         </div>
         <div className='writing'>
           <Link
-            to='/notice/notice_write'
+            to='/notice/noticeWrite'
             className='writeBtn'
             style={{ textDecoration: 'none', color: '#F2F2F2' }}
           >
