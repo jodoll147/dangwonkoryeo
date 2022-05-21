@@ -3,6 +3,8 @@ import { Link, Outlet } from 'react-router-dom';
 import StatebarContainer from '../styled/StatebarContainer';
 import hashTag from '../img/hashTag.png';
 import styled from 'styled-components';
+import MainContainer from '../styled/MainContainer';
+import BottomContainer from '../styled/BottomContainer';
 
 const HashTagContainer = styled.div`
   .hashTagBox {
@@ -189,7 +191,20 @@ const Home = () => {
         </section>
       </header>
       <main>
-        <Outlet />
+        <MainContainer>
+          <Outlet />
+        </MainContainer>
+        <BottomContainer>
+          <section>
+            <div className='bottomBox'>
+              <div className='textBox'>
+                <p>Since 2022</p>
+                <p>create by 김수진, 조윤지</p>
+                <p>문의사항은 instargram </p>
+              </div>
+            </div>
+          </section>
+        </BottomContainer>
       </main>
     </StatebarContainer>
   );
