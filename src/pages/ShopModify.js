@@ -1,5 +1,4 @@
-import React, { Component, useState } from 'react';
-import axios from 'axios';
+import React, { Component, useCallback, useState } from 'react';
 import ShopModifyContainer from './styled/ShopModifyContainer';
 import styled from 'styled-components';
 import close from './img/close.png';
@@ -13,7 +12,7 @@ margin-right: 10px;
   .hash {
     position: relative;
     padding-left: 5px;
-    height: 20px;
+    height: 30px;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -22,11 +21,12 @@ margin-right: 10px;
     color: #f2f2f2;
     img {
       position: relative;
-      padding-top: 5px;
-      padding-left: 5px;
+      padding-top: 10px;
+      padding-left: 10px;
       padding-right: 5px;
       width: 10px;
       height: 10px;
+      cursor: pointer;
     }
 `;
 
@@ -90,20 +90,6 @@ const ShopModify = () => {
 
   const [user, setUser] = useState(); // 결과값
 
-  /**
-   * 
-    const Shop = async () => {
-    try {
-      const response = await axios.get('http://127.0.0.1:8000/api/shop/?format=json');
-      setUser(response.data);
-    } catch (e) {
-      console.log('error');
-    }
-
-    return console.log(user.shop_name);
-  };
-   */
-
   const hashClick = () => {
     setOnHashClick(true);
   };
@@ -116,6 +102,13 @@ const ShopModify = () => {
     setTextValue(e.target.value);
   };
 
+  const onRemove = useCallback(
+    tag => {
+      setHashTags(hashTags.filter(t => t !== tag));
+    },
+    [hashTags],
+  );
+
   // 이미지 파일 저장
   const saveFileImage = e => {
     setFileImage(URL.createObjectURL(e.target.files[0]));
@@ -123,10 +116,10 @@ const ShopModify = () => {
 
   const HashTag = () => {
     const hashAddList = hashTags.map(hash => (
-      <HashTagDiv>
+      <HashTagDiv onClick={onRemove}>
         <div className='hash'>
           {hash}
-          <img src={close} alt='x' onClick={console.log('df')} />
+          <img src={close} alt='x' />
         </div>
       </HashTagDiv>
     ));

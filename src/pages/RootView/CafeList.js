@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getShopList } from '../../api/constant';
-import cafeImg from '../img/cafe_img.png';
+import cafeImg from '../img/cafeImg.png';
 import CafeListContainer from '../styled/CafeListContainer';
 import HashTag from '../styled/HashTag';
 
