@@ -9,7 +9,7 @@ const NoticeWrtieContainer = styled.div`
       padding-top: 20px;
       padding-left: 30px;
       padding-bottom: 20px;
-      font-family: 'NanumGothicExtraBold';
+      font-family: 'Cafe24Bold';
       font-style: normal;
       font-weight: 800;
       font-size: 18px;
@@ -25,6 +25,7 @@ const NoticeWrtieContainer = styled.div`
       left: 850px;
       background: #d2d9cc;
       border-radius: 10px;
+      cursor: pointer;
       p {
         position: relative;
         font-family: 'NanumGothicBold';
