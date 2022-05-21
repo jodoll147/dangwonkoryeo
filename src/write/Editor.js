@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Quill from 'quill';
 import 'quill/dist/quill.bubble.css';
 import Responsive from '../pages/styled/Responsive';
@@ -42,7 +42,17 @@ const Editor = () => {
   const quillElement = useRef(null);
   const quillInstance = useRef(null);
 
-  const limit = 1000;
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+
+  const inputTitle = e => {
+    setTitle(e.target.value);
+    console.log(title);
+  };
+
+  const inputContent = e => {
+    setContent(e.target.value);
+  };
 
   useEffect(() => {
     quillInstance.current = new Quill(quillElement.current, {
@@ -62,9 +72,9 @@ const Editor = () => {
   return (
     <Responsive>
       <EditorBlock>
-        <TitleInput placeholder='제목을 입력하세요.' />
+        <TitleInput placeholder='제목을 입력하세요.' onChange={inputTitle} />
         <QuillWrapper>
-          <div ref={quillElement} />
+          <div ref={quillElement} onChange={inputContent} />
         </QuillWrapper>
       </EditorBlock>
     </Responsive>
