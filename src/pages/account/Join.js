@@ -1,4 +1,4 @@
-import JoinContainer from './styled/JoinContainer';
+import JoinContainer from '../styled/JoinContainer';
 
 const Join = () => {
   return (

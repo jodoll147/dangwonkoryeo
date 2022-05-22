@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import BusinessContainer from './styled/BusinessContainer';
+import BusinessContainer from '../styled/BusinessContainer';
 
 const ShopAdd = () => {
   const [fileImage, setFileImage] = useState('');

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import BusinessContainer from './styled/BusinessContainer';
+import BusinessContainer from '../styled/BusinessContainer';
 
 const CafeListContainer = styled.div`
   position: relative;

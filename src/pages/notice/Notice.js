@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import NoticeContainer from './styled/NoticeContainer';
+import NoticeContainer from '../styled/NoticeContainer';
 
 const NoticeBox = styled.div`
   position: relatvie;

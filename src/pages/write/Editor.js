@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Quill from 'quill';
 import 'quill/dist/quill.bubble.css';
-import Responsive from '../pages/styled/Responsive';
+import Responsive from './Responsive';
 import styled from 'styled-components';
 
 const EditorBlock = styled(Responsive)`
   padding-top: 40px;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.5rem;S
   padding-left: 20px;
   padding-right: 20px;
   width: 940dpx;

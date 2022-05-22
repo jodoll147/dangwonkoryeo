@@ -1,6 +1,5 @@
-import styled from 'styled-components';
 import React from 'react';
-import FindContainer from './styled/FindContainer';
+import FindContainer from '../styled/FindContainer';
 
 const Find = () => {
   return (

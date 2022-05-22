@@ -1,4 +1,4 @@
-import LoginContainer from './styled/LoginContainer';
+import LoginContainer from '../styled/LoginContainer';
 import { Link } from 'react-router-dom';
 
 const Login = () => {

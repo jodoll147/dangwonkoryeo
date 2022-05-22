@@ -1,4 +1,4 @@
-import intro from './img/intro.png';
+import intro from '../img/intro.png';
 
 const Intro = () => {
   return (

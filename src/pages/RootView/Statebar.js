@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import StatebarContainer from '../styled/StatebarContainer';
-import hashTag from '../img/hashTag.png';
 import styled from 'styled-components';
 import MainContainer from '../styled/MainContainer';
 import BottomContainer from '../styled/BottomContainer';
+import StatebarContainer from '../styled/StatebarContainer';
+import hashTag from '../img/hashTag.png';
 
 const HashTagContainer = styled.div`
   .hashTagBox {

@@ -1,21 +1,21 @@
 import { Route, Routes } from 'react-router-dom';
-import Statebar from './pages/RootView/Statebar';
-import Home from './pages/RootView/Home';
-import Login from './pages/Login';
-import Join from './pages/Join';
-import MyPage from './pages/MyPage';
-import Intro from './pages/Intro';
-import Notice from './pages/Notice';
-import Find from './pages/Find';
-import NoticeWrite from './pages/NoticeWrite';
-import Business from './pages/Business';
-import ShopAdd from './pages/ShopAdd';
-import CoffeeTIFlavour from './pages/CoffeeTIPage/CoffeeTIFlavour';
-import CoffeeTIFirst from './pages/CoffeeTIPage/CoffeeTIFirst';
-import CoffeeTIResult from './pages/CoffeeTIPage/CoffeeTIResult';
-import CoffeeTIBody from './pages/CoffeeTIPage/CoffeeTIBody';
-import CoffeeTISour from './pages/CoffeeTIPage/CoffeeTISour';
-import ShopModify from './pages/ShopModify';
+import Statebar from './pages/rootView/Statebar';
+import Intro from './pages/rootView/Intro';
+import Home from './pages/rootView/Home';
+import Login from './pages/account/Login';
+import Join from './pages/account/Join';
+import MyPage from './pages/account/MyPage';
+import Find from './pages/account/Find';
+import Notice from './pages/notice/Notice';
+import NoticeWrite from './pages/notice/NoticeWrite';
+import Business from './pages/business/Business';
+import ShopAdd from './pages/business/ShopAdd';
+import CoffeeTIFlavour from './pages/coffeeTI/CoffeeTIFlavour';
+import CoffeeTIFirst from './pages/coffeeTI/CoffeeTIFirst';
+import CoffeeTIResult from './pages/coffeeTI/CoffeeTIResult';
+import CoffeeTIBody from './pages/coffeeTI/CoffeeTIBody';
+import CoffeeTISour from './pages/coffeeTI/CoffeeTISour';
+import ShopModify from './pages/business/ShopModify';
 
 const App = () => {
   return (

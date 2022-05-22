@@ -1,10 +1,10 @@
-import React, { Component, useCallback, useState } from 'react';
-import ShopModifyContainer from './styled/ShopModifyContainer';
+import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import close from './img/close.png';
-import closeBlack from './img/closeBlack.png';
-import ModalContainer from './styled/ModalContainer';
-import shopImg from './img/shopImg.png';
+import ShopModifyContainer from '../styled/ShopModifyContainer';
+import ModalContainer from '../styled/ModalContainer';
+import close from '../img/close.png';
+import closeBlack from '../img/closeBlack.png';
+import shopImg from '../img/shopImg.png';
 
 const HashTagDiv = styled.div`
 position: relative;

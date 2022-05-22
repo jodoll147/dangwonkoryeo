@@ -1,7 +1,7 @@
-import NoticeWrtieContainerContainer from './styled/NoticeWriteContainer';
-import Responsive from './styled/Responsive';
+import NoticeWrtieContainerContainer from '../styled/NoticeWriteContainer';
+import Responsive from '../write/Responsive';
 import Editor from '../write/Editor';
-import { useState } from 'react';
+
 const NoticeWrite = () => {
   return (
     <Responsive>
