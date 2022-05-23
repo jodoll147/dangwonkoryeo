@@ -1,17 +1,43 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
 import HomeContainer from '../styled/HomeContainer';
-import banner from '../img/banner.png';
+import coffeeTI from '../img/coffeeTIBanner.png';
+import dangwonkeoyeo from '../img/dangwonkeoyeoBanner.png';
 import CafeList from '../rootView/CafeList';
 
+const Slide = () => {
+  const setting = {
+    dots: true, // 캐러셀이미지가 몇번째인지 알려주는 점을 보여줄지 정한다.
+    infinite: true, // loop를 만들지(마지막 이미지-처음 이미지-중간 이미지들-마지막 이미지)
+    speed: 500, // 애미메이션의 속도, 단위는 milliseconds
+    slidesToShow: 1, // 한번에 몇개의 슬라이드를 보여줄 지
+    slidesToScroll: 1, // 한번 스크롤시 몇장의 슬라이드를 넘길지
+  };
+
+  return (
+    <Slider {...setting}>
+      <div>
+        <Link to='/'>
+          <img src={dangwonkeoyeo} alt='dangwonkeoyeo' />
+        </Link>
+      </div>
+      <div>
+        <Link to={'/coffeeTI/first'}>
+          <img src={coffeeTI} alt='coffeeTI' />
+        </Link>
+      </div>
+    </Slider>
+  );
+};
 const Home = () => {
   return (
     <HomeContainer>
       <section>
         <div className='event_img'>
-          <Link to={'/coffeeTI/first'}>
-            <img src={banner} alt='예제' />
-          </Link>
+          <Slide />
         </div>
         <div className='cafe_list'>
           <p>추천 카페</p>
