@@ -75,6 +75,11 @@ const HomeContainer = styled.div`
                 height: 16px;
                 cursor: pointer;
             }
+            img{
+                position: relative;
+                width: 40px;
+                height: 25px;
+            }
         }
     }
 

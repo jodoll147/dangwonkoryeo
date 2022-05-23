@@ -5,6 +5,7 @@ import MainContainer from '../styled/MainContainer';
 import BottomContainer from '../styled/BottomContainer';
 import StatebarContainer from '../styled/StatebarContainer';
 import hashTag from '../img/hashTag.png';
+import hashTaghover from '../img/hashTagHover.png';
 
 const HashTagContainer = styled.div`
   .hashTagBox {
@@ -138,7 +139,7 @@ const HashFillter = () => {
 // 가장 먼저 보여지는 페이지
 const Home = () => {
   const [onClick, setOnClick] = useState(false);
-  const [hover, setHover] = useState(false);
+  const [hover, setHover] = useState(hashTag);
   const [hoverIndex, setHoverIndex] = useState(null);
 
   const onClickEvent = () => {
@@ -190,7 +191,7 @@ const Home = () => {
         <section>
           <div className='statebar'>
             <div className='home'>
-              <Link to='/home' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
+              <Link to='/dangwonkeoyeo' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
                 당원커여
               </Link>
             </div>
@@ -215,7 +216,13 @@ const Home = () => {
             })}
 
             <div className='hash'>
-              <img src={hashTag} alt='hashTag' onClick={onClickEvent} />
+              <img
+                src={hover}
+                alt='hashTag'
+                onClick={onClickEvent}
+                onMouseOver={() => setHover(hashTaghover)}
+                onMouseLeave={() => setHover(hashTag)}
+              />
             </div>
           </div>
           {onClick ? <HashFillter key={'hashtagFilter'} /> : null}

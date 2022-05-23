@@ -21,7 +21,7 @@ const CoffeeTIResult = () => {
         <CoffeeTI>{coffeeTI}</CoffeeTI>
         <img src={coffeeTI_img} alt='커피티아이 img' />
         <div className='nextButton'>
-          <Link to='/home' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
+          <Link to='/dangwonkeoyeo' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
             돌아가기
           </Link>
         </div>

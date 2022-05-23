@@ -22,16 +22,16 @@ const App = () => {
   return (
     <Routes>
       <Route path='/' element={<Statebar />}>
-        <Route path='/home' element={<Home />} />
+        <Route path='/dangwonkeoyeo' element={<Home />} />
         <Route path='/landmark' element={<LandMark />} />
         <Route path='/mypage' element={<MyPage />} />
         <Route path='/login' element={<Login />} />
         <Route path='/join' element={<Join />} />
         <Route path='/mypage' element={<MyPage />} />
         <Route path='/intro' element={<Intro />} />
-        <Route path='/notice' element={<Notice />} />z
-        <Route path='/find' element={<Find />} />
+        <Route path='/notice' element={<Notice />} />
         <Route path='/notice/noticeWrite' element={<NoticeWrite />} />
+        <Route path='/find' element={<Find />} />
         <Route path='/business' element={<Business />} />
         <Route path='/shopadd' element={<ShopAdd />} />
         <Route path='/shopmodify' element={<ShopModify />} />
