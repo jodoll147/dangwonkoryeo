@@ -138,10 +138,51 @@ const HashFillter = () => {
 // 가장 먼저 보여지는 페이지
 const Home = () => {
   const [onClick, setOnClick] = useState(false);
+  const [hover, setHover] = useState(false);
+  const [hoverIndex, setHoverIndex] = useState(null);
+
   const onClickEvent = () => {
     setOnClick(!onClick);
     return false;
   };
+
+  const mouseOverEvent = index => {
+    setHoverIndex(index);
+    // setHover(true);
+  };
+
+  const mouseLeaveEvent = index => {
+    setHoverIndex(p => (p === index ? null : p));
+    // setHover(false);
+  };
+
+  const menuItems = [
+    {
+      className: 'intro',
+      linkTo: '/intro',
+      text: '당원커여 소개',
+    },
+    {
+      className: 'coffeeTI',
+      linkTo: '/coffeeTI/first',
+      text: '커피티아이',
+    },
+    {
+      className: 'notice',
+      linkTo: '/notice',
+      text: '공지사항',
+    },
+    {
+      className: 'login',
+      linkTo: '/login',
+      text: 'LOGIN',
+    },
+    {
+      className: 'join',
+      linkTo: '/join',
+      text: 'JOIN',
+    },
+  ];
 
   return (
     <StatebarContainer>
@@ -154,40 +195,30 @@ const Home = () => {
               </Link>
             </div>
 
-            <div className='intro'>
-              <Link to='/intro' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
-                당원커여 소개
-              </Link>
-            </div>
+            {menuItems.map((v, i) => {
+              return (
+                <div className={v.className}>
+                  <Link
+                    key={i}
+                    to={v.linkTo}
+                    style={{
+                      textDecoration: 'none',
+                      color: hoverIndex === i ? '#CCD9D9' : '#F2F2F2',
+                    }}
+                    onMouseOver={() => mouseOverEvent(i)}
+                    onMouseLeave={() => mouseLeaveEvent(i)}
+                  >
+                    {v.text}
+                  </Link>
+                </div>
+              );
+            })}
 
-            <div className='coffeeTI'>
-              <Link to='/coffeeTI/first' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
-                커피티아이
-              </Link>
-            </div>
-
-            <div className='notice'>
-              <Link to='/notice' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
-                공지사항
-              </Link>
-            </div>
-
-            <div className='login'>
-              <Link to='/login' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
-                LOGIN
-              </Link>
-            </div>
-
-            <div className='join'>
-              <Link to='/join' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
-                JOIN
-              </Link>
-            </div>
             <div className='hash'>
               <img src={hashTag} alt='hashTag' onClick={onClickEvent} />
             </div>
           </div>
-          {onClick ? <HashFillter /> : null}
+          {onClick ? <HashFillter key={'hashtagFilter'} /> : null}
         </section>
       </header>
       <main>
