@@ -14,6 +14,8 @@ const HomeContainer = styled.div`
     }
 
     .cafe_list {
+      position: relative;
+      top: 30px;
       p {
         font-family: 'Cafe24Bold';
         position: relative;
