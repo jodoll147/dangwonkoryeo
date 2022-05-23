@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import Statebar from './pages/rootView/Statebar';
 import Intro from './pages/rootView/Intro';
 import Home from './pages/rootView/Home';
+import LandMark from './pages/rootView/LandMark';
 import Login from './pages/account/Login';
 import Join from './pages/account/Join';
 import MyPage from './pages/account/MyPage';
@@ -22,6 +23,7 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Statebar />}>
         <Route path='/home' element={<Home />} />
+        <Route path='/landmark' element={<LandMark />} />
         <Route path='/mypage' element={<MyPage />} />
         <Route path='/login' element={<Login />} />
         <Route path='/join' element={<Join />} />
