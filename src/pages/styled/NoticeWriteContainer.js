@@ -26,12 +26,11 @@ const NoticeWrtieContainer = styled.div`
       height: 35px;
       top: 25px;
       left: 850px;
-      background: #d2d9cc;
       border-radius: 10px;
       cursor: pointer;
       p {
         position: relative;
-        font-family: 'NanumGothicBold';
+        font-family: 'Cafe24Bold';
         font-style: normal;
         font-weight: 700;
         font-size: 16px;

@@ -24,7 +24,6 @@ const CoffeeTIContainer = styled.div`
       width: 300px;
       height: 60px;
       display: block;
-      background: rgba(166, 140, 118, 0.5);
       border-radius: 20px;
       font-family: 'Cafe24';
       font-style: normal;
@@ -40,7 +39,6 @@ const CoffeeTIContainer = styled.div`
       width: 300px;
       height: 60px;
       display: block;
-      background: rgba(78, 166, 166, 0.7);
       border-radius: 20px;
       font-family: 'Cafe24';
       font-style: normal;

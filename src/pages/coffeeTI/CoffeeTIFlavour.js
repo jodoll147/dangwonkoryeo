@@ -22,6 +22,7 @@ const Flavour = styled.div`
 `;
 
 const CoffeeTIFlavour = () => {
+  const [hover, setHover] = useState('#CCD9D9');
   const [clickList, setClickList] = useState({ background: '' });
   const checkedList = ['견과류', '과일', '초콜릿', '꽃'];
   const list = checkedList.map(checklist => <Flavour>{checklist}</Flavour>);
@@ -35,7 +36,12 @@ const CoffeeTIFlavour = () => {
         </div>
         <div className='flavour'>{list}</div>
 
-        <div className='nextButton'>
+        <div
+          className='nextButton'
+          style={{ background: hover }}
+          onMouseOver={() => setHover('#4EA6A6')}
+          onMouseLeave={() => setHover('#CCD9D9')}
+        >
           <Link to='/coffeeTI/result' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
             다음
           </Link>

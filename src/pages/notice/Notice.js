@@ -55,6 +55,8 @@ const WriteList = () => {
 };
 
 const Notice = () => {
+  const [hover, setHover] = useState('#CCD9D9');
+
   return (
     <NoticeContainer>
       <section>
@@ -66,7 +68,12 @@ const Notice = () => {
           </div>
           <WriteList />
         </div>
-        <div className='writing'>
+        <div
+          className='writing'
+          style={{ background: hover }}
+          onMouseOver={() => setHover('#4EA6A6')}
+          onMouseLeave={() => setHover('#CCD9D9')}
+        >
           <Link
             to='/notice/noticeWrite'
             className='writeBtn'

@@ -67,13 +67,13 @@ const JoinContainer = styled.div`
           position: relative;
           width: 55px;
           height: 20px;
-          background: #4ea6a6;
           border-radius: 5px;
           border: #4ea6a6;
           font-size: 12px;
           line-height: 20px;
           color: #f2f2f2;
           text-align: center;
+          cursor: pointer;
         }
       }
       .pwd {
@@ -144,9 +144,9 @@ const JoinContainer = styled.div`
         font-size: 16px;
         line-height: 40px;
         color: #f2f2f2;
-        background: #d2d9cc;
         border-radius: 10px;
         text-align: center;
+        cursor: pointer;
       }
     }
   }

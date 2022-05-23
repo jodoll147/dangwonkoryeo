@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -7,6 +7,7 @@ import HomeContainer from '../styled/HomeContainer';
 import coffeeTI from '../img/coffeeTIBanner.png';
 import dangwonkeoyeo from '../img/dangwonkeoyeoBanner.png';
 import CafeList from '../rootView/CafeList';
+import { hover } from '@testing-library/user-event/dist/hover';
 
 const Slide = () => {
   const setting = {
@@ -32,7 +33,10 @@ const Slide = () => {
     </Slider>
   );
 };
+
 const Home = () => {
+  const [hover, setHover] = useState('#4ea6a6');
+
   return (
     <HomeContainer>
       <section>
@@ -43,7 +47,12 @@ const Home = () => {
           <p>추천 카페</p>
           <CafeList />
         </div>
-        <div className='landmarkBtn'>
+        <div
+          className='landmarkBtn'
+          style={{ background: hover }}
+          onMouseOver={() => setHover('#377575')}
+          onMouseLeave={() => setHover('#4ea6a6')}
+        >
           <Link to='/landmark' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
             더보기
           </Link>
