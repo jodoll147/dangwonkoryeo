@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import HomeContainer from '../styled/HomeContainer';
 import banner from '../img/banner.png';
 import CafeList from '../rootView/CafeList';
@@ -16,6 +16,11 @@ const Home = () => {
         <div className='cafe_list'>
           <p>추천 카페</p>
           <CafeList />
+        </div>
+        <div className='landmarkBtn'>
+          <Link to='/landmark' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
+            더보기
+          </Link>
         </div>
       </section>
     </HomeContainer>

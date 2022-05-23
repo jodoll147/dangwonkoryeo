@@ -26,6 +26,17 @@ const HomeContainer = styled.div`
         text-align: left;
       }
     }
+
+    .landmarkBtn {
+      position: relative;
+      float: right;
+      width: 60px;
+      height: 35px;
+      background: #4ea6a6;
+      border-radius: 10px;
+      font-family: 'Cafe24Bold';
+      line-height: 35px;
+    }
   }
 `;
 

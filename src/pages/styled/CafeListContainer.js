@@ -20,6 +20,8 @@ const CafeListContainer = styled.div`
 
       img {
         position: relative;
+        width: 200px;
+        height: 200px;
         top: 20px;
         float: left;
       }
