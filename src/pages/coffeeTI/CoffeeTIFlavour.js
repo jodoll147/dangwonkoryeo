@@ -37,7 +37,7 @@ const CoffeeTIFlavour = () => {
         <div className='que'>
           <p>원하는 향을 한 가지 선택해주세요.</p>
         </div>
-        <div className='flavour' value=''>
+        <div className='flavour'>
           {checkedList.map((flavours, i) => (
             <Flavour
               style={{

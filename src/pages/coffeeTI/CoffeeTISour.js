@@ -3,7 +3,7 @@ import { useState } from 'react';
 import CoffeeTIContainer from '../styled/CoffeeTIContainer';
 import CoffeeTISelect from './CoffeeTISelect';
 
-const CoffeeTIBody = () => {
+const CoffeeTISour = () => {
   const [hover, setHover] = useState('#CCD9D9');
 
   return (
@@ -29,4 +29,4 @@ const CoffeeTIBody = () => {
   );
 };
 
-export default CoffeeTIBody;
+export default CoffeeTISour;

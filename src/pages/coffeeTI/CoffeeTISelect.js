@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 const Select = styled.div`
@@ -43,20 +44,20 @@ const Select = styled.div`
 `;
 
 const CoffeeTISelect = () => {
+  const [selectValue, setSelectValue] = useState(null);
+  const value = [1, 2, 3, 4, 5];
+
   return (
     <Select>
       <div className='box'>
         <div className='weak'>약</div>
         <div className='check'>
           <label>
-            <input type={'radio'} name='check' value={1} />
-            <input type={'radio'} name='check' value={2} />
-            <input type={'radio'} name='check' value={3} />
-            <input type={'radio'} name='check' value={4} />
-            <input type={'radio'} name='check' value={5} />
+            {value.map(v => (
+              <input type={'radio'} name='check' value={v} onClick={() => setSelectValue(v)} />
+            ))}
           </label>
         </div>
-
         <div className='strong'>강</div>
       </div>
     </Select>

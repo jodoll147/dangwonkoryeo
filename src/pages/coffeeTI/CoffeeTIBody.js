@@ -25,6 +25,7 @@ const CoffeeTIBody = () => {
           </Link>
         </div>
       </section>
+      {console.log(CoffeeTISelect.valueResult)}
     </CoffeeTIContainer>
   );
 };
