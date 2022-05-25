@@ -23,9 +23,12 @@ const Flavour = styled.div`
 
 const CoffeeTIFlavour = () => {
   const [hover, setHover] = useState('#CCD9D9');
-  const [clickList, setClickList] = useState({ background: '' });
+  const [click, setClick] = useState(null);
   const checkedList = ['견과류', '과일', '초콜릿', '꽃'];
-  const list = checkedList.map(checklist => <Flavour>{checklist}</Flavour>);
+
+  const onClickEvent = index => {
+    setClick(index);
+  };
 
   return (
     <CoffeeTIContainer>
@@ -34,7 +37,18 @@ const CoffeeTIFlavour = () => {
         <div className='que'>
           <p>원하는 향을 한 가지 선택해주세요.</p>
         </div>
-        <div className='flavour'>{list}</div>
+        <div className='flavour' value=''>
+          {checkedList.map((flavours, i) => (
+            <Flavour
+              style={{
+                background: click === i ? '#594031' : 'rgba(166, 140, 118, 0.7)',
+              }}
+              onClick={() => onClickEvent(i)}
+            >
+              {flavours}
+            </Flavour>
+          ))}
+        </div>
 
         <div
           className='nextButton'

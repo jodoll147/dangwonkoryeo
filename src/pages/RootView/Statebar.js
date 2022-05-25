@@ -149,12 +149,10 @@ const Home = () => {
 
   const mouseOverEvent = index => {
     setHoverIndex(index);
-    // setHover(true);
   };
 
   const mouseLeaveEvent = index => {
     setHoverIndex(p => (p === index ? null : p));
-    // setHover(false);
   };
 
   const menuItems = [
