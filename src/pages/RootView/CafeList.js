@@ -5,7 +5,7 @@ import HashTag from '../styled/HashTag';
 
 const CafeList = () => {
   const [cafe, setCafe] = useState([{ img: '', name: '', add: '' }]);
-  const imgPath = `../img/cafeImg/`;
+  const imgPath = `img/cafeImg/`;
 
   useEffect(() => {
     getShopList().then(res => {
