@@ -4,7 +4,7 @@ import { getPost } from '../../api/constant';
 import NoticeContainer from '../styled/NoticeContainer';
 import { format } from 'date-fns';
 
-const NoticeContent = props => {
+const NoticeContent = () => {
   const [searchParams] = useSearchParams();
   const [noticeContent, setNoticeContent] = useState({ title: '', date: '', content: '' });
   const id = +searchParams.get('id');

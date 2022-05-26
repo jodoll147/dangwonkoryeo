@@ -64,7 +64,7 @@ const WriteList = () => {
           {v.title}
         </Link>
       </div>
-      <div className='date'>{v.date}</div>
+      <div className='date'>{format(new Date(v.date || 0), 'yyyy년 MM월 dd일')}</div>
     </NoticeBox>
   ));
 

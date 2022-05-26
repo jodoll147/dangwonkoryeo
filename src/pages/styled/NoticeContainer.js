@@ -65,6 +65,43 @@ const NoticeContainer = styled.div`
       font-family: 'Cafe24Bold';
       line-height: 35px;
     }
+
+    .contentBox {
+      position: relative;
+      font-family: 'Cafe24';
+      p {
+        position: relative;
+        font-family: 'Cafe24Bold';
+      }
+      .titleBox {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+
+        .title {
+          position: relative;
+          margin-top: 20px;
+          margin-left: 30px;
+          margin-right: 60px;
+          font-family: 'Cafe24Bold';
+          font-size: 16px;
+        }
+
+        .date {
+          position: relative;
+          font-size: 12px;
+        }
+      }
+      .content {
+        position: relative;
+        margin-top: 60px;
+        pre {
+          position: relative;
+          font-family: 'Cafe24';
+          font-size: 14px;
+        }
+      }
+    }
   }
 `;
 

@@ -17,6 +17,7 @@ import CoffeeTIResult from './pages/coffeeTI/CoffeeTIResult';
 import CoffeeTIBody from './pages/coffeeTI/CoffeeTIBody';
 import CoffeeTISour from './pages/coffeeTI/CoffeeTISour';
 import ShopModify from './pages/business/ShopModify';
+import NoticeContent from './pages/notice/NoticeContent';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path='/mypage' element={<MyPage />} />
         <Route path='/intro' element={<Intro />} />
         <Route path='/notice' element={<Notice />} />
+        <Route path='/notice/content' element={<NoticeContent />} />
         <Route path='/notice/noticeWrite' element={<NoticeWrite />} />
         <Route path='/find' element={<Find />} />
         <Route path='/business' element={<Business />} />
