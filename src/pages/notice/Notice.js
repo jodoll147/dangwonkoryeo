@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import NoticeContainer from '../styled/NoticeContainer';
+import { getPost } from '../../api/constant';
 
 const NoticeBox = styled.div`
   position: relatvie;
@@ -37,17 +38,27 @@ const NoticeBox = styled.div`
 `;
 
 const WriteList = () => {
-  const [notice, setNotice] = useState([
-    { title: '이거시거늘', date: '22/05/14' },
-    { title: '촉촉슬림화장솜', date: '22/05/14' },
-    { title: '이 가게 저 가게 다니면서 라면을 보았네', date: '22/05/14' },
-    { title: '와 라면', date: '22/05/14' },
-  ]);
+  const [notice, setNotice] = useState([{ title: '', date: '' }]);
 
-  const noticeList = notice.map(temp => (
+  useEffect(() => {
+    getPost().then(res => {
+      if (res) {
+        setNotice(
+          res.map(v => {
+            return {
+              title: v.title,
+              date: v.updated_at,
+            };
+          }),
+        );
+      }
+    });
+  });
+
+  const noticeList = notice.map(write => (
     <NoticeBox>
-      <div className='title'>{temp.title}</div>
-      <div className='date'>{temp.date}</div>
+      <div className='title'>{write.title}</div>
+      <div className='date'>{write.date}</div>
     </NoticeBox>
   ));
 
