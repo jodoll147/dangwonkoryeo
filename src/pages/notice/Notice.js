@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import NoticeContainer from '../styled/NoticeContainer';
 import { getPost } from '../../api/constant';
+import { format } from 'date-fns';
 
 const NoticeBox = styled.div`
   position: relatvie;
@@ -38,7 +39,7 @@ const NoticeBox = styled.div`
 `;
 
 const WriteList = () => {
-  const [notice, setNotice] = useState([{ title: '', date: '' }]);
+  const [notice, setNotice] = useState([{ id: null, title: '', date: '' }]);
 
   useEffect(() => {
     getPost().then(res => {
@@ -46,6 +47,7 @@ const WriteList = () => {
         setNotice(
           res.map(v => {
             return {
+              id: v.id,
               title: v.title,
               date: v.updated_at,
             };
@@ -53,12 +55,16 @@ const WriteList = () => {
         );
       }
     });
-  });
+  }, []);
 
-  const noticeList = notice.map(write => (
+  const noticeList = notice.map(v => (
     <NoticeBox>
-      <div className='title'>{write.title}</div>
-      <div className='date'>{write.date}</div>
+      <div className='title'>
+        <Link to={`/notice/content?id=${v.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+          {v.title}
+        </Link>
+      </div>
+      <div className='date'>{v.date}</div>
     </NoticeBox>
   ));
 
