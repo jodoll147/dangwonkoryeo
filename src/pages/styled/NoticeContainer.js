@@ -80,26 +80,40 @@ const NoticeContainer = styled.div`
 
         .title {
           position: relative;
-          margin-top: 20px;
+          margin-top: 35px;
           margin-left: 30px;
+          margin-bottom: 15px;
           margin-right: 60px;
           font-family: 'Cafe24Bold';
           font-size: 16px;
         }
-
-        .date {
-          position: relative;
-          font-size: 12px;
-        }
       }
       .content {
         position: relative;
-        margin-top: 60px;
         pre {
           position: relative;
           font-family: 'Cafe24';
           font-size: 14px;
         }
+      }
+      .date {
+        position: relative;
+        float: left;
+        margin-top: 10px;
+        margin-left: 30px;
+        font-size: 12px;
+      }
+      .back {
+        position: relative;
+        width: 60px;
+        height: 35px;
+        margin-top: 60px;
+        margin-right: 30px;
+        float: right;
+        font-family: 'Cafe24Bold';
+        line-height: 35px;
+        background: #ccd9d9;
+        border-radius: 10px;
       }
     }
   }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom';
 import { getPost } from '../../api/constant';
 import NoticeContainer from '../styled/NoticeContainer';
@@ -36,12 +37,21 @@ const NoticeContent = () => {
           <p>공지사항</p>
           <div className='titleBox'>
             <div className='title'>{noticeContent.title}</div>
-            <div className='date'>
-              {format(new Date(noticeContent.date || 0), 'yyyy년 MM월 dd일')}
-            </div>
           </div>
           <div className='content'>
             <pre>{noticeContent.content}</pre>
+          </div>
+          <div className='date'>
+            {format(new Date(noticeContent.date || 0), 'yyyy년 MM월 dd일')}
+          </div>
+          <div className='back'>
+            <Link
+              to='/notice'
+              className='writeBtn'
+              style={{ textDecoration: 'none', color: '#F2F2F2' }}
+            >
+              목록
+            </Link>
           </div>
         </div>
       </section>
