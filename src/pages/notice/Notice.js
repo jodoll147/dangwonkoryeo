@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import NoticeContainer from '../styled/NoticeContainer';
 import { getPost } from '../../api/constant';
 import { format } from 'date-fns';
-
+import { postPost } from '../../api/constant';
 const NoticeBox = styled.div`
   position: relatvie;
   display: flex;
@@ -76,6 +76,7 @@ const Notice = () => {
 
   return (
     <NoticeContainer>
+      {postPost}
       <section>
         <p>공지사항</p>
         <div className='writeTh'>

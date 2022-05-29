@@ -33,6 +33,7 @@ const CafeListContainer = styled.div`
         margin: 20px 20px 20px 20px;
         text-align: left;
         float: left;
+        font-family: 'Cafe24';
 
         .cafeName {
           position: relative;
@@ -45,8 +46,15 @@ const CafeListContainer = styled.div`
           font-size: 32px;
           line-height: 39px;
         }
+        .cafeAdd {
+          position: relative;
+        }
+        .cafeCall {
+          position: relative;
+        }
         .hashBox {
           position: relative;
+          padding-top: 20px;
           width: 680px;
           height: 141px;
           .hashList {

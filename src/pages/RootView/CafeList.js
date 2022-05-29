@@ -4,7 +4,7 @@ import CafeListContainer from '../styled/CafeListContainer';
 import HashTag from '../styled/HashTag';
 
 const CafeList = () => {
-  const [cafe, setCafe] = useState([{ img: '', name: '', add: '' }]);
+  const [cafe, setCafe] = useState([{ img: '', name: '', add: '', shop_call: '' }]);
   const imgPath = `img/cafeImg/`;
 
   useEffect(() => {
@@ -17,21 +17,10 @@ const CafeList = () => {
               img: imgPath.concat(v.head_image.substr(39, v.head_image.length - 1)),
               name: v.shop_name,
               add: v.shop_add,
+              call: v.shop_call,
             };
           }),
         );
-
-        // const aaaa = {
-        //   shop_num: 1,
-        //   shop_name: 'sample',
-        //   shop_license: 1,
-        //   shop_call: '01026461434',
-        //   shop_exp: '',
-        //   shop_add: 'sample',
-        //   shop_loc: '',
-        //   user_num: 1,
-        //   tags: [],
-        // };
       }
     });
   }, []);
@@ -48,6 +37,7 @@ const CafeList = () => {
           <div className='subBox'>
             <div className='cafeName'>{cafe.name}</div>
             <div className='cafeAdd'>{cafe.add}</div>
+            <div className='cafeCall'>{cafe.call}</div>
             <HashTag />
           </div>
         </div>

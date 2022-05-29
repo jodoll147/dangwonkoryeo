@@ -3,6 +3,7 @@ import Quill from 'quill';
 import { postPost } from '../../api/constant';
 import 'quill/dist/quill.bubble.css';
 import NoticeWrtieContainerContainer from '../styled/NoticeWriteContainer';
+import { useNavigate } from 'react-router-dom';
 import Responsive from './write/Responsive';
 import styled from 'styled-components';
 
@@ -41,7 +42,9 @@ const QuillWrapper = styled.div`
 `;
 
 const NoticeWrite = () => {
+  const navigate = useNavigate();
   const [hover, setHover] = useState('#CCD9D9');
+  const [title, setTitle] = useState('');
   const quillElement = useRef(null);
   const quillInstance = useRef(null);
 
@@ -66,7 +69,12 @@ const NoticeWrite = () => {
         <section>
           <h1>공지사항</h1>
           <EditorBlock>
-            <TitleInput placeholder='제목을 입력하세요.' />
+            <TitleInput
+              value={title}
+              placeholder='제목을 입력하세요.'
+              onChange={e => setTitle(e.target.value)}
+            />
+            {/* {console.log(title)} */}
             <QuillWrapper>
               <div ref={quillElement} />
             </QuillWrapper>
@@ -77,7 +85,22 @@ const NoticeWrite = () => {
             onMouseOver={() => setHover('#4EA6A6')}
             onMouseLeave={() => setHover('#CCD9D9')}
           >
-            <p>등록</p>
+            <p
+              onClick={e => {
+                const content = quillInstance.current.getText();
+                // console.log('보낸다', { title, content });
+                postPost(title, content)
+                  .then(res => {
+                    alert('공지사항이 성공적으로 등록되었습니다.', e);
+                    navigate(`/notice/content?id=${res.id}`);
+                  })
+                  .catch(e => {
+                    alert('오류 발생', e);
+                  });
+              }}
+            >
+              등록
+            </p>
           </div>
         </section>
       </NoticeWrtieContainerContainer>

@@ -18,7 +18,6 @@ import CoffeeTIBody from './pages/coffeeTI/CoffeeTIBody';
 import CoffeeTISour from './pages/coffeeTI/CoffeeTISour';
 import ShopModify from './pages/business/ShopModify';
 import NoticeContent from './pages/notice/NoticeContent';
-
 const App = () => {
   return (
     <Routes>

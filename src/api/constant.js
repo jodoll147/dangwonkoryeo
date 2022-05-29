@@ -42,17 +42,19 @@ export async function getPost() {
   return result;
 }
 
-export async function postPost() {
-  const result = await fetch(`http://localhost:8000/api/shop`, {
+export async function postPost(title, content) {
+  const result = await fetch(`${API_SERVER}/post/`, {
     method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      title: '대충 해보기',
-      content: '안되면말구요~~~',
+      title: title,
+      content: content,
+      author: '1',
+      category: '1',
     }),
   })
     .then(res => res.json())
     .catch(e => {
-      console.log(e);
       return null;
     });
 
