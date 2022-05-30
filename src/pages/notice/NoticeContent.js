@@ -7,7 +7,12 @@ import { format } from 'date-fns';
 
 const NoticeContent = () => {
   const [searchParams] = useSearchParams();
-  const [noticeContent, setNoticeContent] = useState({ title: '', date: '', content: '' });
+  const [noticeContent, setNoticeContent] = useState({
+    id: null,
+    title: '',
+    date: '',
+    content: '',
+  });
   const id = +searchParams.get('id');
 
   useEffect(() => {

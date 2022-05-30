@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import MyPageContainer from '../styled/MyPageContainer';
-import HashTag from '../styled/HashTag';
+import HashTag from '../tag/HashTag';
 import styled from 'styled-components';
 
 const Cafe = () => {

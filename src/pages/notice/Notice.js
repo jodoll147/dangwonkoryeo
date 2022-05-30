@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import NoticeContainer from '../styled/NoticeContainer';
 import { getPost } from '../../api/constant';
-import { format } from 'date-fns';
 import { postPost } from '../../api/constant';
+import { format } from 'date-fns';
+
 const NoticeBox = styled.div`
   position: relatvie;
   display: flex;

@@ -60,3 +60,16 @@ export async function postPost(title, content) {
 
   return result;
 }
+
+export async function getTag() {
+  const result = await fetch(`${API_SERVER}/tag/?format=json`, {
+    method: 'GET',
+  })
+    .then(res => res.json())
+    .catch(e => {
+      console.log(e);
+      return null;
+    });
+
+  return result;
+}

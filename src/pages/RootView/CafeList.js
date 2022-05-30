@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { getShopList } from '../../api/constant';
 import CafeListContainer from '../styled/CafeListContainer';
-import HashTag from '../styled/HashTag';
+import HashTag from '../tag/HashTag';
 
 const CafeList = () => {
-  const [cafe, setCafe] = useState([{ img: '', name: '', add: '', shop_call: '' }]);
+  const [cafe, setCafe] = useState([{ id: '', img: '', name: '', add: '', shop_call: '' }]);
   const imgPath = `img/cafeImg/`;
 
   useEffect(() => {
@@ -12,9 +12,9 @@ const CafeList = () => {
       if (res) {
         setCafe(
           res.map(v => {
-            console.log(v);
             return {
-              img: imgPath.concat(v.head_image.substr(39, v.head_image.length - 1)),
+              id: v.id,
+              img: imgPath.concat(v.head_image.substr(28, v.head_image.length - 1)),
               name: v.shop_name,
               add: v.shop_add,
               call: v.shop_call,
@@ -28,9 +28,7 @@ const CafeList = () => {
   getShopList();
 
   const cafeList = cafe.map(cafe => (
-    <CafeListContainer>
-      {console.log(cafe.img)}
-
+    <CafeListContainer key={cafe.id}>
       <section>
         <div className='box'>
           <img src={cafe.img} alt='cafe_img' />
@@ -38,7 +36,7 @@ const CafeList = () => {
             <div className='cafeName'>{cafe.name}</div>
             <div className='cafeAdd'>{cafe.add}</div>
             <div className='cafeCall'>{cafe.call}</div>
-            <HashTag />
+            <HashTag shop={cafe.id} />
           </div>
         </div>
       </section>
