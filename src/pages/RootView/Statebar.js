@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import HashTag from '../tag/HashTag';
 import styled from 'styled-components';
 import MainContainer from '../styled/MainContainer';
 import BottomContainer from '../styled/BottomContainer';
@@ -30,9 +31,9 @@ const HashTagContainer = styled.div`
       color: #4ea6a6;
     }
 
-    .bodyBox {
+    .beanBox {
       position: relative;
-      .bodyTitle {
+      .beanTitle {
         position: relative;
         margin-top: 40px;
         margin-left: 30px;
@@ -51,30 +52,9 @@ const HashTagContainer = styled.div`
         }
       }
     }
-    .SourBox {
+    .etcBox {
       position: relative;
-      .bodyTitle {
-        position: relative;
-        margin-top: 40px;
-        margin-left: 30px;
-      }
-      .hashBox {
-        position: relative;
-        display: flex;
-        align-items: baseline;
-        margin-left: 30px;
-        margin-top: 10px;
-        margin-bottom: 40px;
-        .hash {
-          position: relative;
-          margin-right: 10px;
-          margin-bottom: 10px;
-        }
-      }
-    }
-    .FlavourBox {
-      position: relative;
-      .bodyTitle {
+      .etcTitle {
         position: relative;
         margin-top: 40px;
         margin-left: 30px;
@@ -109,6 +89,7 @@ const HashTagContainer = styled.div`
       font-weight: 800;
       font-size: 18px;
       color: #f2f2f2;
+      cursor: pointer;
     }
   }
 `;
@@ -118,16 +99,14 @@ const HashFillter = () => {
     <HashTagContainer>
       <div className='hashTagBox'>
         <div className='hashTitle'>해시태그 필터</div>
-        <div className='bodyBox'>
-          <div className='bodyTitle'>바디감</div>
-          <div className='hashBox'></div>
+        <div className='beanBox'>
+          <div className='beanTitle'>원두</div>
+          <div className='hashBox'>
+            <HashTag value={null} />
+          </div>
         </div>
-        <div className='SourBox'>
-          <div className='bodyTitle'>산미</div>
-          <div className='hashBox'></div>
-        </div>
-        <div className='FlavourBox'>
-          <div className='bodyTitle'>향</div>
+        <div className='etcBox'>
+          <div className='etcTitle'>기타</div>
           <div className='hashBox'></div>
         </div>
         <button className='searchBtn'>검색</button>

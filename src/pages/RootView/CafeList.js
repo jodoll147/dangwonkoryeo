@@ -36,7 +36,7 @@ const CafeList = () => {
             <div className='cafeName'>{cafe.name}</div>
             <div className='cafeAdd'>{cafe.add}</div>
             <div className='cafeCall'>{cafe.call}</div>
-            <HashTag shop={cafe.id} />
+            <HashTag value={cafe.id} />
           </div>
         </div>
       </section>

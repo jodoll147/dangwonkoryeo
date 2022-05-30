@@ -74,7 +74,7 @@ const NoticeWrite = () => {
               placeholder='제목을 입력하세요.'
               onChange={e => setTitle(e.target.value)}
             />
-            {/* {console.log(title)} */}
+
             <QuillWrapper>
               <div ref={quillElement} />
             </QuillWrapper>
@@ -88,7 +88,6 @@ const NoticeWrite = () => {
             <p
               onClick={e => {
                 const content = quillInstance.current.getText();
-                // console.log('보낸다', { title, content });
                 postPost(title, content)
                   .then(res => {
                     alert('공지사항이 성공적으로 등록되었습니다.', e);

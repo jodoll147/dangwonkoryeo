@@ -14,32 +14,42 @@ const HashTagContainer = styled.div`
 `;
 
 const HashTag = props => {
-  const [hashTags, setHashTags] = useState([{ id: '', name: '' }]);
-  const shop = props.shop;
+  const [hashTags, setHashTags] = useState([{ id: '', name: '', isBean: null }]);
+  const value = props.value;
 
   useEffect(() => {
     getTag()
       .then(res => {
         if (res) {
-          const targetTags = res.filter(v => {
-            return v.shop == shop;
-          });
-          if (targetTags.length > 0) {
-            setHashTags(targetTags.map(tags => ({ id: tags.id, name: tags.name })));
+          if (value == null) {
+            setHashTags(
+              res.map(tags => {
+                return {
+                  id: tags.id,
+                  name: tags.name,
+                };
+              }),
+            );
+          } else {
+            const targetTags = res.filter(v => {
+              return v.shop == value;
+            });
+            if (targetTags.length > 0) {
+              setHashTags(targetTags.map(tags => ({ id: tags.id, name: tags.name })));
+            }
           }
         }
       })
       .catch(e => console.log(e));
   }, []);
 
-  const hashList = hashTags?.map(hash =>
-    hash.name !== '' ? <HashTagContainer key={shop + hash.id}>#{hash.name}</HashTagContainer> : '',
-  );
-  console.log('hashList', shop, hashList);
-
   return (
     <div className='hashBox'>
-      <div className='hashList'>{hashList}</div>
+      <div className='hashList'>
+        {hashTags?.map(hash =>
+          hash.name !== '' ? <HashTagContainer key={hash.id}>#{hash.name}</HashTagContainer> : '',
+        )}
+      </div>
     </div>
   );
 };

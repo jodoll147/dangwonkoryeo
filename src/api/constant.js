@@ -73,3 +73,25 @@ export async function getTag() {
 
   return result;
 }
+
+export async function PostRegister(id, name, pwd, email, phone, birth) {
+  const result = await fetch(`${API_SERVER}/auth/register`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      username: id,
+      first_name: name,
+      password: pwd,
+      email: email,
+      phone_num: phone,
+      birthday: birth,
+      groups: 2,
+    }),
+  })
+    .then(res => res.json())
+    .catch(e => {
+      return null;
+    });
+
+  return result;
+}

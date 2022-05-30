@@ -95,6 +95,25 @@ const JoinContainer = styled.div`
           border: #d2d9cc;
         }
       }
+      .email {
+        position: relative;
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 15px;
+        p {
+          position: relative;
+          margin-right: 10px;
+        }
+        input {
+          position: relative;
+          width: 200px;
+          height: 20px;
+          margin-right: 10px;
+          background: #d2d9cc;
+          border-radius: 5px;
+          border: #d2d9cc;
+        }
+      }
       .phone {
         position: relative;
         display: flex;
