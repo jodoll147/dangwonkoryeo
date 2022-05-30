@@ -5,10 +5,11 @@ const ShopAdd = () => {
   const [fileImage, setFileImage] = useState('');
 
   // 이미지 파일 저장
+  /*
   const saveFileImage = e => {
     setFileImage(URL.createObjectURL(e.target.files[0]));
   };
-
+*/
   return (
     <BusinessContainer>
       <section>
@@ -19,9 +20,12 @@ const ShopAdd = () => {
             <p>가게명</p>
             <input type={'text'} />
           </div>
-          <div className='documentBox'>
+          <div className='busniessNum'>
+            <p>사업자번호</p>
+            <input type={'text'} />
+            {/*<div className='documentBox'>
             <p>사업자등록증</p>
-            <input type={'file'} accept='img/*' onChange={saveFileImage} />
+            <input type={'file'} accept='img/*' onChange={saveFileImage} />*/}
           </div>
           <div className='saveButton'>등록</div>
           <div className='infoBox'>

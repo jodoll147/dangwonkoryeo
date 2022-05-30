@@ -104,6 +104,32 @@ const BusinessContainer = styled.div`
           text-align: left;
         }
       }
+      .busniessNum {
+        position: relative;
+        display: flex;
+        align-items: baseline;
+        p {
+          position: relative;
+          margin-left: 305px;
+          margin-right: 10px;
+          font-family: 'Cafe24';
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 16px;
+          color: #4ea6a6;
+        }
+        input {
+          position: relative;
+          font-family: 'Cafe24';
+          font-size: 14px;
+          line-height: 14px;
+          width: 200px;
+          height: 25px;
+          background: #d2d9cc;
+          border-radius: 5px;
+          border: #d2d9cc;
+        }
+      }
     }
     .shopModifyBox {
       position: relative;
