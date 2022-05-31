@@ -124,6 +124,7 @@ export async function PostStart() {
   })
     .then(res => res.json())
     .catch(e => {
+      console.log(e);
       return null;
     });
   localStorage.setItem('non_mem', 0);
