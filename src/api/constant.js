@@ -95,3 +95,20 @@ export async function PostRegister(id, name, pwd, email, phone, birth) {
 
   return result;
 }
+
+export async function PostLogin(id, pwd) {
+  const result = await fetch(`${API_SERVER}/api/token/`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      username: id,
+      password: pwd,
+    }),
+  })
+    .then(res => res.json())
+    .catch(e => {
+      return null;
+    });
+
+  return result;
+}

@@ -1,20 +1,36 @@
+import { useState } from 'react';
 import LoginContainer from '../styled/LoginContainer';
 import { Link } from 'react-router-dom';
+import { PostLogin } from '../../api/constant';
 
 const Login = () => {
+  const [id, setId] = useState('');
+  const [pwd, setPwd] = useState('');
+
+  // console.log(id, pwd);
   return (
     <LoginContainer>
       <section>
         <p>LOGIN</p>
         <div className='id'>
           <p>아이디</p>
-          <input type={'text'} name={'id'} maxlength={'10'} />
+          <input type={'text'} name={'id'} maxlength={'10'} onChange={e => setId(e.target.value)} />
         </div>
         <div className='pwd'>
           <p>비밀번호</p>
-          <input type={'password'} name={'pwd'} maxlength={'10'} />
+          <input
+            type={'password'}
+            name={'pwd'}
+            maxlength={'10'}
+            onChange={e => setPwd(e.target.value)}
+          />
         </div>
-        <div className='login_btn'>
+        <div
+          className='login_btn'
+          onClick={e => {
+            PostLogin(id, pwd).then().catch(console.log(e));
+          }}
+        >
           <p>LOGIN</p>
         </div>
         <div className='find'>
