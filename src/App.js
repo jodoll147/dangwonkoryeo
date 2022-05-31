@@ -20,11 +20,8 @@ import CoffeeTIBody from './pages/coffeeTI/CoffeeTIBody';
 import CoffeeTISour from './pages/coffeeTI/CoffeeTISour';
 import ShopModify from './pages/business/ShopModify';
 import NoticeContent from './pages/notice/NoticeContent';
-import { PostStart } from './api/constant';
 
 const App = () => {
-  PostStart();
-
   return (
     <Routes>
       <Route path='/' element={<Statebar />}>

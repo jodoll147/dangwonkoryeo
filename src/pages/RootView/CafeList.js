@@ -9,7 +9,6 @@ const CafeList = () => {
   const [cafe, setCafe] = useState([{ id: '', img: '', name: '', add: '', shop_call: '' }]);
   const [onClick, setonClick] = useState(false);
   const [heartImg, setHeartImg] = useState(heart);
-  const imgPath = `img/cafeImg/`;
 
   const setHeart = () => {
     onClick ? setonClick(false) : setonClick(true);
@@ -23,7 +22,7 @@ const CafeList = () => {
           res.map(v => {
             return {
               id: v.id,
-              img: imgPath.concat(v.head_image.substr(28, v.head_image.length - 1)),
+              img: HashTag, //imgPath.concat(v.head_image.substr(28, v.head_image.length - 1)),
               name: v.shop_name,
               add: v.shop_add,
               call: v.shop_call,
@@ -45,7 +44,7 @@ const CafeList = () => {
             <div className='cafeNameBox'>
               <div className='cafeName'>{cafe.name}</div>
               <div className='heart'>
-                <img src={heartImg} alt='heart' onClick={() => setHeart()} />
+                <img src={heartImg} alt='heart' key={cafe.id} onClick={() => setHeart()} />
                 <p></p>
               </div>
             </div>

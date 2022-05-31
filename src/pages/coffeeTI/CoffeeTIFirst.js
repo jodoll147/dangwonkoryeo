@@ -10,6 +10,7 @@ const CoffeeTIFirst = () => {
   return (
     <CoffeeTIContainer>
       <section>
+        {console.log(localStorage.getItem('token'))}
         <p>coffeeTI</p>
         <div
           className='next'

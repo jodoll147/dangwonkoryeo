@@ -134,6 +134,8 @@ const Home = () => {
     setHoverIndex(p => (p === index ? null : p));
   };
 
+  const check = localStorage.getItem('token');
+
   const menuItems = [
     {
       className: 'intro',
@@ -150,17 +152,30 @@ const Home = () => {
       linkTo: '/notice',
       text: '공지사항',
     },
-    {
+  ];
+
+  if (check) {
+    menuItems.push({
+      className: 'login',
+      text: 'LOGOUT',
+      linkTo: '/dangwonkeoyeo',
+      action: () => {
+        localStorage.removeItem('token');
+        //새로고침하기
+      },
+    });
+  } else {
+    menuItems.push({
       className: 'login',
       linkTo: '/login',
       text: 'LOGIN',
-    },
-    {
+    });
+    menuItems.push({
       className: 'join',
       linkTo: '/join',
       text: 'JOIN',
-    },
-  ];
+    });
+  }
 
   return (
     <StatebarContainer>
@@ -178,6 +193,7 @@ const Home = () => {
                 <div className={v.className}>
                   <Link
                     key={i}
+                    onClick={() => (v.action ? v.action() : undefined)}
                     to={v.linkTo}
                     style={{
                       textDecoration: 'none',

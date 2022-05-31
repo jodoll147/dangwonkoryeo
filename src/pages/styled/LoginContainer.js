@@ -4,42 +4,36 @@ const LoginContainer = styled.div`
   section {
     position: relative;
     width: 940px;
-    height: 400px;
-    top: 20px;
-    p {
+
+    .title {
+      position: relative;
+      margin-top: 40px;
       font-family: 'Cafe24Bold';
       font-style: normal;
-      font-weight: 800;
       font-size: 20px;
       color: #4ea6a6;
     }
-
     .id {
       position: relative;
-      display: table;
+      display: flex;
+      margin-top: 30px;
+      align-items: baseline;
       width: 264px;
       height: 35px;
       left: 347px;
-      top: 30px;
-      display: table;
 
       p {
         position: relative;
-        top: 22.86%;
-        bottom: 20%;
-        display: table-cell;
-        vertical-align: middle;
         font-family: 'Cafe24';
         font-style: normal;
         font-weight: 700;
+        margin-right: 10px;
       }
 
       input {
         position: relative;
         width: 190px;
         height: 35px;
-        display: table-cell;
-        vertical-align: middle;
         background: #d2d9cc;
         border: 1px #d2d9cc;
         border-radius: 10px;
@@ -51,18 +45,16 @@ const LoginContainer = styled.div`
 
     .pwd {
       position: relative;
+      display: flex;
+      margin-top: 15px;
+      align-items: baseline;
       width: 282px;
       height: 35px;
       left: 329px;
-      top: 45px;
-      display: table;
 
       p {
         position: relative;
-        top: 22.86%;
-        bottom: 20%;
-        display: table-cell;
-        vertical-align: middle;
+        margin-right: 10px;
         font-family: 'Cafe24';
         font-style: normal;
         font-weight: 700;
@@ -72,8 +64,6 @@ const LoginContainer = styled.div`
         position: relative;
         width: 190px;
         height: 35px;
-        display: table-cell;
-        vertical-align: middle;
         background: #d2d9cc;
         border: 1px #d2d9cc;
         border-radius: 10px;
@@ -85,34 +75,38 @@ const LoginContainer = styled.div`
 
     .login_btn {
       position: relative;
+      margin-top: 20px;
       width: 282px;
       height: 45px;
       left: 329px;
-      top: 44px;
       background: #4ea6a6;
       border-radius: 10px;
+      font-family: 'Cafe24';
+      font-style: normal;
+      font-weight: 700;
+      color: #f2f2f2;
+      line-height: 45px;
+      text-align: center;
+    }
 
-      p {
-        position: relative;
-        font-family: 'Cafe24';
-        font-style: normal;
-        font-weight: 700;
-        color: #f2f2f2;
-        line-height: 45px;
-        text-align: center;
-      }
+    .error {
+      position: relative;
+      margin-top: 30px;
+      font-family: 'Cafe24';
+      font-size: 14px;
+      color: red;
     }
 
     .find {
       position: relative;
+      margin-top: 30px;
       font-family: 'Cafe24';
-      top: 75px;
     }
 
     .join {
       position: relative;
+      margin-top: 15px;
       font-family: 'Cafe24';
-      top: 85px;
     }
   }
 `;
