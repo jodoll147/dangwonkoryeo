@@ -50,6 +50,13 @@ const AccountModifyContainer = styled.div`
           margin-right: 10px;
         }
         .pwd {
+          width: 60px;
+          height: 24px;
+          background: #ccd9d9;
+          border-radius: 5px;
+          font-family: 'Cafe24Bold';
+          line-height: 24px;
+          text-align: center;
         }
       }
       .emailBox {
@@ -62,8 +69,22 @@ const AccountModifyContainer = styled.div`
         }
         input {
           margin-right: 10px;
+          width: 200px;
+          height: 20px;
+          background: #d2d9cc;
+          border: 1px #d2d9cc;
+          border-radius: 5px;
         }
         .emailBtn {
+          width: 50px;
+          height: 24px;
+          background: #ccd9d9;
+          border-radius: 5px;
+          font-family: 'Cafe24Bold';
+          color: #f2f2f2;
+          text-align: center;
+          line-height: 24px;
+          cursor: pointer;
         }
       }
 
@@ -79,8 +100,20 @@ const AccountModifyContainer = styled.div`
           margin-right: 10px;
           width: 50px;
           height: 20px;
+          background: #d2d9cc;
+          border: 1px #d2d9cc;
+          border-radius: 5px;
         }
         .phoneBtn {
+          width: 50px;
+          height: 24px;
+          background: #ccd9d9;
+          border-radius: 5px;
+          font-family: 'Cafe24Bold';
+          color: #f2f2f2;
+          text-align: center;
+          line-height: 24px;
+          cursor: pointer;
         }
       }
 
@@ -96,8 +129,20 @@ const AccountModifyContainer = styled.div`
           width: 90px;
           height: 20px;
           margin-right: 10px;
+          background: #d2d9cc;
+          border: 1px #d2d9cc;
+          border-radius: 5px;
         }
         .birthBtn {
+          width: 50px;
+          height: 24px;
+          background: #ccd9d9;
+          border-radius: 5px;
+          font-family: 'Cafe24Bold';
+          color: #f2f2f2;
+          text-align: center;
+          line-height: 24px;
+          cursor: pointer;
         }
       }
     }

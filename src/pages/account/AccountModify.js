@@ -1,7 +1,12 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AccountModifyContainer from '../styled/AccountModifyContainer';
 
 const AccountModify = () => {
+  const [email, setEmail] = useState('');
+  const [phnoe, setPhone] = useState(['+8210', '', '']);
+  const [birth, setBirth] = useState('');
+
   return (
     <AccountModifyContainer>
       <section>
@@ -17,11 +22,17 @@ const AccountModify = () => {
           </div>
           <div className='pwdBox'>
             <p>비밀번호</p>
-            <Link to='/pwdreset'>재설정</Link>
+            <Link
+              to='/pwdreset'
+              className='pwd'
+              style={{ textDecoration: 'none', color: '#f2f2f2' }}
+            >
+              재설정
+            </Link>
           </div>
           <div className='emailBox'>
             <p>이메일</p>
-            <input type={'text'} />
+            <input type={'text'} onChange={e => setEmail(e.target.value)} />
             <div className='emailBtn'>변경</div>
           </div>
           <div className='phoneBox'>
@@ -29,7 +40,7 @@ const AccountModify = () => {
             <input type={'text'} maxLength={3} />
             <input type={'text'} maxLength={4} />
             <input type={'text'} maxLength={4} />
-            <div className='phonebtn'>변경</div>
+            <div className='phoneBtn'>변경</div>
           </div>
           <div className='birthBox'>
             <p>생년월일</p>

@@ -97,7 +97,7 @@ export async function PostRegister(id, name, pwd, email, phone, birth) {
 }
 
 export async function PostLogin(id, pwd) {
-  const result = await fetch(`${API_SERVER}/api/token/`, {
+  const result = await fetch(`${API_SERVER}/token/`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -110,5 +110,22 @@ export async function PostLogin(id, pwd) {
       return null;
     });
 
+  return result;
+}
+
+export async function PostStart() {
+  const result = await fetch(`${API_SERVER}/token/`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      username: 'non_mem1',
+      password: 'coffeeti',
+    }),
+  })
+    .then(res => res.json())
+    .catch(e => {
+      return null;
+    });
+  localStorage.setItem('non_mem', 0);
   return result;
 }

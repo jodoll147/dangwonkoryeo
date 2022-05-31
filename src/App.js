@@ -20,6 +20,7 @@ import CoffeeTIBody from './pages/coffeeTI/CoffeeTIBody';
 import CoffeeTISour from './pages/coffeeTI/CoffeeTISour';
 import ShopModify from './pages/business/ShopModify';
 import NoticeContent from './pages/notice/NoticeContent';
+import { PostStart } from './api/constant';
 
 const App = () => {
   return (
@@ -47,6 +48,7 @@ const App = () => {
         <Route path='/coffeeTI/flavour' element={<CoffeeTIFlavour />} />
         <Route path='/coffeeTI/result' element={<CoffeeTIResult />} />
       </Route>
+      {PostStart()}
     </Routes>
   );
 };
