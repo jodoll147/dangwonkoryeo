@@ -96,3 +96,15 @@ export async function PostLogin(id, pwd) {
     localStorage.setItem('token', result?.token);
   }
 }
+
+export function getUserInfo() {
+  const token = localStorage.getItem('token');
+  if (token) {
+    const dataPayload = token.split('.')[1];
+    if (dataPayload) {
+      // return JSON.parse(Buffer.from(dataPayload, 'base64').toString());
+      return JSON.parse(atob(dataPayload));
+    }
+  }
+  return null;
+}

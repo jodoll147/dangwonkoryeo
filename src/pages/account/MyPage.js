@@ -3,6 +3,7 @@ import React from 'react';
 import MyPageContainer from '../styled/MyPageContainer';
 import HashTag from '../tag/HashTag';
 import styled from 'styled-components';
+import { getUserInfo } from '../../api/constant';
 
 const Cafe = () => {
   const CafeContainer = styled.div`
@@ -69,6 +70,7 @@ const Cafe = () => {
 const MyPage = () => {
   const cafelist = [Cafe, Cafe, Cafe, Cafe];
   const cafelistMap = cafelist.map(temp => <div>{temp}</div>);
+  const info = getUserInfo();
   return (
     <MyPageContainer>
       <section>
@@ -77,7 +79,7 @@ const MyPage = () => {
         </div>
         <div className='nameBox'>
           <div className='name'>이름</div>
-          <div className='userName'>김첨지</div>
+          <div className='userName'>{info?.username}</div>
         </div>
         <div className='coffeeTIBox'>
           <div className='coffeeTI'>커피티아이</div>

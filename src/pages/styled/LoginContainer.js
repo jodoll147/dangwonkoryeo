@@ -87,6 +87,7 @@ const LoginContainer = styled.div`
       color: #f2f2f2;
       line-height: 45px;
       text-align: center;
+      corsur: pointer;
     }
 
     .error {

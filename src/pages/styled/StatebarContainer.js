@@ -17,6 +17,7 @@ const HomeContainer = styled.div`
             height: 70px;
             display: flex;
             background: rgba(78, 166, 166, 0.8);
+
             .home{
                 position: relative;
                 margin-left: 50px;
@@ -53,7 +54,7 @@ const HomeContainer = styled.div`
             }
             .login{
                 position: relative;
-                margin-left: 100px;
+                left: 130px;
                 font-family: 'Cafe24';
                 font-style: normal;
                 font-weight: 400;
@@ -61,7 +62,41 @@ const HomeContainer = styled.div`
             }
             .join{
                 position: relative;
-                margin-left: 20px;
+                left: 155px;
+                font-family: 'Cafe24';
+                font-style: normal;
+                font-weight: 400;
+                line-height: 70px;
+            }
+            .username{
+                position: relative;
+                margin-left: 55px;
+                font-family: 'Cafe24';
+                font-style: normal;
+                font-weight: 400;
+                line-height: 70px;
+                color: #F2F2F2;
+            }
+            .logout{
+                position: relative;
+                width: 48px;
+                height: 16px;
+                margin-top: 25px;
+                margin-left: 5px;
+                font-size: 12px;
+                font-family: 'Cafe24Bold';
+                font-style: normal;
+                font-weight: 400;
+                line-height: 16px;
+                background: #CCD9D9;
+                border-radius: 5px;
+            }
+            .mypage{
+                position: relative;
+                width: 48px;
+                height: 16px;
+                margin-left: 15px;
+                font-size: 12px;
                 font-family: 'Cafe24';
                 font-style: normal;
                 font-weight: 400;
@@ -69,8 +104,9 @@ const HomeContainer = styled.div`
             }
             .hash{
                 position: relative;
-                margin-left: 70px;
+                float: right;
                 margin-top: 20px;
+                left: 212px;
                 width: 32px;
                 height: 16px;
                 cursor: pointer;

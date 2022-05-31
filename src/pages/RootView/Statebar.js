@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import HashTag from '../tag/HashTag';
 import styled from 'styled-components';
 import MainContainer from '../styled/MainContainer';
 import BottomContainer from '../styled/BottomContainer';
 import StatebarContainer from '../styled/StatebarContainer';
+import { getUserInfo } from '../../api/constant';
 import hashTag from '../img/hashTag.png';
 import hashTaghover from '../img/hashTagHover.png';
 
@@ -120,6 +121,7 @@ const Home = () => {
   const [onClick, setOnClick] = useState(false);
   const [hover, setHover] = useState(hashTag);
   const [hoverIndex, setHoverIndex] = useState(null);
+  const info = getUserInfo();
 
   const onClickEvent = () => {
     setOnClick(!onClick);
@@ -134,9 +136,7 @@ const Home = () => {
     setHoverIndex(p => (p === index ? null : p));
   };
 
-  const check = localStorage.getItem('token');
-
-  const menuItems = [
+  const originalMenuItems = [
     {
       className: 'intro',
       linkTo: '/intro',
@@ -153,29 +153,47 @@ const Home = () => {
       text: '공지사항',
     },
   ];
+  const [menuItems, setMenuItems] = useState(originalMenuItems);
 
-  if (check) {
-    menuItems.push({
-      className: 'login',
-      text: 'LOGOUT',
-      linkTo: '/dangwonkeoyeo',
-      action: () => {
-        localStorage.removeItem('token');
-        //새로고침하기
-      },
+  useEffect(() => {
+    const check = localStorage.getItem('token');
+    setMenuItems(p => {
+      const menuItems = [...originalMenuItems];
+      if (check) {
+        menuItems.push({
+          className: 'username',
+          text: info?.username,
+        });
+        menuItems.push({
+          className: 'logout',
+          text: 'logout',
+          linkTo: '/dangwonkeoyeo',
+          action: () => {
+            localStorage.removeItem('token');
+            setMenuItems(p => [...p]);
+            //새로고침하기
+          },
+        });
+        menuItems.push({
+          className: 'mypage',
+          text: 'MYPAGE',
+          linkTo: '/mypage',
+        });
+      } else {
+        menuItems.push({
+          className: 'login',
+          linkTo: '/login',
+          text: 'LOGIN',
+        });
+        menuItems.push({
+          className: 'join',
+          linkTo: '/join',
+          text: 'JOIN',
+        });
+      }
+      return [...menuItems];
     });
-  } else {
-    menuItems.push({
-      className: 'login',
-      linkTo: '/login',
-      text: 'LOGIN',
-    });
-    menuItems.push({
-      className: 'join',
-      linkTo: '/join',
-      text: 'JOIN',
-    });
-  }
+  }, [menuItems]);
 
   return (
     <StatebarContainer>
@@ -189,22 +207,23 @@ const Home = () => {
             </div>
 
             {menuItems.map((v, i) => {
-              return (
-                <div className={v.className}>
-                  <Link
-                    key={i}
-                    onClick={() => (v.action ? v.action() : undefined)}
-                    to={v.linkTo}
-                    style={{
-                      textDecoration: 'none',
-                      color: hoverIndex === i ? '#CCD9D9' : '#F2F2F2',
-                    }}
-                    onMouseOver={() => mouseOverEvent(i)}
-                    onMouseLeave={() => mouseLeaveEvent(i)}
-                  >
-                    {v.text}
-                  </Link>
-                </div>
+              return v.className == 'username' ? (
+                <div className={v.className}>{v.text}님</div>
+              ) : (
+                <Link
+                  key={i}
+                  className={v.className}
+                  to={v.linkTo}
+                  style={{
+                    textDecoration: 'none',
+                    color: hoverIndex === i ? '#CCD9D9' : '#F2F2F2',
+                  }}
+                  onClick={() => (v.action ? v.action() : undefined)}
+                  onMouseOver={() => mouseOverEvent(i)}
+                  onMouseLeave={() => mouseLeaveEvent(i)}
+                >
+                  {v.text}
+                </Link>
               );
             })}
 
