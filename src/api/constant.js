@@ -118,7 +118,7 @@ export async function PostStart() {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      username: 'non_mem1',
+      username: 'manager',
       password: 'coffeeti',
     }),
   })
