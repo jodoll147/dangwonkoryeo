@@ -8,6 +8,7 @@ import Join from './pages/account/Join';
 import MyPage from './pages/account/MyPage';
 import Find from './pages/account/Find';
 import PwdReset from './pages/account/PwdReset';
+import AccountModify from './pages/account/AccountModify';
 import Notice from './pages/notice/Notice';
 import NoticeWrite from './pages/notice/NoticeWrite';
 import Business from './pages/business/Business';
@@ -31,6 +32,7 @@ const App = () => {
         <Route path='/join' element={<Join />} />
         <Route path='/mypage' element={<MyPage />} />
         <Route path='/pwdreset' element={<PwdReset />} />
+        <Route path='/accountmodify' element={<AccountModify />} />
         <Route path='/intro' element={<Intro />} />
         <Route path='/notice' element={<Notice />} />
         <Route path='/notice/content' element={<NoticeContent />} />

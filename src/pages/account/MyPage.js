@@ -72,7 +72,9 @@ const MyPage = () => {
   return (
     <MyPageContainer>
       <section>
-        <div className='myPage'>MyPage</div>
+        <div className='myPageBox'>
+          <div className='myPage'>MyPage</div>
+        </div>
         <div className='nameBox'>
           <div className='name'>이름</div>
           <div className='userName'>김첨지</div>
@@ -80,7 +82,11 @@ const MyPage = () => {
         <div className='coffeeTIBox'>
           <div className='coffeeTI'>커피티아이</div>
           <div className='type'>BABY</div>
-          <div className='check'>검사하기</div>
+          <div className='check'>
+            <Link to='/coffeeTI/first' style={{ textDecoration: 'none', color: '#f2f2f2' }}>
+              검사하기
+            </Link>
+          </div>
         </div>
         <HashTag />
         <div className='cafeListBox'>

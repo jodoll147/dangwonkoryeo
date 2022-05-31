@@ -5,18 +5,22 @@ const MyPageContainer = styeld.div`
         position: relative;
         width: 940px;
         height: 648px;
-        .myPage{
+        .myPageBox{
             position: relative;
-            font-family: 'Cafe24Bold';
-            font-style: normal;
-            font-weight: 800;
-            font-size: 18px;
-            line-height: 18px;
-            color: #594031;
-            margin-top: 20px;
-            margin-left: 30px;
-            text-align: left;
+
+            .myPage{
+                position: relative;
+                font-family: 'Cafe24Bold';
+                font-style: normal;
+                font-weight: 800;
+                font-size: 18px;
+                line-height: 18px;
+                color: #594031;
+                margin-top: 20px;
+                margin-left: 30px;
+                text-align: left;
         }
+    }
         .nameBox{
             position: relative;
             margin-top: 20px;
