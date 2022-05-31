@@ -23,6 +23,8 @@ import NoticeContent from './pages/notice/NoticeContent';
 import { PostStart } from './api/constant';
 
 const App = () => {
+  PostStart();
+
   return (
     <Routes>
       <Route path='/' element={<Statebar />}>
@@ -48,7 +50,6 @@ const App = () => {
         <Route path='/coffeeTI/flavour' element={<CoffeeTIFlavour />} />
         <Route path='/coffeeTI/result' element={<CoffeeTIResult />} />
       </Route>
-      {PostStart()}
     </Routes>
   );
 };
