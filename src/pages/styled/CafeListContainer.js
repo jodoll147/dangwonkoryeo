@@ -35,16 +35,29 @@ const CafeListContainer = styled.div`
         float: left;
         font-family: 'Cafe24';
 
-        .cafeName {
+        .cafeNameBox {
           position: relative;
-          width: 680px;
           height: 39px;
           padding-bottom: 20px;
-          font-family: 'Cafe24Bold';
-          font-style: normal;
-          font-weight: 700;
-          font-size: 32px;
-          line-height: 39px;
+          display: flex;
+          align-items: baseline;
+          .cafeName {
+            font-family: 'Cafe24Bold';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 39px;
+          }
+          .heart {
+            position: relative;
+            img {
+              position: relative;
+              top: 10px;
+              margin-left: 15px;
+              width: 32px;
+              height: 32px;
+            }
+          }
         }
         .cafeAdd {
           position: relative;
