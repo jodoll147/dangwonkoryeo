@@ -62,17 +62,18 @@ const RadioContainer = styled.div`
   }
 `;
 
-const RadioBox = () => {
+const RadioBox = props => {
+  const res = props.value;
   return (
     <RadioContainer>
       <div className='radioBox'>
         <p className='weak'>약</p>
         <label>
-          <input type={'radio'} name='check' value={1} />
-          <input type={'radio'} name='check' value={2} />
-          <input type={'radio'} name='check' value={3} />
-          <input type={'radio'} name='check' value={4} />
-          <input type={'radio'} name='check' value={5} />
+          <input type={'radio'} name={res} value={2} />
+          <input type={'radio'} name={res} value={1} />
+          <input type={'radio'} name={res} value={3} />
+          <input type={'radio'} name={res} value={4} />
+          <input type={'radio'} name={res} value={5} />
         </label>
         <p className='strong'>강</p>
       </div>
@@ -168,13 +169,13 @@ const ShopModify = () => {
                 <div className='bodyBox'>
                   <p className='bodyTitle'>바디감</p>
                   <div className='radioBox'>
-                    <RadioBox />
+                    <RadioBox value='body' />
                   </div>
                 </div>
                 <div className='sourBox'>
                   <p className='sourTitle'>산미</p>
                   <div className='radioBox'>
-                    <RadioBox />
+                    <RadioBox value='sour' />
                   </div>
                 </div>
                 <div className='flavourBox'>
