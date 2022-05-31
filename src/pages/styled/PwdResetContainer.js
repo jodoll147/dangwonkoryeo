@@ -5,7 +5,7 @@ const PwdResetContainer = styled.div`
     position: relative;
     .title {
       position: relative;
-      margin-top: 20px;
+      margin-top: 40px;
       font-family: 'Cafe24Bold';
       font-style: normal;
       font-weight: 800;
@@ -26,16 +26,17 @@ const PwdResetContainer = styled.div`
           margin-right: 15px;
           font-family: 'Cafe24';
           font-size: 20px;
+          font-weight: 700;
           color: #4ea6a6;
         }
         input {
           position: relative;
           width: 190px;
           height: 35px;
-          background: #ccd9d9;
+          background: #d2d9cc;
           border-radius: 10px;
           font-family: 'Cafe24';
-          border: 1px #ccd9d9;
+          border: 1px #d2d9cc;
         }
       }
       .pwdCheck {
@@ -44,10 +45,12 @@ const PwdResetContainer = styled.div`
         align-items: baseline;
         p {
           position: relative;
+          margin-top: 10px;
           margin-left: 287px;
           margin-right: 15px;
           font-family: 'Cafe24';
           font-size: 20px;
+          font-weight: 700;
           color: #4ea6a6;
         }
         input {
@@ -55,17 +58,26 @@ const PwdResetContainer = styled.div`
           font-family: 'Cafe24';
           width: 190px;
           height: 35px;
-          background: #ccd9d9;
+          background: #d2d9cc;
           border-radius: 10px;
-          border: 1px #ccd9d9;
+          border: 1px #d2d9cc;
         }
+      }
+
+      p {
+        position: relative;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 12px;
+        font-family: 'Cafe24';
+        color: red;
       }
       .resBtn {
         position: relative;
         width: 330px;
         height: 45px;
         left: 287px;
-        top: 44px;
+        margin-top: 15px;
         background: #4ea6a6;
         border-radius: 10px;
         font-family: 'Cafe24Bold';
