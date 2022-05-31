@@ -7,6 +7,7 @@ import Login from './pages/account/Login';
 import Join from './pages/account/Join';
 import MyPage from './pages/account/MyPage';
 import Find from './pages/account/Find';
+import PwdReset from './pages/account/PwdReset';
 import Notice from './pages/notice/Notice';
 import NoticeWrite from './pages/notice/NoticeWrite';
 import Business from './pages/business/Business';
@@ -18,6 +19,7 @@ import CoffeeTIBody from './pages/coffeeTI/CoffeeTIBody';
 import CoffeeTISour from './pages/coffeeTI/CoffeeTISour';
 import ShopModify from './pages/business/ShopModify';
 import NoticeContent from './pages/notice/NoticeContent';
+
 const App = () => {
   return (
     <Routes>
@@ -28,6 +30,7 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/join' element={<Join />} />
         <Route path='/mypage' element={<MyPage />} />
+        <Route path='/pwdreset' element={<PwdReset />} />
         <Route path='/intro' element={<Intro />} />
         <Route path='/notice' element={<Notice />} />
         <Route path='/notice/content' element={<NoticeContent />} />
