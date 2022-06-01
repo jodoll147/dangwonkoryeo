@@ -33,18 +33,24 @@ const Join = () => {
     });
   }, []);
 
-  const idCheckOnClick = () => {
-    users.map(username => {
-      if (username.id === id) {
-        setUseId(false);
-        setId('');
-        return;
-      } else {
-        setUseId(true);
-      }
-    });
+  useEffect(() => {
+    console.log({ phone });
+  }, [phone]);
 
-    useId ? alert('사용할 수 있는 아이디입니다.') : alert('사용할 수 없는 아이디입니다.');
+  const idCheckOnClick = () => {
+    console.log({ users, id });
+    const findUser = users.find(v => v.id === id);
+    // users.map(username => {
+    //   if (username.id === id) {
+    //     setUseId(false);
+    //     setId('');
+    //     return;
+    //   } else {
+    //     setUseId(true);
+    //   }
+    // });
+
+    findUser ? alert('사용할 수 없는 아이디입니다.') : alert('사용할 수 있는 아이디입니다.');
   };
 
   return (
@@ -118,9 +124,14 @@ const Join = () => {
           </div>
           <div className='birthday'>
             <p>생년월일</p>
-            <input type={'date'} onChange={e => setBirth(e.target.value)} />
+            <input
+              type={'date'}
+              onChange={e => {
+                console.log('birth', e.target.value);
+                setBirth(e.target.value);
+              }}
+            />
           </div>
-
           <div
             className='complete'
             style={{ background: finHover }}
@@ -135,15 +146,26 @@ const Join = () => {
                 alert('올바른 이메일을 입력하세요.');
                 return;
               }
-              if (phone[0].length !== 3 || phone[1].length !== 4 || phone[2].length !== 4) {
+              if (
+                phone[0].length !== 3 ||
+                phone[1].length !== 4 ||
+                phone[2].length !== 4 ||
+                phone.join('') === undefined
+              ) {
                 alert('휴대폰 번호를 입력하세요.');
                 return;
               }
               console.log({ id, name, pwd, email, phone: phone.join('') });
-              PostRegister(id, name, pwd, email, phone, format(new Date(birth || 0), 'yyyy-MM-dd'))
+
+              PostRegister(id, name, pwd, email, phone.join(''), birth)
                 .then(res => {
-                  alert('회원가입이 완료되었습니다.', e);
-                  navigate('/login');
+                  console.log('res', res);
+                  if (res) {
+                    alert('회원가입이 완료되었습니다.', e);
+                    navigate('/login');
+                  } else {
+                    alert('오류가 발생했습니다.');
+                  }
                 })
                 .catch(e => {
                   alert('오류 발생', e);

@@ -64,7 +64,6 @@ const HashTag = props => {
     return (
       <HashTagDiv onClick={() => props.onRemove(i)}>
         <div className='hashBox'>{hash.name}</div>
-        {/* <div className='hashBox'>{JSON.stringify(hash)}</div> */}
       </HashTagDiv>
     );
   });
@@ -83,8 +82,6 @@ const RadioBox = props => {
         <label
           onChange={e => {
             callback({ name: e.target.name, value: e.target.value });
-            // console.log('이름 : ', e.target.name);
-            // console.log('값 : ', e.target.value, typeof e.target.value);
           }}
         >
           <input type={'radio'} name={name} value={1} />
@@ -110,7 +107,6 @@ const Modal = props => {
   const [flavour, setFlavour] = useState(flavours[0]);
 
   const onClick = () => {
-    // hashTags.map(p => )
     if (name?.length === 0) {
       alert('이름을 입력하세요.');
       return;
@@ -214,36 +210,50 @@ const ShopModify = () => {
   const [fileImage, setFileImage] = useState(shopImg);
   const [user, setUser] = useState(); // 결과값
 
+  useEffect(() => {
+    console.log(shopValue);
+  }, [shopValue]);
+
   const id = +searchParams.get('id');
   const navigate = useNavigate();
-
+  console.log(shopValue.shopId);
   useEffect(() => {
-    getShopList().then(res => {
-      if (res) {
-        const myShop = res.find(v => v.id == id);
-        if (myShop) {
-          const phoneMatch = myShop.shop_call.match(
-            /^((01[016789]{1}|02|0[3-8]{1}[0-9]{1})[.-]?([0-9]{3,4})|((15|16|18)[0-9]{2}))[.-]?([0-9]{4})$/,
-          );
-          const shopCal = [phoneMatch[2] ?? '', phoneMatch[3] ?? '', phoneMatch[6] ?? ''];
-          setShopValue({
-            shopId: myShop.id,
-            shopLicense: myShop.shop_license,
-            shopName: myShop.shop_name,
-            shopInfo: myShop.shop_exp,
-            shopCal,
-            shopAddr: myShop.shop_add,
-          });
+    getShopList()
+      .then(res => {
+        if (res) {
+          const myShop = res.find(v => v.id == id);
+          if (myShop) {
+            console.log(myShop);
+            const phoneMatch = myShop.shop_call
+              ? myShop.shop_call.match(
+                  /^((01[016789]{1}|02|0[3-8]{1}[0-9]{1})[.-]?([0-9]{3,4})|((15|16|18)[0-9]{2}))[.-]?([0-9]{4})$/,
+                )
+              : [];
+            const shopCal = [phoneMatch[2] ?? '', phoneMatch[3] ?? '', phoneMatch[6] ?? ''];
+            setShopValue({
+              shopId: myShop.id,
+              shopLicense: myShop.shop_license,
+              shopName: myShop.shop_name,
+              shopInfo: myShop.shop_exp,
+              shopCal,
+              shopAddr: myShop.shop_add,
+            });
+          }
         }
-      }
-    });
-    getShopTag(id).then(res => {
-      if (res) {
-        setHashTags(res);
-      }
-    });
+      })
+      .catch(e => {
+        console.log('error on getShopList : ', e);
+      });
+    getShopTag(id)
+      .then(res => {
+        if (res) {
+          setHashTags(res);
+        }
+      })
+      .catch(e => {
+        console.log('error on getShopTag : ', e);
+      });
   }, []);
-
   const hashClick = () => {
     setOnHashClick(true);
   };
@@ -259,8 +269,6 @@ const ShopModify = () => {
   const saveFileImage = e => {
     setFileImage(URL.createObjectURL(e.target.files[0]));
   };
-
-  console.log(hashTags);
 
   return (
     <ShopModifyContainer>
@@ -309,7 +317,7 @@ const ShopModify = () => {
                 const value = e.target.value.replace(/[^0-9]/g, '');
                 setShopValue(p => {
                   p.shopCal[1] = value;
-                  return [...p];
+                  return { ...p };
                 });
               }}
             />
@@ -321,7 +329,7 @@ const ShopModify = () => {
                 const value = e.target.value.replace(/[^0-9]/g, '');
                 setShopValue(p => {
                   p.shopCal[2] = value;
-                  return [...p];
+                  return { ...p };
                 });
               }}
             />
@@ -359,14 +367,15 @@ const ShopModify = () => {
             onClick={e => {
               postShopModify(
                 shopValue.shopId,
-                shopValue.shopCal,
+                shopValue.shopCal.join(''),
                 shopValue.shopInfo,
                 shopValue.shopAddr,
-                shopValue.shopImg,
+                '',
               )
                 .then(res => {
                   alert('수정이 완료되었습니다.', e);
                   navigate('/business');
+                  return;
                 })
                 .catch(e => {
                   alert('오류가 발생하였습니다.', e);

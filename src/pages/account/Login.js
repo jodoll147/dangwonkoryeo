@@ -31,7 +31,7 @@ const Login = () => {
           onClick={e => {
             PostLogin(id, pwd)
               .then()
-              .catch(e => console.log(e), setError(e));
+              .catch(e => console.log('login error', e), setError(e));
           }}
         >
           LOGIN

@@ -9,7 +9,9 @@ async function callAPI(path, data) {
       Authorization: token ? `jwt ${token}` : undefined,
     },
   })
-    .then(res => res.json())
+    .then(res => {
+      return res.status < 400 ? res.json() : null;
+    })
     .catch(e => {
       console.log(e);
       return null;
@@ -90,7 +92,7 @@ export async function PostRegister(id, name, pwd, email, phone, birth) {
       first_name: name,
       password: pwd,
       email: email,
-      phone_num: toString(phone),
+      phone_num: phone,
       birthday: birth,
     }),
   });
@@ -123,6 +125,7 @@ export function getUserInfo() {
   return null;
 }
 
+// 카페를 찜한 유저 목록
 export async function getShopFavor(shopNum) {
   const result = await callAPI(`${API_SERVER}/favor/?Shop=${shopNum}`, {
     method: 'GET',
@@ -131,6 +134,7 @@ export async function getShopFavor(shopNum) {
   return result;
 }
 
+// 유저가 찜한 카페 목록
 export async function getUserFavor(userNum) {
   const result = await callAPI(`${API_SERVER}/favor/?User=${userNum}`, {
     method: 'GET',
@@ -171,6 +175,47 @@ export async function postAddShop(userNum, shopName, shopLicense) {
       user_num: userNum,
       shop_name: shopName,
       shop_license: shopLicense,
+    }),
+  });
+
+  return result;
+}
+
+// 아이디 찾기
+export async function findId(name, phone) {
+  const result = await callAPI(`${API_SERVER}/auth/findid`, {
+    method: 'POST',
+    body: JSON.stringify({
+      first_name: name,
+      phone_num: phone,
+      username: '',
+    }),
+  });
+
+  return result;
+}
+
+// 비밀번호 찾기
+export async function findPwd(name, phone, id) {
+  const result = await callAPI(`${API_SERVER}/auth/findpw`, {
+    method: 'POST',
+    body: JSON.stringify({
+      first_name: name,
+      phone_num: phone,
+      username: id,
+    }),
+  });
+
+  return result;
+}
+
+// 카페 등록 & 추가 등록
+export async function postLike(userId, shopId, like) {
+  const result = await callAPI(`${API_SERVER}/favor/${like ? '' : 'delete'}`, {
+    method: 'POST',
+    body: JSON.stringify({
+      user: userId,
+      shop: shopId,
     }),
   });
 
