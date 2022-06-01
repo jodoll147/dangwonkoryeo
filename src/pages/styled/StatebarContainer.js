@@ -11,6 +11,14 @@ const HomeContainer = styled.div`
         margin: 0 auto;
         text-align: center;
 
+            .hash{
+            position: relative;
+            margin-top: 20px;
+            width: 32px;
+            height: 16px;
+            cursor: pointer;
+        }
+
         .statebar{
             position: relative;
             width: 940px;
@@ -102,21 +110,15 @@ const HomeContainer = styled.div`
                 font-weight: 400;
                 line-height: 70px;
             }
-            .hash{
-                position: relative;
-                float: right;
-                margin-top: 20px;
-                left: 212px;
-                width: 32px;
-                height: 16px;
-                cursor: pointer;
-            }
+      
             img{
                 position: relative;
                 width: 40px;
                 height: 25px;
             }
         }
+
+
     }
 
 `;

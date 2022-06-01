@@ -59,8 +59,18 @@ export async function postPost(title, content) {
   return result;
 }
 
+// 태그 전체 보기
 export async function getTag() {
   const result = await callAPI(`${API_SERVER}/tag/?format=json`, {
+    method: 'GET',
+  });
+
+  return result;
+}
+
+// 지정된 Shop 태그만 가져오기
+export async function getShopTag(shop) {
+  const result = await callAPI(`${API_SERVER}/tag/?Shop=${shop}`, {
     method: 'GET',
   });
 

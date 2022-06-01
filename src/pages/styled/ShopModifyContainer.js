@@ -165,9 +165,11 @@ const ShopModifyContainer = styled.div`
         margin-top: 10px;
         align-items: baseline;
         p {
+          position: relative;
           margin-left: 30px;
           margin-right: 14px;
         }
+
         .add {
           position: relative;
           width: 50px;

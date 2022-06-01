@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import BusinessContainer from '../styled/BusinessContainer';
+import { getShopList, getUserInfo } from '../../api/constant';
 
 const CafeListContainer = styled.div`
   position: relative;
@@ -27,50 +28,62 @@ const CafeListContainer = styled.div`
   }
 `;
 
-const CafeList = () => {
-  const navigate = useNavigate();
-  const [cafe, setcafe] = useState([{ num: '', name: '' }]);
-
-  const cafeList = cafe.map(temp =>
-    temp.num == '' ? (
-      ''
-    ) : (
-      <CafeListContainer>
-        <div className='num'>{temp.num}</div>
-        <div className='name'>{temp.name}</div>
-      </CafeListContainer>
-    ),
-  );
-
-  return cafeList;
-};
-
-const ShopModify = () => {
-  return (
-    <div className='shopModifyBox'>
-      <div className='title'>Business Page</div>
-      <div className='userNameBox'>
-        <div className='userName'>김첨지</div>
-        <div className='info'>사장님 반갑습니다!</div>
-      </div>
-      <div className='shop'>
-        <p>내 가게 관리하기</p>
-        <CafeList />
-        <div className='shopadd'>
-          <Link to='/shopadd' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
-            추가
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-};
+const ShopModify = () => {};
 
 const Business = () => {
+  const navigate = useNavigate();
+  const [allCafe, setAllCafe] = useState([{ userNum: null, id: null, name: null }]);
+  const info = getUserInfo();
+  const userInfo = { userId: info.user_id, userName: info.username };
+
+  useEffect(() => {
+    getShopList().then(res => {
+      if (res) {
+        setAllCafe(
+          res.map(v => {
+            return {
+              userNum: v.user_num,
+              id: v.id,
+              name: v.shop_name,
+            };
+          }),
+        );
+      }
+    });
+  }, []);
+
+  const cafe = allCafe.filter(v => v.userNum == userInfo.userId);
+
+  const cafeList = cafe.map((cafe, i) => {
+    return (
+      <Link to={`/shopmodify?id=${cafe.id}`} style={{ textDecoration: 'none' }}>
+        <CafeListContainer>
+          <div className='num'>{i}</div>
+          <div className='name'>{cafe.name}</div>
+        </CafeListContainer>
+      </Link>
+    );
+  });
+
   return (
     <BusinessContainer>
       <section>
-        <ShopModify />
+        <div className='shopModifyBox'>
+          <div className='title'>Business Page</div>
+          <div className='userNameBox'>
+            <div className='userName'>{userInfo.userName}</div>
+            <div className='info'>사장님 반갑습니다!</div>
+          </div>
+          <div className='shop'>
+            <p>내 가게 관리하기</p>
+            {cafeList}
+            <div className='shopadd'>
+              <Link to='/shopadd' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
+                추가
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
     </BusinessContainer>
   );

@@ -23,16 +23,15 @@ const CoffeeTIResult = () => {
         <p>coffeeTI</p>
         <CoffeeTI>{coffeeTI}</CoffeeTI>
         <img src={coffeeTI_img} alt='커피티아이 img' />
-        <div
+        <Link
+          to='/dangwonkeoyeo'
           className='nextButton'
-          style={{ background: hover }}
+          style={{ textDecoration: 'none', color: '#F2F2F2' }}
           onMouseOver={() => setHover('#4EA6A6')}
           onMouseLeave={() => setHover('#CCD9D9')}
         >
-          <Link to='/dangwonkeoyeo' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
-            돌아가기
-          </Link>
-        </div>
+          돌아가기
+        </Link>
       </section>
     </CoffeeTIContainer>
   );

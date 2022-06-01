@@ -47,20 +47,13 @@ const CoffeeTISelect = () => {
   const [selectValue, setSelectValue] = useState(null);
   const value = [1, 2, 3, 4, 5];
 
+  console.log(selectValue);
   return (
-    <Select>
-      <div className='box'>
-        <div className='weak'>약</div>
-        <div className='check'>
-          <label>
-            {value.map(v => (
-              <input type={'radio'} name='check' value={v} onClick={() => setSelectValue(v)} />
-            ))}
-          </label>
-        </div>
-        <div className='strong'>강</div>
-      </div>
-    </Select>
+    <label onChange={e => setSelectValue(e.target.value)}>
+      {value.map(v => (
+        <input type={'radio'} name='check' value={v} />
+      ))}
+    </label>
   );
 };
 
