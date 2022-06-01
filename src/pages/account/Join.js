@@ -1,16 +1,51 @@
-import { useState } from 'react';
-import { PostRegister } from '../../api/constant';
+import { useState, useEffect } from 'react';
+import { PostRegister, getAllUser } from '../../api/constant';
+import { useNavigate } from 'react-router-dom';
+import { format } from 'date-fns';
 import JoinContainer from '../styled/JoinContainer';
 
 const Join = () => {
   const [idhover, setIdHover] = useState('#4EA6A6');
   const [finHover, setFinHover] = useState('#CCD9D9');
+  const [useId, setUseId] = useState(false); // 아이디 사용하고 있는지 검사
+  const [users, Setusers] = useState([{ id: '' }]);
   const [name, setName] = useState('');
   const [id, setId] = useState('');
+  const [checkId, setCheckId] = useState(0); // 0 : 검사 X, 1 : 검사 O (같은 값 존재), 2: 사용 O
   const [pwd, setPwd] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState(['010', '', '']);
   const [birth, setBirth] = useState('');
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    getAllUser().then(res => {
+      if (res) {
+        Setusers(
+          res.map(user => {
+            return {
+              id: user.username,
+            };
+          }),
+        );
+      }
+    });
+  }, []);
+
+  const idCheckOnClick = () => {
+    users.map(username => {
+      if (username.id === id) {
+        setUseId(false);
+        setId('');
+        return;
+      } else {
+        setUseId(true);
+      }
+    });
+
+    useId ? alert('사용할 수 있는 아이디입니다.') : alert('사용할 수 없는 아이디입니다.');
+  };
 
   return (
     <JoinContainer>
@@ -29,6 +64,7 @@ const Join = () => {
               style={{ background: idhover }}
               onMouseOver={() => setIdHover('#377575')}
               onMouseLeave={() => setIdHover('#4EA6A6')}
+              onClick={() => idCheckOnClick()}
             >
               중복검사
             </div>
@@ -103,10 +139,11 @@ const Join = () => {
                 alert('휴대폰 번호를 입력하세요.');
                 return;
               }
-              console.log({ id, name, pwd, email, phone: phone.join('-') });
-              PostRegister(id, name, pwd, email, phone, birth)
+              console.log({ id, name, pwd, email, phone: phone.join('') });
+              PostRegister(id, name, pwd, email, phone, format(new Date(birth || 0), 'yyyy-MM-dd'))
                 .then(res => {
                   alert('회원가입이 완료되었습니다.', e);
+                  navigate('/login');
                 })
                 .catch(e => {
                   alert('오류 발생', e);

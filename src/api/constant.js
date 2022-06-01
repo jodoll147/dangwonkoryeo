@@ -75,9 +75,8 @@ export async function PostRegister(id, name, pwd, email, phone, birth) {
       first_name: name,
       password: pwd,
       email: email,
-      phone_num: phone,
+      phone_num: toString(phone),
       birthday: birth,
-      groups: 2,
     }),
   });
   return result;
@@ -107,4 +106,36 @@ export function getUserInfo() {
     }
   }
   return null;
+}
+
+export async function getShopFavor(shopNum) {
+  const result = await callAPI(`${API_SERVER}/favor/?Shop=${shopNum}`, {
+    method: 'GET',
+  });
+
+  return result;
+}
+
+export async function getUserFavor(userNum) {
+  const result = await callAPI(`${API_SERVER}/favor/?User=${userNum}`, {
+    method: 'GET',
+  });
+
+  return result;
+}
+
+export async function getMypageShop(shopNum) {
+  const result = await callAPI(`${API_SERVER}/shop/${shopNum}/`, {
+    method: 'GET',
+  });
+
+  return result;
+}
+
+export async function getAllUser() {
+  const result = await callAPI(`${API_SERVER}/auth`, {
+    method: 'GET',
+  });
+
+  return result;
 }

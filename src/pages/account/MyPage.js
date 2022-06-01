@@ -1,59 +1,96 @@
 import { Link } from 'react-router-dom';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import MyPageContainer from '../styled/MyPageContainer';
 import HashTag from '../tag/HashTag';
 import styled from 'styled-components';
-import { getUserInfo } from '../../api/constant';
+import { getMypageShop, getUserInfo, getUserFavor } from '../../api/constant';
+import { id } from 'date-fns/locale';
 
-const Cafe = () => {
-  const CafeContainer = styled.div`
-    .cafeBox {
+const CafeContainer = styled.div`
+  .cafeBox {
+    position: relative;
+    width: 940px;
+    height: 104px;
+    align-items: baseline;
+    border: 1px solid #f2f2f2;
+
+    .cafe {
       position: relative;
-      width: 940px;
-      height: 104px;
-      align-items: baseline;
-      border: 1px solid #f2f2f2;
-
-      .cafe {
+      display: flex;
+      margin-top: 20px;
+      margin-left: 30px;
+      margin-top: 15px;
+      .cafeName {
         position: relative;
-        display: flex;
-        margin-top: 20px;
-        margin-left: 30px;
-        margin-top: 15px;
-        .cafeName {
-          position: relative;
-          margin-right: 10px;
-          font-family: 'Cafe24';
-          font-style: normal;
-          font-weight: 700;
-          font-size: 16px;
-          line-height: 16px;
-          color: #594031;
-        }
-        .cafeInfo {
-          position: relative;
-          font-family: 'Cafe24';
-          font-style: normal;
-          font-weight: 400;
-          font-size: 16px;
-          line-height: 16px;
-          color: #594031;
-        }
+        margin-right: 10px;
+        font-family: 'Cafe24';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 16px;
+        color: #594031;
       }
-      .hashBox {
+      .cafeInfo {
         position: relative;
-        margin-top: 10px;
-        margin-left: 15px;
-        width: 940px;
-        height: 30px;
-        .hashList {
-          position: relative;
-          display: flex;
-        }
+        font-family: 'Cafe24';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 16px;
+        color: #594031;
       }
     }
-  `;
-  return (
+    .hashBox {
+      position: relative;
+      margin-top: 10px;
+      margin-left: 15px;
+      width: 940px;
+      height: 30px;
+      .hashList {
+        position: relative;
+        display: flex;
+      }
+    }
+  }
+`;
+
+const MyPage = () => {
+  const [favorCafe, setFavorCafe] = []; // cafeId
+  const [shop, setShop] = [{ name: '', exp: '' }];
+  const info = getUserInfo();
+
+  console.log(info?.user_id);
+  useEffect(() => {
+    getUserFavor().then(res => {
+      if (res) {
+        setFavorCafe(
+          res.map(v => {
+            return v.shop;
+          }),
+        );
+      }
+    });
+    /*
+        favorCafe.map(cafeId =>
+      getMypageShop(cafeId).then(res => {
+        if (res) {
+          setShop(
+            res.map(v => {
+              console.log(v);
+              return {
+                name: v.shop_name,
+                exp: v.shop_exp,
+              };
+            }),
+          );
+        }
+      }),
+    );
+    
+    */
+  });
+
+  const cafe = (
     <CafeContainer>
       <div className='cafeBox'>
         <div className='cafe'>
@@ -66,11 +103,7 @@ const Cafe = () => {
       </div>
     </CafeContainer>
   );
-};
-const MyPage = () => {
-  const cafelist = [Cafe, Cafe, Cafe, Cafe];
-  const cafelistMap = cafelist.map(temp => <div>{temp}</div>);
-  const info = getUserInfo();
+
   return (
     <MyPageContainer>
       <section>
@@ -93,8 +126,7 @@ const MyPage = () => {
         <HashTag />
         <div className='cafeListBox'>
           <div className='cafeList'>찜한 카페 목록</div>
-          <Cafe />
-          <Cafe />
+          {cafe}
         </div>
         <Link
           to='/business'
