@@ -7,7 +7,6 @@ import HomeContainer from '../styled/HomeContainer';
 import coffeeTI from '../img/coffeeTIBanner.png';
 import dangwonkeoyeo from '../img/dangwonkeoyeoBanner.png';
 import CafeList from '../rootView/CafeList';
-import { hover } from '@testing-library/user-event/dist/hover';
 
 const Slide = () => {
   const setting = {
