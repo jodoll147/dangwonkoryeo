@@ -124,6 +124,14 @@ export async function getUserFavor(userNum) {
   return result;
 }
 
+export async function getAllFavor() {
+  const result = await callAPI(`${API_SERVER}/favor/`, {
+    method: 'GET',
+  });
+
+  return result;
+}
+
 export async function getMypageShop(shopNum) {
   const result = await callAPI(`${API_SERVER}/shop/${shopNum}/`, {
     method: 'GET',
@@ -135,6 +143,20 @@ export async function getMypageShop(shopNum) {
 export async function getAllUser() {
   const result = await callAPI(`${API_SERVER}/auth`, {
     method: 'GET',
+  });
+
+  return result;
+}
+
+// 카페 등록 & 추가 등록
+export async function postAddShop(userNum, shopName, shopLicense) {
+  const result = await callAPI(`${API_SERVER}/shop/`, {
+    method: 'POST',
+    body: JSON.stringify({
+      user_num: userNum,
+      shop_name: shopName,
+      shop_license: shopLicense,
+    }),
   });
 
   return result;

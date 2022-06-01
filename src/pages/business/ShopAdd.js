@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import BusinessContainer from '../styled/BusinessContainer';
+import { postAddShop, getUserInfo } from '../../api/constant';
 
 const ShopAdd = () => {
-  const [fileImage, setFileImage] = useState('');
+  const [shopName, setShopName] = useState('');
+  const [shopLicense, setShopLicense] = useState('');
+  const userNum = getUserInfo().user_id;
+
+  // const [fileImage, setFileImage] = useState('');
 
   // 이미지 파일 저장
   /*
@@ -18,16 +23,27 @@ const ShopAdd = () => {
           <div className='explan'>사업자 등록이 필요한 페이지 입니다.</div>
           <div className='shopBox'>
             <p>가게명</p>
-            <input type={'text'} />
+            <input type={'text'} onChange={e => setShopName(e.target.value)} />
           </div>
           <div className='busniessNum'>
             <p>사업자번호</p>
-            <input type={'text'} />
+            <input type={'text'} onChange={e => setShopLicense(e.target.value)} />
             {/*<div className='documentBox'>
             <p>사업자등록증</p>
             <input type={'file'} accept='img/*' onChange={saveFileImage} />*/}
           </div>
-          <div className='saveButton'>등록</div>
+          <div
+            className='saveButton'
+            onClick={e => {
+              postAddShop(userNum, shopName, shopLicense)
+                .then()
+                .catch(e => {
+                  alert('등록에 실패하였습니다.', e);
+                });
+            }}
+          >
+            등록
+          </div>
           <div className='infoBox'>
             <p>사업자 등록은 3~4일 정도 소요됩니다.</p>
             <p>

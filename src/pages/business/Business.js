@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import BusinessContainer from '../styled/BusinessContainer';
 
 const CafeListContainer = styled.div`
@@ -28,16 +28,19 @@ const CafeListContainer = styled.div`
 `;
 
 const CafeList = () => {
-  const [cafe, setcafe] = useState([
-    { num: 0, name: '김첨지커피' },
-    { num: 1, name: '명선이커피' },
-  ]);
-  const cafeList = cafe.map(temp => (
-    <CafeListContainer>
-      <div className='num'>{temp.num}</div>
-      <div className='name'>{temp.name}</div>
-    </CafeListContainer>
-  ));
+  const navigate = useNavigate();
+  const [cafe, setcafe] = useState([{ num: '', name: '' }]);
+
+  const cafeList = cafe.map(temp =>
+    temp.num == '' ? (
+      ''
+    ) : (
+      <CafeListContainer>
+        <div className='num'>{temp.num}</div>
+        <div className='name'>{temp.name}</div>
+      </CafeListContainer>
+    ),
+  );
 
   return cafeList;
 };
