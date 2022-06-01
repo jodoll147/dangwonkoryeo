@@ -207,7 +207,7 @@ const Home = () => {
             </div>
 
             {menuItems.map((v, i) => {
-              return v.className == 'username' ? (
+              return v.className === 'username' ? (
                 <div className={v.className}>{v.text}님</div>
               ) : (
                 <Link

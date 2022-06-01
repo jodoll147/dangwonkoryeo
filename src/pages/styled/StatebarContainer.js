@@ -88,7 +88,7 @@ const HomeContainer = styled.div`
                 font-style: normal;
                 font-weight: 400;
                 line-height: 16px;
-                background: #CCD9D9;
+                background: #4EA6A6;
                 border-radius: 5px;
             }
             .mypage{
