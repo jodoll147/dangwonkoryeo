@@ -26,11 +26,16 @@ export async function getShopList() {
   return result;
 }
 
-export async function postShopList() {
-  const result = await callAPI(`${API_SERVER}/shop`, {
+// 가게 수정
+export async function postShopModify(id, call, exp, add, img) {
+  const result = await callAPI(`${API_SERVER}/shop/change	`, {
     method: 'POST',
     body: JSON.stringify({
-      shop_mosiggang_e: '123',
+      id: id,
+      head_img: img,
+      shop_call: call,
+      shop_exp: exp,
+      shop_add: add,
     }),
   });
 
