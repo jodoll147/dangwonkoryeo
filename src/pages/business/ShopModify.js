@@ -1,10 +1,12 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 import ShopModifyContainer from '../styled/ShopModifyContainer';
 import ModalContainer from '../styled/ModalContainer';
 import close from '../img/close.png';
 import closeBlack from '../img/closeBlack.png';
 import shopImg from '../img/shopImg.png';
+import { getShopList } from '../../api/constant';
 
 const HashTagDiv = styled.div`
 position: relative;
@@ -62,34 +64,33 @@ const RadioContainer = styled.div`
   }
 `;
 
-const RadioBox = props => {
-  const res = props.value;
-  return (
-    <RadioContainer>
-      <div className='radioBox'>
-        <p className='weak'>약</p>
-        <label>
-          <input type={'radio'} name={res} value={2} />
-          <input type={'radio'} name={res} value={1} />
-          <input type={'radio'} name={res} value={3} />
-          <input type={'radio'} name={res} value={4} />
-          <input type={'radio'} name={res} value={5} />
-        </label>
-        <p className='strong'>강</p>
-      </div>
-    </RadioContainer>
-  );
-};
-
 const ShopModify = () => {
   const [textValue, setTextValue] = useState('');
+  const [searchParams] = useSearchParams();
+  const [shopName, setShopName] = useState(''); // 가게 이름
+  const [shopInfo, setShopInfo] = useState(''); // 가게 설명
+  const [shopCel, setShopCel] = useState(['', '', '']); // 가게 번호
+  const [shopAddr, setShopAddr] = useState(''); // 가게 주소
+  const [hashName, setHashName] = useState(''); // 해시태그 이름
   const [hashTags, setHashTags] = useState([]);
   const [onHashClick, setOnHashClick] = useState(false);
   const flavours = ['견과류', '초콜릿', '꽃', '과일'];
   const flavourList = flavours.map(flavour => <Button>{flavour}</Button>);
   const [fileImage, setFileImage] = useState(shopImg);
-
   const [user, setUser] = useState(); // 결과값
+
+  const id = +searchParams.get('id');
+
+  useEffect(() => {
+    getShopList().then(res => {
+      if (res) {
+        const myShop = res.find(v => v.id == id);
+        if (myShop) {
+          setShopName(myShop.shop_name);
+        }
+      }
+    });
+  }, []);
 
   const hashClick = () => {
     setOnHashClick(true);
@@ -97,10 +98,6 @@ const ShopModify = () => {
 
   const closeClick = () => {
     setOnHashClick(false);
-  };
-
-  const handleSetValue = e => {
-    setTextValue(e.target.value);
   };
 
   const onRemove = useCallback(
@@ -115,6 +112,8 @@ const ShopModify = () => {
     setFileImage(URL.createObjectURL(e.target.files[0]));
   };
 
+  console.log(hashTags);
+
   const HashTag = () => {
     const hashAddList = hashTags.map(hash => (
       <HashTagDiv onClick={onRemove}>
@@ -128,17 +127,29 @@ const ShopModify = () => {
     return hashAddList;
   };
 
-  const Modal = () => {
-    const selectList = ['원두', '기타'];
-    const [Selected, setSelected] = useState('');
-    const handleSelect = e => {
-      setSelected(e.target.value);
-    };
-    const [value, setValue] = useState('');
+  const RadioBox = props => {
+    const res = props.value;
+    return (
+      <RadioContainer>
+        <div className='radioBox'>
+          <p className='weak'>약</p>
+          <label>
+            <input type={'radio'} name={res} value={2} />
+            <input type={'radio'} name={res} value={1} />
+            <input type={'radio'} name={res} value={3} />
+            <input type={'radio'} name={res} value={4} />
+            <input type={'radio'} name={res} value={5} />
+          </label>
+          <p className='strong'>강</p>
+        </div>
+      </RadioContainer>
+    );
+  };
 
-    const onChange = e => {
-      setValue(e.target.value);
-    };
+  const Modal = () => {
+    const selectTypeList = ['원두', '기타'];
+    const [type, setType] = useState(''); // 원두인지 아닌지
+    const [value, setValue] = useState('');
 
     const onClick = () => {
       setHashTags(p => p.concat(value));
@@ -155,16 +166,16 @@ const ShopModify = () => {
           <div className='hashBox'>
             <div className='nameBox'>
               <p>이름</p>
-              <input type={'text'} name='name' onChange={onChange} />
-              <select onChange={handleSelect} value={Selected}>
-                {selectList.map(item => (
+              <input type={'text'} onChange={e => setValue(e.target.value)} />
+              <select onChange={e => setType(e.target.value)} value={type}>
+                {selectTypeList.map(item => (
                   <option value={item} key={item}>
                     {item}
                   </option>
                 ))}
               </select>
             </div>
-            {Selected === '원두' ? (
+            {type === '원두' ? (
               <div className='coffeeSelectBox'>
                 <div className='bodyBox'>
                   <p className='bodyTitle'>바디감</p>
@@ -203,27 +214,52 @@ const ShopModify = () => {
         <div className='shopModifyBox'>
           <div className='shopNameBox'>
             <p>가게명</p>
-            <input type={'text'} />
+            <input type={'text'} value={shopName} onChange={e => setShopName(e.target.value)} />
           </div>
           <div className='shopInfo'>
             <p>설명</p>
-            <textarea onChange={e => handleSetValue(e)} maxlength='300' />
+            <textarea onChange={e => setShopInfo(e.target.value)} maxLength='300' />
           </div>
           <div className='info'>300자 이내로 작성해주세요.</div>
           <div className='phoneBox'>
             <p>전화번호</p>
-            <input type={'text'} maxlength='3' />
-            <input type={'text'} maxlength='4' />
-            <input type={'text'} maxlength='4' />
+            <input
+              type={'text'}
+              maxLength='3'
+              onChange={e => {
+                const value = e.target.value.replace(/[^0-9]/g, '');
+                setShopCel(p => {
+                  p[0] = value;
+                  return [...p];
+                });
+              }}
+            />
+            <input
+              type={'text'}
+              maxLength='4'
+              onChange={e => {
+                const value = e.target.value.replace(/[^0-9]/g, '');
+                setShopCel(p => {
+                  p[0] = value;
+                  return [...p];
+                });
+              }}
+            />
+            <input
+              type={'text'}
+              maxLength='4'
+              onChange={e => {
+                const value = e.target.value.replace(/[^0-9]/g, '');
+                setShopCel(p => {
+                  p[0] = value;
+                  return [...p];
+                });
+              }}
+            />
           </div>
           <div className='locationBox'>
             <p>가게위치</p>
-            <textarea onChange={e => handleSetValue(e)} maxlength='50' />
-          </div>
-          <div className='menuBox'>
-            <p>메뉴</p>
-            <input type={'text'} />
-            <input type={'button'} className='add' value={'추가'} />
+            <textarea onChange={e => setShopAddr(e.target.value)} maxLength='50' />
           </div>
           <div className='hash'>
             <p>해시태그</p>
