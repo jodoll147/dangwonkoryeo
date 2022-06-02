@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import CoffeeTIContainer from '../styled/CoffeeTIContainer';
-import CoffeeTISelect from './CoffeeTISelect';
+import CoffeeTIResult from './CoffeeTIResult';
 import styled from 'styled-components';
+import { getCoffeeTIResult, getUserInfo } from '../../api/constant';
 
 const Flavour = styled.div`
   position: relative;
@@ -72,40 +73,48 @@ const CoffeeTIBody = () => {
   const readioValue = [1, 2, 3, 4, 5]; // radio 값
   const [value, setValue] = useState({ body: null, sour: null, flavour: '' }); //선택값을 저장하는 state
   const [page, setPage] = useState(1);
+  const [result, setResult] = useState({
+    u_bean: '',
+    feature: [''],
+    // pref_list: [2, 3, 2],
+  });
+
+  const info = getUserInfo();
 
   return page === 1 ? (
     <CoffeeTIContainer>
       <section>
         <p>coffeeTI</p>
-        <div className='bodySour'>
-          <div className='que'>
-            <p>선호하는 바디감(쓴맛)의 정도를 선택해주세요.</p>
-          </div>
-          <Select>
-            <div className='box'>
-              <div className='weak'>약</div>
-              <div className='check'>
-                <label onChange={e => setSelectValue(e.target.value)}>
-                  {readioValue.map(v => (
-                    <input type={'radio'} name='check' value={v} />
-                  ))}
-                </label>
-              </div>
-              <div className='strong'>강</div>
+        <div className='que'>
+          <p>선호하는 바디감(쓴맛)의 정도를 선택해주세요.</p>
+        </div>
+        <Select>
+          <div className='box'>
+            <div className='weak'>약</div>
+            <div className='check'>
+              <label onChange={e => setSelectValue(e.target.value)}>
+                {readioValue.map(v => (
+                  <input type={'radio'} name='check' defaultChecked={v == 3} value={v} />
+                ))}
+              </label>
             </div>
-            {console.log(selectValue)}
-          </Select>
-          <div
-            className='nextButton'
-            style={{ background: hover }}
-            onMouseOver={() => setHover('#4EA6A6')}
-            onMouseLeave={() => setHover('#CCD9D9')}
-            onClick={() => {
-              setPage(2);
-            }}
-          >
-            다음
+            <div className='strong'>강</div>
           </div>
+        </Select>
+        <div
+          className='nextButton'
+          style={{ background: hover }}
+          onMouseOver={() => setHover('#4EA6A6')}
+          onMouseLeave={() => setHover('#CCD9D9')}
+          onClick={() => {
+            setValue(p => {
+              p.body = selectValue;
+              return { ...p };
+            });
+            setPage(2);
+          }}
+        >
+          다음
         </div>
       </section>
     </CoffeeTIContainer>
@@ -128,7 +137,6 @@ const CoffeeTIBody = () => {
             </div>
             <div className='strong'>강</div>
           </div>
-          {console.log(selectValue)}
         </Select>
         <div
           className='nextButton'
@@ -136,6 +144,10 @@ const CoffeeTIBody = () => {
           onMouseOver={() => setHover('#4EA6A6')}
           onMouseLeave={() => setHover('#CCD9D9')}
           onClick={() => {
+            setValue(p => {
+              p.sour = selectValue;
+              return { ...p };
+            });
             setPage(3);
           }}
         >
@@ -151,30 +163,41 @@ const CoffeeTIBody = () => {
           <p>원하는 향을 한 가지 선택해주세요.</p>
         </div>
         <div className='flavour'>
-          {checkedList.map((flavours, i) => (
+          {checkedList.map((flavour, i) => (
             <Flavour
               style={{
                 background: click === i ? '#594031' : 'rgba(166, 140, 118, 0.7)',
               }}
-              onClick={flavours => flavours.target.value}
+              onClick={e => {
+                setClick(i);
+                setSelectValue(flavour);
+                // e.target.value;
+              }}
             >
-              {flavours}
+              {flavour}
             </Flavour>
           ))}
         </div>
-        <Link
+        <div
           className='nextButton'
           style={{ background: hover, textDecoration: 'none', color: '#F2F2F2' }}
           onMouseOver={() => setHover('#4EA6A6')}
           onMouseLeave={() => setHover('#CCD9D9')}
-          to='/coffeeTI/result'
+          onClick={() => {
+            getCoffeeTIResult(info.username, [+value.body, +value.sour, selectValue]).then(res => {
+              if (res) {
+                setResult(res);
+                setPage(4);
+              }
+            });
+          }}
         >
           다음
-        </Link>
+        </div>
       </section>
     </CoffeeTIContainer>
   ) : (
-    <></>
+    <CoffeeTIResult result={result} />
   );
 };
 

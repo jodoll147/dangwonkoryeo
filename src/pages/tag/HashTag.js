@@ -15,7 +15,7 @@ const HashTagContainer = styled.div`
 
 const HashTag = props => {
   const [hashTags, setHashTags] = useState([{ id: '', name: '', isBean: null }]);
-  const value = props.value;
+  const value = props.value; // shop_id
 
   useEffect(() => {
     getTag()

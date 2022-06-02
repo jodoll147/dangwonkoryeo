@@ -45,7 +45,7 @@ const App = () => {
         <Route path='/coffeeTI/body' element={<CoffeeTIBody />} />
         <Route path='/coffeeTI/sour' element={<CoffeeTISour />} />
         <Route path='/coffeeTI/flavour' element={<CoffeeTIFlavour />} />
-        <Route path='/coffeeTI/result' element={<CoffeeTIResult />} />
+        {/*<Route path='/coffeeTI/result' element={<CoffeeTIResult />} />*/}
       </Route>
     </Routes>
   );

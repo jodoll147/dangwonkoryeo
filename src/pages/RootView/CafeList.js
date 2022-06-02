@@ -45,7 +45,7 @@ const Cafe = props => {
                   }}
                 />
                 <p>
-                  {favorCafe.filter(f => f.shop === cafe.id && f.user !== info.user_id).length +
+                  {favorCafe.filter(f => f.shop === cafe.id && f.user !== info?.user_id).length +
                     +like}
                 </p>
               </div>
@@ -101,15 +101,16 @@ const CafeList = () => {
         );
       }
     });
-    getUserFavor(info.user_id).then(res => {
-      if (res) {
-        setUserFavorCafe(
-          res.map(v => {
-            return v.shop;
-          }),
-        );
-      }
-    });
+    info?.user_id &&
+      getUserFavor(info.user_id).then(res => {
+        if (res) {
+          setUserFavorCafe(
+            res.map(v => {
+              return v.shop;
+            }),
+          );
+        }
+      });
   }, []);
 
   // cafe.id heart 클릭시, 로그인 O하면 하트 올라가고 아니면 로그인 하라는 altr 화면 출력

@@ -30,19 +30,22 @@ const Login = () => {
           className='login_btn'
           onClick={e => {
             PostLogin(id, pwd)
-              .then()
+              .then(res => {
+                navigate('/dangwonkeoyeo');
+                window.location.reload();
+              })
               .catch(e => console.log('login error', e), setError(e));
           }}
         >
           LOGIN
         </div>
-        {error == '' ? (
+        {/* {error == '' ? (
           ''
         ) : navigate('/dangwonkeoyeo') ? (
           ''
         ) : (
           <div className='error'>존재하지 않는 아이디나 비밀번호 입니다.</div>
-        )}
+        )} */}
         <div className='find'>
           <Link to={'/find'} style={{ textDecoration: 'none', color: 'black' }}>
             아이디/비밀번호 찾기

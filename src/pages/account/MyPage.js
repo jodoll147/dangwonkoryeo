@@ -3,8 +3,7 @@ import React, { useEffect, useState } from 'react';
 import MyPageContainer from '../styled/MyPageContainer';
 import HashTag from '../tag/HashTag';
 import styled from 'styled-components';
-import { getMypageShop, getUserInfo, getUserFavor } from '../../api/constant';
-import { id } from 'date-fns/locale';
+import { getShopList, getUserInfo, getUserFavor } from '../../api/constant';
 
 const CafeContainer = styled.div`
   .cafeBox {
@@ -55,13 +54,13 @@ const CafeContainer = styled.div`
 `;
 
 const MyPage = () => {
-  const [favorCafe, setFavorCafe] = []; // cafeId
-  const [shop, setShop] = [{ name: '', exp: '' }];
+  const [favorCafe, setFavorCafe] = useState([]); // cafeId
+  const [favorShop, setFavorShop] = useState([{ id: '', name: '', exp: '' }]);
   const info = getUserInfo();
 
   console.log(info?.user_id);
   useEffect(() => {
-    getUserFavor().then(res => {
+    getUserFavor(info?.user_id).then(res => {
       if (res) {
         setFavorCafe(
           res.map(v => {
@@ -70,39 +69,37 @@ const MyPage = () => {
         );
       }
     });
-    /*
-        favorCafe.map(cafeId =>
-      getMypageShop(cafeId).then(res => {
-        if (res) {
-          setShop(
-            res.map(v => {
-              console.log(v);
-              return {
-                name: v.shop_name,
-                exp: v.shop_exp,
-              };
-            }),
-          );
-        }
-      }),
-    );
-    
-    */
-  });
+    getShopList(favorCafe).then(res => {
+      if (res) {
+        setFavorShop(
+          res.map(v => {
+            return {
+              id: v.id,
+              name: v.shop_name,
+              exp: v.shop_exp,
+            };
+          }),
+        );
+      }
+    });
+  }, []);
+  console.log(favorCafe);
 
-  const cafe = (
+  const shopList = favorShop.map(v => (
     <CafeContainer>
       <div className='cafeBox'>
         <div className='cafe'>
           <div className='cafeName'>카페이름</div>
+          <div className='name'>{v.name}</div>
           <div className='cafeInfo'>카페정보</div>
+          <div className='info'>{v.exp}</div>
         </div>
         <div className='hashBox'>
-          <HashTag />
+          <HashTag value={v.id} />
         </div>
       </div>
     </CafeContainer>
-  );
+  ));
 
   return (
     <MyPageContainer>
@@ -116,7 +113,7 @@ const MyPage = () => {
         </div>
         <div className='coffeeTIBox'>
           <div className='coffeeTI'>커피티아이</div>
-          <div className='type'>BABY</div>
+          <div className='type'></div>
           <div className='check'>
             <Link to='/coffeeTI/first' style={{ textDecoration: 'none', color: '#f2f2f2' }}>
               검사하기
@@ -126,7 +123,7 @@ const MyPage = () => {
         <HashTag />
         <div className='cafeListBox'>
           <div className='cafeList'>찜한 카페 목록</div>
-          {cafe}
+          {shopList}
         </div>
         <Link
           to='/business'

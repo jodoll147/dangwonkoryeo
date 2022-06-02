@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import MainContainer from '../styled/MainContainer';
 import BottomContainer from '../styled/BottomContainer';
 import StatebarContainer from '../styled/StatebarContainer';
-import { getUserInfo } from '../../api/constant';
+import { getUserInfo, hashTagPost } from '../../api/constant';
 import hashTag from '../img/hashTag.png';
 import hashTaghover from '../img/hashTagHover.png';
 
@@ -53,6 +53,15 @@ const HashTagContainer = styled.div`
         }
       }
     }
+    .flavor {
+      position: relative;
+      width: 60px;
+      height: 36px;
+      cursor: pointer;
+      border-radius: 10px;
+      border: 1px #4ea6a6;
+      background: #4ea6a6;
+    }
     .etcBox {
       position: relative;
       .etcTitle {
@@ -60,18 +69,14 @@ const HashTagContainer = styled.div`
         margin-top: 40px;
         margin-left: 30px;
       }
-      .hashBox {
+      .parking {
         position: relative;
-        display: flex;
-        align-items: baseline;
-        margin-left: 30px;
-        margin-top: 10px;
-        margin-bottom: 40px;
-        .hash {
-          position: relative;
-          margin-right: 10px;
-          margin-bottom: 10px;
-        }
+        width: 60px;
+        height: 36px;
+        cursor: pointer;
+        border-radius: 10px;
+        border: 1px #4ea6a6;
+        background: #4ea6a6;
       }
     }
     .searchBtn {
@@ -95,22 +100,78 @@ const HashTagContainer = styled.div`
   }
 `;
 
+const flavorValue = ['과일', '꽃', '초콜릿', '견과류'];
+
 const HashFillter = () => {
+  const value = [1, 2, 3, 4, 5];
+  const [body, setBody] = useState('');
+  const [sour, setSour] = useState('');
+  const [flavor, setFlavor] = useState('');
+  const [selectValue, setSelectValue] = useState(null);
+  const [parking, setParking] = useState(false);
+
+  console.log('FF', { body, sour, flavor, parking });
+
   return (
     <HashTagContainer>
       <div className='hashTagBox'>
         <div className='hashTitle'>해시태그 필터</div>
         <div className='beanBox'>
-          <div className='beanTitle'>원두</div>
-          <div className='hashBox'>
-            <HashTag value={null} />
+          <div>
+            <div className='beanTitle'>바디감</div>
+            <label onChange={e => setBody(e.target.value)}>
+              {value.map(v => (
+                <input type={'radio'} name='body' defaultChecked={v == 3} value={v} />
+              ))}
+            </label>
+          </div>
+          <div>
+            <div className='beanTitle'>산미</div>
+            <label onChange={e => setSour(e.target.value)}>
+              {value.map(v => (
+                <input type={'radio'} name='sour' defaultChecked={v == 3} value={v} />
+              ))}
+            </label>
           </div>
         </div>
-        <div className='etcBox'>
-          <div className='etcTitle'>기타</div>
-          <div className='hashBox'></div>
+        <div>
+          <div className='beanTitle'>향</div>
+          {flavorValue.map((v, i) => (
+            <div
+              key={i}
+              className='flavor'
+              value={v.namae}
+              onClick={e => {
+                setFlavor(v.id);
+              }}
+            >
+              {v}
+            </div>
+          ))}
         </div>
-        <button className='searchBtn'>검색</button>
+
+        <div className='etcBox'>
+          <div>
+            <div className='etcTitle'>기타</div>
+            <div className='parking' onClick={() => setParking(p => !p)}>
+              {parking ? '주차가능' : '주차불가'}
+            </div>
+          </div>
+        </div>
+        <button
+          className='searchBtn'
+          onClick={e => {
+            console.log('FF', { body, sour, flavor, parking });
+
+            hashTagPost(body, sour, flavor, parking)
+              .then()
+              .catch(e => {
+                alert('검색에 실패하였습니다.', e);
+              });
+          }}
+        >
+          검색
+        </button>
       </div>
     </HashTagContainer>
   );
@@ -122,19 +183,6 @@ const Home = () => {
   const [hover, setHover] = useState(hashTag);
   const [hoverIndex, setHoverIndex] = useState(null);
   const info = getUserInfo();
-
-  const onClickEvent = () => {
-    setOnClick(!onClick);
-    return false;
-  };
-
-  const mouseOverEvent = index => {
-    setHoverIndex(index);
-  };
-
-  const mouseLeaveEvent = index => {
-    setHoverIndex(p => (p === index ? null : p));
-  };
 
   const originalMenuItems = [
     {
@@ -170,7 +218,7 @@ const Home = () => {
           linkTo: '/dangwonkeoyeo',
           action: () => {
             localStorage.removeItem('token');
-            setMenuItems(p => [...p]);
+            window.location.reload();
             //새로고침하기
           },
         });
@@ -193,7 +241,7 @@ const Home = () => {
       }
       return [...menuItems];
     });
-  }, [menuItems]);
+  }, []);
 
   return (
     <StatebarContainer>
@@ -219,8 +267,12 @@ const Home = () => {
                     color: hoverIndex === i ? '#CCD9D9' : '#F2F2F2',
                   }}
                   onClick={() => (v.action ? v.action() : undefined)}
-                  onMouseOver={() => mouseOverEvent(i)}
-                  onMouseLeave={() => mouseLeaveEvent(i)}
+                  onMouseOver={() => {
+                    setHoverIndex(i);
+                  }}
+                  onMouseLeave={() => {
+                    setHoverIndex(p => (p === i ? null : p));
+                  }}
                 >
                   {v.text}
                 </Link>
@@ -231,13 +283,16 @@ const Home = () => {
               <img
                 src={hover}
                 alt='hashTag'
-                onClick={onClickEvent}
+                onClick={() => {
+                  setOnClick(!onClick);
+                  return false;
+                }}
                 onMouseOver={() => setHover(hashTaghover)}
                 onMouseLeave={() => setHover(hashTag)}
               />
             </div>
           </div>
-          {onClick ? <HashFillter key={'hashtagFilter'} /> : null}
+          {onClick ? <HashFillter key={'hashtagFilter'} /> : <></>}
         </section>
       </header>
       <main>

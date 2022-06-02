@@ -209,13 +209,41 @@ export async function findPwd(name, phone, id) {
   return result;
 }
 
-// 카페 등록 & 추가 등록
+// 좋아요 처리
 export async function postLike(userId, shopId, like) {
   const result = await callAPI(`${API_SERVER}/favor/${like ? '' : 'delete'}`, {
     method: 'POST',
     body: JSON.stringify({
       user: userId,
       shop: shopId,
+    }),
+  });
+
+  return result;
+}
+
+// 비밀번호 찾기
+export async function getCoffeeTIResult(username, selectData) {
+  const result = await callAPI(`${API_SERVER}/auth/coffeeti`, {
+    method: 'POST',
+    body: JSON.stringify({
+      username: username,
+      user_bean: selectData,
+    }),
+  });
+
+  return result;
+}
+
+// 해시태그 필터
+export async function hashTagPost(body, acid, flavor, parking) {
+  const result = await callAPI(`${API_SERVER}/shop/filter`, {
+    method: 'POST',
+    body: JSON.stringify({
+      body: body,
+      acid: acid,
+      flavor: flavor,
+      parking: parking,
     }),
   });
 
