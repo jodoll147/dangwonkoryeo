@@ -5,6 +5,7 @@ const MyPageContainer = styeld.div`
         position: relative;
         width: 940px;
         height: 648px;
+        font-family: 'Cafe24';
         .myPageBox{
             position: relative;
 
@@ -19,8 +20,11 @@ const MyPageContainer = styeld.div`
                 margin-top: 20px;
                 margin-left: 30px;
                 text-align: left;
+            }
+
+        
         }
-    }
+  
         .nameBox{
             position: relative;
             margin-top: 20px;
@@ -130,7 +134,7 @@ const MyPageContainer = styeld.div`
             border: 3px solid #4EA6A6;
             border-radius: 10px;
         }
-    }
+    
 `;
 
 export default MyPageContainer;

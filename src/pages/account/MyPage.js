@@ -3,7 +3,14 @@ import React, { useEffect, useState } from 'react';
 import MyPageContainer from '../styled/MyPageContainer';
 import HashTag from '../tag/HashTag';
 import styled from 'styled-components';
-import { getShopList, getUserInfo, getUserFavor } from '../../api/constant';
+import {
+  getShopList,
+  getUserInfo,
+  getUserFavor,
+  getAllUser,
+  getCoffeeTIResult,
+} from '../../api/constant';
+import { id } from 'date-fns/locale';
 
 const CafeContainer = styled.div`
   .cafeBox {
@@ -12,31 +19,45 @@ const CafeContainer = styled.div`
     height: 104px;
     align-items: baseline;
     border: 1px solid #f2f2f2;
+    font-family: 'Cafe24';
 
     .cafe {
       position: relative;
-      display: flex;
       margin-top: 20px;
       margin-left: 30px;
       margin-top: 15px;
-      .cafeName {
-        position: relative;
-        margin-right: 10px;
-        font-family: 'Cafe24';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 16px;
-        color: #594031;
+      .cafeNameBox {
+        display: flex;
+        .cafeName {
+          position: relative;
+          margin-right: 10px;
+          font-family: 'Cafe24';
+          font-style: normal;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 16px;
+          color: #594031;
+        }
+        .name {
+          position: relative;
+        }
       }
-      .cafeInfo {
+      .cafeInfoBox {
         position: relative;
-        font-family: 'Cafe24';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 16px;
-        color: #594031;
+        display: flex;
+        margin-top: 10px;
+        .cafeInfo {
+          position: relative;
+          font-family: 'Cafe24';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 16px;
+          color: #594031;
+        }
+      }
+      .info {
+        position: relative;
       }
     }
     .hashBox {
@@ -53,12 +74,30 @@ const CafeContainer = styled.div`
   }
 `;
 
+const Tag = styled.div`
+  .tag {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    .bean {
+      position: relative;
+      margin-left: 30px;
+      margin-right: 10px;
+    }
+    .flavor {
+      position: relative;
+    }
+  }
+`;
+
 const MyPage = () => {
+  const [user, setUser] = useState({ userBean: '', userBody: '', userAcid: '', userFlavor: '' });
   const [favorCafe, setFavorCafe] = useState([]); // cafeId
   const [favorShop, setFavorShop] = useState([{ id: '', name: '', exp: '' }]);
   const info = getUserInfo();
 
   console.log(info?.user_id);
+
   useEffect(() => {
     getUserFavor(info?.user_id).then(res => {
       if (res) {
@@ -82,17 +121,31 @@ const MyPage = () => {
         );
       }
     });
+    getAllUser().then(res => {
+      if (res) {
+        const tempUser = res.find(v => {
+          return v.id == info.user_id;
+        });
+        setUser({
+          userBean: tempUser.user_bean,
+          userFlavor: tempUser.user_flavor,
+        });
+      }
+    });
   }, []);
-  console.log(favorCafe);
 
   const shopList = favorShop.map(v => (
     <CafeContainer>
       <div className='cafeBox'>
         <div className='cafe'>
-          <div className='cafeName'>카페이름</div>
-          <div className='name'>{v.name}</div>
-          <div className='cafeInfo'>카페정보</div>
-          <div className='info'>{v.exp}</div>
+          <div className='cafeNameBox'>
+            <div className='cafeName'>카페이름</div>
+            <div className='name'>{v.name}</div>
+          </div>
+          <div className='cafeInfoBox'>
+            <div className='cafeInfo'>카페정보</div>
+            <div className='info'>{v.exp}</div>
+          </div>
         </div>
         <div className='hashBox'>
           <HashTag value={v.id} />
@@ -120,7 +173,12 @@ const MyPage = () => {
             </Link>
           </div>
         </div>
-        <HashTag />
+        <Tag>
+          <div className='tag'>
+            <div className='bean'>{user.userBean}</div>
+            <div className='flavor'>{user.userFlavor}</div>
+          </div>
+        </Tag>
         <div className='cafeListBox'>
           <div className='cafeList'>찜한 카페 목록</div>
           {shopList}

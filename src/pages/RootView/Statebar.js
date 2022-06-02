@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import HashTag from '../tag/HashTag';
 import styled from 'styled-components';
 import MainContainer from '../styled/MainContainer';
@@ -8,6 +8,7 @@ import StatebarContainer from '../styled/StatebarContainer';
 import { getUserInfo, hashTagPost } from '../../api/constant';
 import hashTag from '../img/hashTag.png';
 import hashTaghover from '../img/hashTagHover.png';
+import CafeList from './CafeList';
 
 const HashTagContainer = styled.div`
   .hashTagBox {
@@ -39,6 +40,12 @@ const HashTagContainer = styled.div`
         margin-top: 40px;
         margin-left: 30px;
       }
+      input {
+        position: relative;
+        margin-left: 30px;
+        width: 20px;
+        height: 20px;
+      }
       .hashBox {
         position: relative;
         display: flex;
@@ -53,14 +60,27 @@ const HashTagContainer = styled.div`
         }
       }
     }
+    .flavors {
+      position: relative;
+
+      margin-top: 40px;
+      margin-left: 30px;
+    }
     .flavor {
       position: relative;
+      margin-left: 20px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-family: 'Cafe24Bold';
       width: 60px;
       height: 36px;
       cursor: pointer;
       border-radius: 10px;
       border: 1px #4ea6a6;
       background: #4ea6a6;
+      line-height: 36px;
+      color: #f2f2f2;
+      text-align: center;
     }
     .etcBox {
       position: relative;
@@ -71,12 +91,19 @@ const HashTagContainer = styled.div`
       }
       .parking {
         position: relative;
-        width: 60px;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-family: 'Cafe24Bold';
+        width: 80px;
         height: 36px;
         cursor: pointer;
         border-radius: 10px;
         border: 1px #4ea6a6;
         background: #4ea6a6;
+        line-height: 36px;
+        color: #f2f2f2;
+        text-align: center;
       }
     }
     .searchBtn {
@@ -108,9 +135,9 @@ const HashFillter = () => {
   const [sour, setSour] = useState('');
   const [flavor, setFlavor] = useState('');
   const [selectValue, setSelectValue] = useState(null);
-  const [parking, setParking] = useState(false);
-
+  const [parking, setParking] = useState('False');
   console.log('FF', { body, sour, flavor, parking });
+  const navigate = useNavigate();
 
   return (
     <HashTagContainer>
@@ -135,14 +162,14 @@ const HashFillter = () => {
           </div>
         </div>
         <div>
-          <div className='beanTitle'>향</div>
+          <div className='flavors'>향</div>
           {flavorValue.map((v, i) => (
             <div
               key={i}
               className='flavor'
-              value={v.namae}
+              value={v}
               onClick={e => {
-                setFlavor(v.id);
+                setFlavor(v);
               }}
             >
               {v}
@@ -153,7 +180,7 @@ const HashFillter = () => {
         <div className='etcBox'>
           <div>
             <div className='etcTitle'>기타</div>
-            <div className='parking' onClick={() => setParking(p => !p)}>
+            <div className='parking' onClick={() => setParking('True')}>
               {parking ? '주차가능' : '주차불가'}
             </div>
           </div>
@@ -164,7 +191,15 @@ const HashFillter = () => {
             console.log('FF', { body, sour, flavor, parking });
 
             hashTagPost(body, sour, flavor, parking)
-              .then()
+              .then(res => {
+                navigate(`/search?data=${btoa(JSON.stringify(res?.shop_id ?? []))}`);
+                // res.map(v => {
+                //   {
+                //     /*여기 네비게이트 보이세요? 잠dk 아냐아냐 헷갈렸어 Search로 넘겨주고 시퍼요wkaRKs여기에 API로 받아온 값들이 있는데 이걸 Search로 넘겨주고 싶어 근데 방법을 ㅁㄹ라..*/
+                //   }
+                //   navigate(`/search?data=${btoa()}`);
+                // });
+              })
               .catch(e => {
                 alert('검색에 실패하였습니다.', e);
               });
@@ -279,7 +314,10 @@ const Home = () => {
               );
             })}
 
-            <div className='hash'>
+            <div
+              className='hash'
+              style={{ left: localStorage.getItem('token') == null ? '200px' : '30px' }}
+            >
               <img
                 src={hover}
                 alt='hashTag'
@@ -295,6 +333,7 @@ const Home = () => {
           {onClick ? <HashFillter key={'hashtagFilter'} /> : <></>}
         </section>
       </header>
+
       <main>
         <MainContainer>
           <Outlet />

@@ -16,24 +16,23 @@ const CoffeeTIContainer = styled.div`
       line-height: 20px;
       color: #594031;
     }
+    .nextButton {
+      position: relative;
+      width: 60px;
+      height: 35px;
+      margin-left: 635px;
+      top: 40px;
+      font-family: 'Cafe24Bold';
+      background: #ccd9d9;
+      border-radius: 10px;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 35px;
+    }
     .firstBox {
       position: relative;
-
-      .next {
-        width: 300px;
-        height: 60px;
-        margin-left: 320px;
-        margin-top: 80px;
-        margin-bottom: 10px;
-        border-radius: 20px;
-        font-family: 'Cafe24';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 60px;
-        color: #f2f2f2;
-      }
-
+      margin-top: 130px;
       .result {
         position: relative;
         width: 300px;
@@ -52,32 +51,6 @@ const CoffeeTIContainer = styled.div`
       position: relative;
       top: 20px;
     }
-    .bodySour {
-      .nextButton {
-        position: relative;
-        bottom: 60px;
-        left: 620px;
-        padding: 5px 12px 5px 12px;
-        font-family: 'Cafe24Bold';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        background: #d2d9cc;
-        border-radius: 10px;
-      }
-      .que {
-        p {
-          position: relative;
-          margin-top: 30px;
-          font-family: 'Cafe24';
-          font-style: normal;
-          font-weight: 700;
-          font-size: 16px;
-          line-height: 16px;
-          color: black;
-        }
-      }
-    }
 
     .flavour {
       position: relative;
@@ -87,11 +60,33 @@ const CoffeeTIContainer = styled.div`
       justify-content: space-between;
       align-content: flex-start;
     }
+    .Button {
+      position: relative;
+      width: 60px;
+      height: 35px;
+      margin-left: 635px;
+      top: 40px;
+      font-family: 'Cafe24Bold';
+      background: #ccd9d9;
+      border-radius: 10px;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 35px;
+    }
 
     img {
       position: relative;
       top: 39px;
       margin-bottom: 10px;
+    }
+
+    .result {
+      position: relative;
+      .feature {
+        position: relative;
+        margin-top: 35px;
+      }
     }
   }
 `;

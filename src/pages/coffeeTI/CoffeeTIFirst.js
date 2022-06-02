@@ -12,16 +12,6 @@ const CoffeeTIFirst = () => {
         <p>coffeeTI</p>
         <div className='firstBox'>
           <div
-            className='next'
-            style={{ background: nextHover }}
-            onMouseOver={() => setNextHover('#A68C76')}
-            onMouseLeave={() => setNextHover('rgba(166, 140, 118, 0.5)')}
-          >
-            <Link to='/coffeeTI/result' style={{ textDecoration: 'none', color: '#F2F2F2' }}>
-              입문자용 커피 추천 받기
-            </Link>
-          </div>
-          <div
             className='result'
             style={{ background: resultHover }}
             onMouseOver={() => setresultHover('#4EA6A6')}

@@ -159,6 +159,7 @@ export async function getMypageShop(shopNum) {
   return result;
 }
 
+// 모든 유저 정보
 export async function getAllUser() {
   const result = await callAPI(`${API_SERVER}/auth`, {
     method: 'GET',

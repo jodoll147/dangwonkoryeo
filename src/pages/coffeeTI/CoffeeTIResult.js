@@ -16,7 +16,7 @@ const CoffeeTI = styled.div`
 
 const CoffeeTIResult = props => {
   const { u_bean, feature } = props.result;
-
+  console.log(u_bean);
   const [hover, setHover] = useState('#CCD9D9');
 
   const coffeeTI = 'BABY';
@@ -25,18 +25,20 @@ const CoffeeTIResult = props => {
     <CoffeeTIContainer>
       <section>
         <p>coffeeTI</p>
-        <CoffeeTI>{u_bean}</CoffeeTI>
-        {/*<img src={coffeeTI_img} alt='커피티아이 img' />*/}
-        <div>{feature}</div>
-        <Link
-          to='/dangwonkeoyeo'
-          className='nextButton'
-          style={{ textDecoration: 'none', color: '#F2F2F2' }}
-          onMouseOver={() => setHover('#4EA6A6')}
-          onMouseLeave={() => setHover('#CCD9D9')}
-        >
-          돌아가기
-        </Link>
+        <div className='result'>
+          <CoffeeTI>{u_bean}</CoffeeTI>
+          {/*<img src={coffeeTI_img} alt='커피티아이 img' />*/}
+          <div className='feature'>{feature}</div>
+          <Link
+            className='Button'
+            to='/dangwonkeoyeo'
+            style={{ textDecoration: 'none', color: '#F2F2F2', width: '60px', height: '35px' }}
+            onMouseOver={() => setHover('#4EA6A6')}
+            onMouseLeave={() => setHover('#CCD9D9')}
+          >
+            돌아가기
+          </Link>
+        </div>
       </section>
     </CoffeeTIContainer>
   );

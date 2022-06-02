@@ -7,6 +7,7 @@ const ShopAdd = () => {
   const [shopName, setShopName] = useState('');
   const [shopLicense, setShopLicense] = useState('');
   const userNum = getUserInfo().user_id;
+  const navigate = useNavigate();
 
   // const [fileImage, setFileImage] = useState('');
 
@@ -37,7 +38,9 @@ const ShopAdd = () => {
             className='saveButton'
             onClick={e => {
               postAddShop(userNum, shopName, shopLicense)
-                .then()
+                .then(res => {
+                  navigate(`/business`);
+                })
                 .catch(e => {
                   alert('등록에 실패하였습니다.', e);
                 });

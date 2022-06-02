@@ -85,6 +85,11 @@ const CoffeeTIBody = () => {
     <CoffeeTIContainer>
       <section>
         <p>coffeeTI</p>
+        {localStorage.getItem('token') == null ? (
+          alert('로그인을 하셔야 이용하실 수 있습니다.')
+        ) : (
+          <></>
+        )}
         <div className='que'>
           <p>선호하는 바디감(쓴맛)의 정도를 선택해주세요.</p>
         </div>
@@ -103,7 +108,7 @@ const CoffeeTIBody = () => {
         </Select>
         <div
           className='nextButton'
-          style={{ background: hover }}
+          style={{ background: hover, color: '#f2f2f2' }}
           onMouseOver={() => setHover('#4EA6A6')}
           onMouseLeave={() => setHover('#CCD9D9')}
           onClick={() => {
@@ -139,8 +144,8 @@ const CoffeeTIBody = () => {
           </div>
         </Select>
         <div
-          className='nextButton'
-          style={{ background: hover }}
+          className='Button'
+          style={{ background: hover, color: '#f2f2f2' }}
           onMouseOver={() => setHover('#4EA6A6')}
           onMouseLeave={() => setHover('#CCD9D9')}
           onClick={() => {
@@ -179,7 +184,7 @@ const CoffeeTIBody = () => {
           ))}
         </div>
         <div
-          className='nextButton'
+          className='Button'
           style={{ background: hover, textDecoration: 'none', color: '#F2F2F2' }}
           onMouseOver={() => setHover('#4EA6A6')}
           onMouseLeave={() => setHover('#CCD9D9')}

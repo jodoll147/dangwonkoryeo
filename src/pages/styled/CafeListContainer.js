@@ -22,7 +22,7 @@ const CafeListContainer = styled.div`
         position: relative;
         width: 200px;
         height: 200px;
-        top: 20px;
+        marin-top: 20px;
         float: left;
       }
 
@@ -50,12 +50,18 @@ const CafeListContainer = styled.div`
           }
           .heart {
             position: relative;
+            display: flex;
             img {
               position: relative;
               top: 10px;
               margin-left: 15px;
               width: 32px;
               height: 32px;
+            }
+            p {
+              position: relative;
+              left: 5px;
+              top: 10px;
             }
           }
         }

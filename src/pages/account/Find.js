@@ -122,9 +122,8 @@ const Find = () => {
               console.log(name2, phone2.join(''), id2);
               findPwd(name2, phone2.join(''), id2)
                 .then(res => {
-                  console.log(res, typeof res);
                   if (res) {
-                    alert(` ${res.username}입니다.`);
+                    alert(` ${res}입니다.`);
                   } else {
                     alert('입력한 정보에 해당하는 유저가 없습니다.');
                   }

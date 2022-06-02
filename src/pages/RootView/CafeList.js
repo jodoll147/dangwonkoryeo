@@ -8,10 +8,10 @@ import cafeImg from '../img/cafeImg.png';
 import { set } from 'date-fns';
 
 const Cafe = props => {
-  const { cafe, favorCafe, userFavorCafe, info } = props;
+  const { cafe, favorCafe, userFavorCafe, info, loc } = props;
   const [like, setLike] = useState(!!userFavorCafe.find(v => v == cafe.id));
   const isLoading = useRef(false);
-  // console.log({ cafe, userFavorCafe });
+  //아아니네 console.log({ cafe, userFavorCafe });
 
   return (
     <CafeListContainer key={cafe.id}>
@@ -51,7 +51,8 @@ const Cafe = props => {
               </div>
             </div>
             <div className='cafeAdd'>{cafe.add}</div>
-            <div className='cafeCall'>{cafe.call}</div>
+            <div className='cafeCall'>call {cafe.call}</div>
+            <div className='cafeLoc'>랜드마크 {cafe.loc}</div>
             <HashTag value={cafe.id} />
           </div>
         </div>
@@ -60,9 +61,11 @@ const Cafe = props => {
   );
 };
 
-const CafeList = () => {
+const CafeList = props => {
+  const filterIds = props.filterIds;
+  console.log({ filterIds });
   const [cafe, setCafe] = useState([
-    { id: '', img: '', name: '', add: '', shop_call: '', favor: 0 },
+    { id: '', img: '', name: '', add: '', shop_call: '', favor: 0, loc: '' },
   ]);
   const [favorCafe, setFavorCafe] = useState([{ user: '', shop: '' }]);
   const [onClickIndex, setOnClickIndex] = useState(null);
@@ -77,17 +80,23 @@ const CafeList = () => {
       if (res) {
         console.log(res);
         setCafe(
-          res.map(v => {
-            return {
-              id: v.id,
-              img: v.head_image
-                ? v.head_image.replace(/^http:\/\/((localhost)|(127.0.0.1)):8000\/media\//, 'img/')
-                : cafeImg,
-              name: v.shop_name,
-              add: v.shop_add,
-              call: v.shop_call,
-            };
-          }),
+          res
+            .filter(v => (filterIds ? filterIds.includes(v.id) : true))
+            .map(v => {
+              return {
+                id: v.id,
+                img: v.head_image
+                  ? v.head_image.replace(
+                      /^http:\/\/((localhost)|(127.0.0.1)):8000\/media\//,
+                      'img/',
+                    )
+                  : cafeImg,
+                name: v.shop_name,
+                add: v.shop_add,
+                call: v.shop_call,
+                loc: v.shop_loc,
+              };
+            }),
         );
       }
     });
@@ -134,6 +143,7 @@ const CafeList = () => {
         favorCafe={favorCafe}
         userFavorCafe={userFavorCafe}
         info={info}
+        loc={cafe.loc}
       />
     );
     // return (
