@@ -28,8 +28,6 @@ const CafeListContainer = styled.div`
   }
 `;
 
-const ShopModify = () => {};
-
 const Business = () => {
   const navigate = useNavigate();
   const [allCafe, setAllCafe] = useState([{ userNum: null, id: null, name: null }]);

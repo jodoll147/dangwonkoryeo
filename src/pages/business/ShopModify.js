@@ -216,7 +216,6 @@ const ShopModify = () => {
 
   const id = +searchParams.get('id');
   const navigate = useNavigate();
-  console.log(shopValue.shopId);
   useEffect(() => {
     getShopList()
       .then(res => {
@@ -230,6 +229,7 @@ const ShopModify = () => {
                 )
               : [];
             const shopCal = [phoneMatch[2] ?? '', phoneMatch[3] ?? '', phoneMatch[6] ?? ''];
+            s;
             setShopValue({
               shopId: myShop.id,
               shopLicense: myShop.shop_license,
