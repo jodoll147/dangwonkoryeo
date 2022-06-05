@@ -97,6 +97,7 @@ const Tag = styled.div`
 
 const MyPage = () => {
   const [user, setUser] = useState({ userBean: '', userBody: '', userAcid: '', userFlavor: '' });
+  const [testBtnHover, setTestBtnHover] = useState('#D2D9CC');
   const [businessPageHover, setBusinessPageHover] = useState('#4EA6A6');
   const [favorShop, setFavorShop] = useState([{ id: '', name: '', exp: '' }]);
   const info = getUserInfo();
@@ -172,7 +173,12 @@ const MyPage = () => {
         </div>
         <div className='coffeeTIBox'>
           <div className='coffeeTI'>커피티아이</div>
-          <div className='check'>
+          <div
+            className='check'
+            onMouseOver={() => setTestBtnHover('#4EA6A6')}
+            onMouseLeave={() => setTestBtnHover(' #D2D9CC')}
+            style={{ background: testBtnHover }}
+          >
             <Link to='/coffeeTI/first' style={{ textDecoration: 'none', color: '#f2f2f2' }}>
               검사하기
             </Link>

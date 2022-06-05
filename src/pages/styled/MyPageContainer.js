@@ -80,7 +80,6 @@ const MyPageContainer = styeld.div`
                 position: relative;
                 width: 80px;
                 height: 25px;
-                background: #D2D9CC;
                 border-radius: 10px;
                 font-family: 'Cafe24';
                 font-style: normal;
@@ -88,6 +87,7 @@ const MyPageContainer = styeld.div`
                 font-size: 16px;
                 line-height: 25px;
                 color: #F2F2F2;
+                cursor: pointer;
             }
         }
         .hashBox {
