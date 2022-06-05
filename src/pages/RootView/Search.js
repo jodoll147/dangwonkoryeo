@@ -17,14 +17,11 @@ const SearchContainer = styled.div`
   }
 `;
 
-const Search = props => {
-  const shop = props.value;
+const Search = () => {
   const [searchParams] = useSearchParams();
 
   const dataB64String = searchParams.get('data');
   const data = dataB64String ? JSON.parse(atob(dataB64String)) : [];
-
-  console.log(data); // data는 shopId가 들어있는 그시깽이 (예시 : [2,3,4])
 
   return (
     <SearchContainer>

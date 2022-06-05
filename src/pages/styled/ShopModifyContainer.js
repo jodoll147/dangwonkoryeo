@@ -45,6 +45,8 @@ const ShopModifyContainer = styled.div`
 
         p {
           position: relative;
+          margin-right: 10px;
+          font-family: 'Cafe24Bold';
         }
         input {
           position: relative;
@@ -65,6 +67,7 @@ const ShopModifyContainer = styled.div`
         p {
           position: relative;
           text-height: 14px;
+          font-family: 'Cafe24Bold';
         }
         textarea {
           position: relative;
@@ -95,6 +98,7 @@ const ShopModifyContainer = styled.div`
         p {
           position: relative;
           margin-right: 14px;
+          font-family: 'Cafe24Bold';
         }
 
         input {
@@ -114,6 +118,7 @@ const ShopModifyContainer = styled.div`
         margin-left: 30px;
         p {
           position: relative;
+          font-family: 'Cafe24Bold';
         }
         textarea {
           position: relative;
@@ -132,6 +137,7 @@ const ShopModifyContainer = styled.div`
         margin-left: 30px;
         p {
           position: relative;
+          font-family: 'Cafe24Bold';
         }
         input {
           position: relative;
@@ -162,14 +168,15 @@ const ShopModifyContainer = styled.div`
       .hash {
         position: relative;
         display: flex;
-        margin-top: 10px;
+        margin-left: 30px;
         align-items: baseline;
+        white-space: nowrap;
+
         p {
           position: relative;
-          margin-left: 30px;
-          margin-right: 14px;
+          margin-right: 10px;
+          font-family: 'Cafe24Bold';
         }
-
         .add {
           position: relative;
           width: 50px;
@@ -193,6 +200,7 @@ const ShopModifyContainer = styled.div`
         margin-left: 30px;
         p {
           position: relative;
+          font-family: 'Cafe24Bold';
         }
         img {
           position: relative;

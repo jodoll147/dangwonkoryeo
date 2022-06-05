@@ -11,7 +11,6 @@ const Cafe = props => {
   const { cafe, favorCafe, userFavorCafe, info, loc } = props;
   const [like, setLike] = useState(!!userFavorCafe.find(v => v == cafe.id));
   const isLoading = useRef(false);
-  //아아니네 console.log({ cafe, userFavorCafe });
 
   return (
     <CafeListContainer key={cafe.id}>
@@ -63,13 +62,10 @@ const Cafe = props => {
 
 const CafeList = props => {
   const filterIds = props.filterIds;
-  console.log({ filterIds });
   const [cafe, setCafe] = useState([
     { id: '', img: '', name: '', add: '', shop_call: '', favor: 0, loc: '' },
   ]);
   const [favorCafe, setFavorCafe] = useState([{ user: '', shop: '' }]);
-  const [onClickIndex, setOnClickIndex] = useState(null);
-  const [onClickHeart, setOnClickHeart] = useState('');
   const [heartImg, setHeartImg] = useState(heart);
   const [userFavorCafe, setUserFavorCafe] = useState(['']); // 유저가 좋아하는 카페목록
 
@@ -78,7 +74,6 @@ const CafeList = props => {
   useEffect(() => {
     getShopList().then(res => {
       if (res) {
-        console.log(res);
         setCafe(
           res
             .filter(v => (filterIds ? filterIds.includes(v.id) : true))
@@ -146,35 +141,6 @@ const CafeList = props => {
         loc={cafe.loc}
       />
     );
-    // return (
-    //   <CafeListContainer key={cafe.id}>
-    //     {userFavorCafe === cafe.id ? setHeartImg(fullHeart) : ''}
-    //     <section>
-    //       <div className='box'>
-    //         <img src={cafe.img} alt='cafe_img' />
-    //         <div className='subBox'>
-    //           <div className='cafeNameBox'>
-    //             <div className='cafeName'>{cafe.name}</div>
-    //             <div className='heart'>
-    //               <img
-    //                 src={heartImg}
-    //                 alt='heart'
-    //                 key={cafe.id}
-    //                 onClick={() => {
-    //                   mouseClickEvent(cafe.id);
-    //                 }}
-    //               />
-    //               <p>{favorCafe.filter(f => f.shop === cafe.id).length}</p>
-    //             </div>
-    //           </div>
-    //           <div className='cafeAdd'>{cafe.add}</div>
-    //           <div className='cafeCall'>{cafe.call}</div>
-    //           <HashTag value={cafe.id} />
-    //         </div>
-    //       </div>
-    //     </section>
-    //   </CafeListContainer>
-    // );
   });
 
   return cafeList;

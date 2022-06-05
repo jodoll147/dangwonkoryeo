@@ -78,16 +78,16 @@ const LoginContainer = styled.div`
       margin-top: 20px;
       width: 282px;
       height: 45px;
-      left: 329px;
       background: #4ea6a6;
       border-radius: 10px;
+      border: 1px #4ea6a6;
       font-family: 'Cafe24';
       font-style: normal;
       font-weight: 700;
       color: #f2f2f2;
       line-height: 45px;
       text-align: center;
-      corsur: pointer;
+      cursor: pointer;
     }
 
     .error {

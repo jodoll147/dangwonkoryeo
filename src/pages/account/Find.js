@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import FindContainer from '../styled/FindContainer';
 import { findId, findPwd } from '../../api/constant';
+import { useNavigate } from 'react-router-dom';
+import PwdReset from './PwdReset';
 
 const Find = () => {
   const [id, setId] = useState('');
@@ -9,6 +11,7 @@ const Find = () => {
   const [id2, setId2] = useState('');
   const [name2, setName2] = useState('');
   const [phone2, setPhone2] = useState(['', '', '']);
+  const navigate = useNavigate();
 
   return (
     <FindContainer>
@@ -58,7 +61,6 @@ const Find = () => {
           <div
             className='find'
             onClick={e => {
-              console.log(name, phone.join(''));
               findId(name, phone.join(''))
                 .then(res => {
                   if (res) {
@@ -119,11 +121,10 @@ const Find = () => {
           <div
             className='find'
             onClick={e => {
-              console.log(name2, phone2.join(''), id2);
               findPwd(name2, phone2.join(''), id2)
                 .then(res => {
-                  if (res) {
-                    alert(` ${res}입니다.`);
+                  if (res == 'True') {
+                    navigate(`/pwdreset?id=${btoa(id2)}`);
                   } else {
                     alert('입력한 정보에 해당하는 유저가 없습니다.');
                   }

@@ -7,6 +7,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [id, setId] = useState('');
   const [pwd, setPwd] = useState('');
+  const [loginBtnHover, setLoginBtnHover] = useState('#4ea6a6');
   const [error, setError] = useState('');
 
   return (
@@ -26,7 +27,7 @@ const Login = () => {
             onChange={e => setPwd(e.target.value)}
           />
         </div>
-        <div
+        <button
           className='login_btn'
           onClick={e => {
             PostLogin(id, pwd)
@@ -36,16 +37,12 @@ const Login = () => {
               })
               .catch(e => console.log('login error', e), setError(e));
           }}
+          onMouseOver={() => setLoginBtnHover('#306666')}
+          onMouseLeave={() => setLoginBtnHover('#4ea6a6')}
+          style={{ background: loginBtnHover }}
         >
           LOGIN
-        </div>
-        {/* {error == '' ? (
-          ''
-        ) : navigate('/dangwonkeoyeo') ? (
-          ''
-        ) : (
-          <div className='error'>존재하지 않는 아이디나 비밀번호 입니다.</div>
-        )} */}
+        </button>
         <div className='find'>
           <Link to={'/find'} style={{ textDecoration: 'none', color: 'black' }}>
             아이디/비밀번호 찾기

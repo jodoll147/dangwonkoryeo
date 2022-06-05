@@ -6,7 +6,7 @@ import ModalContainer from '../styled/ModalContainer';
 import close from '../img/close.png';
 import closeBlack from '../img/closeBlack.png';
 import shopImg from '../img/shopImg.png';
-import { getShopList, getShopTag, postShopModify } from '../../api/constant';
+import { getShopList, getShopTag, postShopModify, hashTagModifyPost } from '../../api/constant';
 
 const HashTagDiv = styled.div`
   position: relative;
@@ -37,7 +37,7 @@ const Button = styled.div`
   color: #f2f2f2;
   width: 60px;
   height: 30px;
-  background: #4ea6a6;
+  background: #4a9e9e;
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
@@ -57,7 +57,7 @@ const RadioContainer = styled.div`
   }
 `;
 
-const flavours = ['견과류', '초콜릿', '꽃', '과일'];
+const flavors = ['견과류', '과일', '꽃', '초콜릿'];
 
 const HashTag = props => {
   const hashAddList = props.items.map((hash, i) => {
@@ -104,7 +104,8 @@ const Modal = props => {
   const [name, setName] = useState('');
   const [body, setBody] = useState('3');
   const [acid, setAcid] = useState('3');
-  const [flavour, setFlavour] = useState(flavours[0]);
+  const [flavor, setFlavor] = useState(null);
+  const [flavorHover, setFlavorHover] = useState(null);
 
   const onClick = () => {
     if (name?.length === 0) {
@@ -113,7 +114,7 @@ const Modal = props => {
     }
 
     if (type === '원두') {
-      setHashTags(p => p.concat({ name, isBean: true, body, acid, flavour })); // 산미 바디감 등
+      setHashTags(p => p.concat({ name, isBean: true, body, acid, flavor: flavor })); // 산미 바디감 등
     } else {
       setHashTags(p => p.concat({ name, isBean: false }));
     }
@@ -168,10 +169,13 @@ const Modal = props => {
               <div className='flavourBox'>
                 <p>대표 향 (한 가지만 선택)</p>
                 <div className='flavour'>
-                  {flavours.map(flavour => (
+                  {flavors.map((flavour, i) => (
                     <Button
+                      value={flavor}
+                      style={{ background: flavorHover === i ? '#2C5E5E' : '#4A9E9E' }}
                       onClick={() => {
-                        setFlavour(flavour);
+                        setFlavor(i);
+                        setFlavorHover(i);
                       }}
                     >
                       {flavour}
@@ -193,7 +197,6 @@ const Modal = props => {
 };
 
 const ShopModify = () => {
-  const [textValue, setTextValue] = useState('');
   const [searchParams] = useSearchParams();
   const [shopValue, setShopValue] = useState({
     shopId: '',
@@ -204,16 +207,14 @@ const ShopModify = () => {
     shopAddr: '',
   });
   const [hashTags, setHashTags] = useState([
-    { id: null, isBean: null, name: '', body: '', acid: '', flavour: '' },
+    { id: null, isBean: null, name: '', body: null, acid: null, flavor: null },
   ]);
   const [onHashClick, setOnHashClick] = useState(false);
   const [fileImage, setFileImage] = useState(shopImg);
-  const [user, setUser] = useState(); // 결과값
 
-  useEffect(() => {
-    console.log(shopValue);
-  }, [shopValue]);
+  console.log({ hashTags });
 
+  useEffect(() => {}, [shopValue]);
   const id = +searchParams.get('id');
   const navigate = useNavigate();
   useEffect(() => {
@@ -222,7 +223,6 @@ const ShopModify = () => {
         if (res) {
           const myShop = res.find(v => v.id == id);
           if (myShop) {
-            console.log(myShop);
             const phoneMatch = myShop.shop_call
               ? myShop.shop_call.match(
                   /^((01[016789]{1}|02|0[3-8]{1}[0-9]{1})[.-]?([0-9]{3,4})|((15|16|18)[0-9]{2}))[.-]?([0-9]{4})$/,
@@ -291,7 +291,6 @@ const ShopModify = () => {
               }
               maxLength='300'
             />
-            {console.log(shopValue.shopInfo)}
           </div>
           <div className='info'>300자 이내로 작성해주세요.</div>
           <div className='phoneBox'>
@@ -351,11 +350,6 @@ const ShopModify = () => {
             <HashTag items={hashTags} onRemove={onRemove} />
             <input type={'button'} className='add' value={'추가'} onClick={hashClick} />
           </div>
-          <div className='locationBox' />
-          <div className='locationBox' />
-          <div className='locationBox' />
-          <div className='locationBox' />
-          <div className='locationBox' />
           <div className='imgBox'>
             <p>이미지</p>
             <img alt='sample' src={fileImage} />
@@ -363,13 +357,40 @@ const ShopModify = () => {
           </div>
           <div
             className='imgAdd'
-            onClick={e => {
-              postShopModify(
+            onClick={async e => {
+              const shopModifyResult = await postShopModify(
                 shopValue.shopId,
                 shopValue.shopCal.join(''),
                 shopValue.shopInfo,
                 shopValue.shopAddr,
                 '',
+              )
+                .then(res => {
+                  console.log(res, 'shop 수정완료');
+                  return true;
+                })
+                .catch(e => {
+                  alert('오류가 발생하였습니다.', e);
+                  return null;
+                });
+
+              if (!shopModifyResult) {
+                alert('오류가 발생했습니다.');
+                return;
+              }
+              Promise.all(
+                hashTags
+                  .filter(v => !v.id)
+                  .map(async v => {
+                    return await hashTagModifyPost(
+                      v.isBean,
+                      shopValue.shopId,
+                      v.name,
+                      v.body,
+                      v.acid,
+                      v.flavor,
+                    );
+                  }),
               )
                 .then(res => {
                   alert('수정이 완료되었습니다.', e);
@@ -379,6 +400,22 @@ const ShopModify = () => {
                 .catch(e => {
                   alert('오류가 발생하였습니다.', e);
                 });
+
+              // hashTagModifyPost(
+              //   hashTags.isBean,
+              //   shopValue.shopId,
+              //   hashTags.body,
+              //   hashTags.acid,
+              //   hashTags.flavor,
+              // )
+              //   .then(res => {
+              //     alert('수정이 완료되었습니다.', e);
+              //     navigate('/business');
+              //     return;
+              //   })
+              //   .catch(e => {
+              //     alert('오류가 발생하였습니다.', e);
+              //   });
             }}
           >
             수정

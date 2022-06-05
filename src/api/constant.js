@@ -20,6 +20,7 @@ async function callAPI(path, data) {
   return result;
 }
 
+// 모든 가게 리스트
 export async function getShopList() {
   const result = await callAPI(`${API_SERVER}/shop/?format=json`, {
     method: 'GET',
@@ -45,6 +46,7 @@ export async function postShopModify(id, call, exp, add, img) {
   return result;
 }
 
+// 게시글 전부 가져오기
 export async function getPost() {
   const result = await callAPI(`${API_SERVER}/post/?format=json`, {
     method: 'GET',
@@ -53,6 +55,7 @@ export async function getPost() {
   return result;
 }
 
+// 게시글 저장
 export async function postPost(title, content) {
   const result = await callAPI(`${API_SERVER}/post/`, {
     method: 'POST',
@@ -199,14 +202,24 @@ export async function findId(name, phone) {
 
 // 비밀번호 찾기
 export async function findPwd(name, phone, id) {
-  const result = await callAPI(`${API_SERVER}/auth/findpw`, {
+  const result = await fetch(`${API_SERVER}/auth/findpw`, {
     method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify({
       first_name: name,
       phone_num: phone,
       username: id,
     }),
-  });
+  })
+    .then(res => {
+      return res.text();
+    })
+    .catch(e => {
+      console.log(e);
+      return null;
+    });
 
   return result;
 }
@@ -224,7 +237,6 @@ export async function postLike(userId, shopId, like) {
   return result;
 }
 
-// 비밀번호 찾기
 export async function getCoffeeTIResult(username, selectData) {
   const result = await callAPI(`${API_SERVER}/auth/coffeeti`, {
     method: 'POST',
@@ -246,6 +258,38 @@ export async function hashTagPost(body, acid, flavor, parking) {
       acid: acid,
       flavor: flavor,
       parking: parking,
+    }),
+  });
+}
+
+// 해시태그 수정
+export async function hashTagModifyPost(isBean, shop, name, body, acid, flavor) {
+  const result = await callAPI(`${API_SERVER}/tag/`, {
+    method: 'POST',
+    body: JSON.stringify({
+      isBean: isBean,
+      shop: shop,
+      name: name,
+      body: body,
+      acid: acid,
+      flavor: flavor,
+      slug: '',
+    }),
+  });
+
+  return result;
+}
+
+// 비밀번호 재설정
+export async function pwdResetPost(id, pwd) {
+  const result = await callAPI(`${API_SERVER}/auth/changeuser`, {
+    method: 'POST',
+    body: JSON.stringify({
+      username: id,
+      password: pwd,
+      birthday: '',
+      email: '',
+      phone_num: '',
     }),
   });
 

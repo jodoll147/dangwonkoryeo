@@ -193,12 +193,6 @@ const HashFillter = () => {
             hashTagPost(body, sour, flavor, parking)
               .then(res => {
                 navigate(`/search?data=${btoa(JSON.stringify(res?.shop_id ?? []))}`);
-                // res.map(v => {
-                //   {
-                //     /*여기 네비게이트 보이세요? 잠dk 아냐아냐 헷갈렸어 Search로 넘겨주고 시퍼요wkaRKs여기에 API로 받아온 값들이 있는데 이걸 Search로 넘겨주고 싶어 근데 방법을 ㅁㄹ라..*/
-                //   }
-                //   navigate(`/search?data=${btoa()}`);
-                // });
               })
               .catch(e => {
                 alert('검색에 실패하였습니다.', e);
@@ -344,7 +338,7 @@ const Home = () => {
               <div className='textBox'>
                 <p>Since 2022</p>
                 <p>create by 김수진, 조윤지</p>
-                <p>문의사항은 instargram </p>
+                <p>문의사항은 instargram @dangwonkeoyeo</p>
               </div>
             </div>
           </section>
