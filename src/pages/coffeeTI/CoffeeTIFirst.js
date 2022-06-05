@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import CoffeeTIContainer from '../styled/CoffeeTIContainer';
 
 const CoffeeTIFirst = () => {
-  const [nextHover, setNextHover] = useState('rgba(166, 140, 118, 0.5)'); // 버튼 마우스에 올리기
   const [resultHover, setresultHover] = useState('rgba(78, 166, 166, 0.7)'); // 버튼 마우스에 올리기
 
   return (
