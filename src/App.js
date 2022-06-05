@@ -13,11 +13,9 @@ import Notice from './pages/notice/Notice';
 import NoticeWrite from './pages/notice/NoticeWrite';
 import Business from './pages/business/Business';
 import ShopAdd from './pages/business/ShopAdd';
-import CoffeeTIFlavour from './pages/coffeeTI/CoffeeTIFlavour';
 import CoffeeTIFirst from './pages/coffeeTI/CoffeeTIFirst';
 import CoffeeTIResult from './pages/coffeeTI/CoffeeTIResult';
 import CoffeeTIBody from './pages/coffeeTI/CoffeeTIBody';
-import CoffeeTISour from './pages/coffeeTI/CoffeeTISour';
 import ShopModify from './pages/business/ShopModify';
 import NoticeContent from './pages/notice/NoticeContent';
 
@@ -43,9 +41,6 @@ const App = () => {
         <Route path='/shopmodify' element={<ShopModify />} />
         <Route path='/coffeeTI/first' element={<CoffeeTIFirst />} />
         <Route path='/coffeeTI/body' element={<CoffeeTIBody />} />
-        <Route path='/coffeeTI/sour' element={<CoffeeTISour />} />
-        <Route path='/coffeeTI/flavour' element={<CoffeeTIFlavour />} />
-        {/*<Route path='/coffeeTI/result' element={<CoffeeTIResult />} />*/}
       </Route>
     </Routes>
   );

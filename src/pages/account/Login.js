@@ -15,7 +15,7 @@ const Login = () => {
         <div className='title'>LOGIN</div>
         <div className='id'>
           <p>아이디</p>
-          <input type={'text'} name={'id'} maxlength={'10'} onChange={e => setId(e.target.value)} />
+          <input type={'text'} name={'id'} maxlength={'20'} onChange={e => setId(e.target.value)} />
         </div>
         <div className='pwd'>
           <p>비밀번호</p>

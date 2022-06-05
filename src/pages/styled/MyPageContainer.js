@@ -21,8 +21,6 @@ const MyPageContainer = styeld.div`
                 margin-left: 30px;
                 text-align: left;
             }
-
-        
         }
   
         .nameBox{
@@ -121,18 +119,17 @@ const MyPageContainer = styeld.div`
         }
         .busniessPage{
             position: relative;
+            float: right;
             width: 114px;
             height: 40px;
-            margin-left: 796px;
-            margin-top: 40px;
+            margin-top : 30px;
+            margin-right: 30px;
+            border-radius: 10px;
+            border: 1px #4EA6A6;
             font-family: 'Cafe24Bold';
-            font-style: normal;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 16px;
             line-height: 40px;
-            color: black;
-            border: 3px solid #4EA6A6;
-            border-radius: 10px;
         }
     
 `;

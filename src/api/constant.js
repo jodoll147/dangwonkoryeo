@@ -38,6 +38,7 @@ export async function postShopModify(id, call, exp, add, img) {
       shop_call: call,
       shop_exp: exp,
       shop_add: add,
+      shop_loc: '',
     }),
   });
 

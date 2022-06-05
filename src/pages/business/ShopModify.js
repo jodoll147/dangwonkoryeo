@@ -229,7 +229,6 @@ const ShopModify = () => {
                 )
               : [];
             const shopCal = [phoneMatch[2] ?? '', phoneMatch[3] ?? '', phoneMatch[6] ?? ''];
-            s;
             setShopValue({
               shopId: myShop.id,
               shopLicense: myShop.shop_license,

@@ -28,6 +28,8 @@ const CafeContainer = styled.div`
       margin-top: 15px;
       .cafeNameBox {
         display: flex;
+        align-items: baseline;
+
         .cafeName {
           position: relative;
           margin-right: 10px;
@@ -46,11 +48,13 @@ const CafeContainer = styled.div`
         position: relative;
         display: flex;
         margin-top: 10px;
+        align-items: baseline;
+
         .cafeInfo {
           position: relative;
           font-family: 'Cafe24';
           font-style: normal;
-          font-weight: 400;
+          font-weight: 700;
           font-size: 16px;
           line-height: 16px;
           color: #594031;
@@ -58,6 +62,7 @@ const CafeContainer = styled.div`
       }
       .info {
         position: relative;
+        margin-left: 10px;
       }
     }
     .hashBox {
@@ -92,35 +97,37 @@ const Tag = styled.div`
 
 const MyPage = () => {
   const [user, setUser] = useState({ userBean: '', userBody: '', userAcid: '', userFlavor: '' });
-  const [favorCafe, setFavorCafe] = useState([]); // cafeId
+  const [businessPageHover, setBusinessPageHover] = useState('#4EA6A6');
   const [favorShop, setFavorShop] = useState([{ id: '', name: '', exp: '' }]);
   const info = getUserInfo();
 
-  console.log(info?.user_id);
-
   useEffect(() => {
-    getUserFavor(info?.user_id).then(res => {
-      if (res) {
-        setFavorCafe(
-          res.map(v => {
+    if (info?.user_id) {
+      getUserFavor(info.user_id).then(res => {
+        if (res) {
+          const favorCafe = res.map(v => {
             return v.shop;
-          }),
-        );
-      }
-    });
-    getShopList(favorCafe).then(res => {
-      if (res) {
-        setFavorShop(
-          res.map(v => {
-            return {
-              id: v.id,
-              name: v.shop_name,
-              exp: v.shop_exp,
-            };
-          }),
-        );
-      }
-    });
+          });
+          getShopList().then(res => {
+            if (res) {
+              console.log({ res });
+              setFavorShop(
+                res
+                  .filter(v => favorCafe.includes(v.id))
+                  .map(v => {
+                    return {
+                      id: v.id,
+                      name: v.shop_name,
+                      exp: v.shop_exp,
+                    };
+                  }),
+              );
+            }
+          });
+        }
+      });
+    }
+
     getAllUser().then(res => {
       if (res) {
         const tempUser = res.find(v => {
@@ -133,7 +140,6 @@ const MyPage = () => {
       }
     });
   }, []);
-
   const shopList = favorShop.map(v => (
     <CafeContainer>
       <div className='cafeBox'>
@@ -166,7 +172,6 @@ const MyPage = () => {
         </div>
         <div className='coffeeTIBox'>
           <div className='coffeeTI'>커피티아이</div>
-          <div className='type'></div>
           <div className='check'>
             <Link to='/coffeeTI/first' style={{ textDecoration: 'none', color: '#f2f2f2' }}>
               검사하기
@@ -174,22 +179,35 @@ const MyPage = () => {
           </div>
         </div>
         <Tag>
-          <div className='tag'>
-            <div className='bean'>{user.userBean}</div>
-            <div className='flavor'>{user.userFlavor}</div>
-          </div>
+          {user.userBean == null ? (
+            <></>
+          ) : (
+            <div className='tag' style={{ top: '5px' }}>
+              <div className='bean' style={{ color: '#4EA6A6' }}>
+                #{user.userBean}
+              </div>
+              <div className='flavor' style={{ color: '#4EA6A6' }}>
+                #{user.userFlavor}
+              </div>
+            </div>
+          )}
         </Tag>
         <div className='cafeListBox'>
-          <div className='cafeList'>찜한 카페 목록</div>
-          {shopList}
+          <div className='cafeList' style={{ top: '5px' }}>
+            찜한 카페 목록
+          </div>
+          {favorShop == null ? <></> : shopList}
         </div>
-        <Link
-          to='/business'
-          className='busniessPage'
-          style={{ textDecoration: 'none', color: 'black' }}
-        >
-          사장님 페이지
-        </Link>
+        <div className='busniessPage' style={{ background: businessPageHover }}>
+          <Link
+            to='/business'
+            onMouseOver={() => setBusinessPageHover('#306666')}
+            onMouseLeave={() => setBusinessPageHover('#4EA6A6')}
+            style={{ textDecoration: 'none', color: '#f2f2f2' }}
+          >
+            사장님 페이지
+          </Link>
+        </div>
       </section>
     </MyPageContainer>
   );
