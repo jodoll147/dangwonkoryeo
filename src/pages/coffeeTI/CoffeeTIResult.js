@@ -16,11 +16,9 @@ const CoffeeTI = styled.div`
 
 const CoffeeTIResult = props => {
   const { u_bean, feature } = props.result;
-  console.log(u_bean);
   const [hover, setHover] = useState('#CCD9D9');
 
   const coffeeTI = 'BABY';
-  console.log(props.result);
   return (
     <CoffeeTIContainer>
       <section>

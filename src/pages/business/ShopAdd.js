@@ -9,14 +9,6 @@ const ShopAdd = () => {
   const userNum = getUserInfo().user_id;
   const navigate = useNavigate();
 
-  // const [fileImage, setFileImage] = useState('');
-
-  // 이미지 파일 저장
-  /*
-  const saveFileImage = e => {
-    setFileImage(URL.createObjectURL(e.target.files[0]));
-  };
-*/
   return (
     <BusinessContainer>
       <section>
@@ -30,9 +22,6 @@ const ShopAdd = () => {
           <div className='busniessNum'>
             <p>사업자번호</p>
             <input type={'text'} onChange={e => setShopLicense(e.target.value)} />
-            {/*<div className='documentBox'>
-            <p>사업자등록증</p>
-            <input type={'file'} accept='img/*' onChange={saveFileImage} />*/}
           </div>
           <div
             className='saveButton'

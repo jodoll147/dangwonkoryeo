@@ -212,8 +212,6 @@ const ShopModify = () => {
   const [onHashClick, setOnHashClick] = useState(false);
   const [fileImage, setFileImage] = useState(shopImg);
 
-  console.log({ hashTags });
-
   useEffect(() => {}, [shopValue]);
   const id = +searchParams.get('id');
   const navigate = useNavigate();
@@ -363,7 +361,7 @@ const ShopModify = () => {
                 shopValue.shopCal.join(''),
                 shopValue.shopInfo,
                 shopValue.shopAddr,
-                '',
+                fileImage.substring(27, fileImage.length),
               )
                 .then(res => {
                   console.log(res, 'shop 수정완료');
@@ -400,22 +398,6 @@ const ShopModify = () => {
                 .catch(e => {
                   alert('오류가 발생하였습니다.', e);
                 });
-
-              // hashTagModifyPost(
-              //   hashTags.isBean,
-              //   shopValue.shopId,
-              //   hashTags.body,
-              //   hashTags.acid,
-              //   hashTags.flavor,
-              // )
-              //   .then(res => {
-              //     alert('수정이 완료되었습니다.', e);
-              //     navigate('/business');
-              //     return;
-              //   })
-              //   .catch(e => {
-              //     alert('오류가 발생하였습니다.', e);
-              //   });
             }}
           >
             수정

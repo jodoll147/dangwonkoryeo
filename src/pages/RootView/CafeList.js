@@ -5,10 +5,9 @@ import HashTag from '../tag/HashTag';
 import fullHeart from '../img/fullHeart.png';
 import heart from '../img/heart.png';
 import cafeImg from '../img/cafeImg.png';
-import { set } from 'date-fns';
 
 const Cafe = props => {
-  const { cafe, favorCafe, userFavorCafe, info, loc } = props;
+  const { cafe, favorCafe, userFavorCafe, info, loc, dis } = props;
   const [like, setLike] = useState(!!userFavorCafe.find(v => v == cafe.id));
   const isLoading = useRef(false);
 
@@ -50,8 +49,16 @@ const Cafe = props => {
               </div>
             </div>
             <div className='cafeAdd'>{cafe.add}</div>
-            <div className='cafeCall'>call {cafe.call}</div>
-            <div className='cafeLoc'>랜드마크 {cafe.loc}</div>
+            <div className='cafeCall'>
+              <div className='title'>call</div>
+              <div className='call'>{cafe.call}</div>
+            </div>
+            <div className='cafeLoc'>
+              <div className='title'>랜드마크</div>
+              <div className='loc'>
+                {loc} {dis}km
+              </div>
+            </div>
             <HashTag value={cafe.id} />
           </div>
         </div>
@@ -70,7 +77,6 @@ const CafeList = props => {
   const [userFavorCafe, setUserFavorCafe] = useState(['']); // 유저가 좋아하는 카페목록
 
   const info = getUserInfo();
-
   useEffect(() => {
     getShopList().then(res => {
       if (res) {
@@ -117,20 +123,8 @@ const CafeList = props => {
       });
   }, []);
 
-  // cafe.id heart 클릭시, 로그인 O하면 하트 올라가고 아니면 로그인 하라는 altr 화면 출력
-  const mouseClickEvent = cafeId => {
-    if (localStorage.getItem('token')) {
-      if (heartImg === fullHeart) {
-        setHeartImg(heart);
-      } else {
-        setHeartImg(fullHeart);
-      }
-    } else {
-      alert('로그인이 필요한 서비스 입니다.');
-    }
-  };
-
   const cafeList = cafe.map(cafe => {
+    const [location, distance] = cafe.loc?.replace(/[\[\]']/g, '').split(',') ?? ['', ''];
     return (
       <Cafe
         key={cafe.id}
@@ -138,7 +132,8 @@ const CafeList = props => {
         favorCafe={favorCafe}
         userFavorCafe={userFavorCafe}
         info={info}
-        loc={cafe.loc}
+        loc={location}
+        dis={distance}
       />
     );
   });

@@ -70,6 +70,22 @@ const CafeListContainer = styled.div`
         }
         .cafeCall {
           position: relative;
+          display: flex;
+          margin-top: 10px;
+          .title {
+            position: relative;
+            font-family: 'Cafe24Bold';
+            margin-right: 10px;
+          }
+        }
+        .cafeLoc {
+          position: relative;
+          display: flex;
+          .title {
+            position: relative;
+            font-family: 'Cafe24Bold';
+            margin-right: 10px;
+          }
         }
         .hashBox {
           position: relative;

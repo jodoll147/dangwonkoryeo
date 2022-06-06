@@ -1,6 +1,5 @@
 import CafeList from './CafeList';
 import styled from 'styled-components';
-import { FontStyle } from 'quill';
 import { useSearchParams } from 'react-router-dom';
 
 const SearchContainer = styled.div`
@@ -19,7 +18,6 @@ const SearchContainer = styled.div`
 
 const Search = () => {
   const [searchParams] = useSearchParams();
-
   const dataB64String = searchParams.get('data');
   const data = dataB64String ? JSON.parse(atob(dataB64String)) : [];
 

@@ -260,6 +260,7 @@ export async function hashTagPost(body, acid, flavor, parking) {
       parking: parking,
     }),
   });
+  return result;
 }
 
 // 해시태그 수정
@@ -282,16 +283,29 @@ export async function hashTagModifyPost(isBean, shop, name, body, acid, flavor) 
 
 // 비밀번호 재설정
 export async function pwdResetPost(id, pwd) {
-  const result = await callAPI(`${API_SERVER}/auth/changeuser`, {
+  const result = await fetch(`${API_SERVER}/auth/changepw`, {
     method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization:
+        'jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6Im1hbmFnZXIiLCJleHAiOjk5NjU1MTE4NjU3LCJlbWFpbCI6Im1hbmFnZXJAY29mZmVldGkuY29tIiwib3JpZ19pYXQiOjE2NTQ1MTM4NTd9.6fvlAv-K1JNy-lurO0_7G1d-R5FXn1QrhpiHVZwUxDY',
+    },
     body: JSON.stringify({
       username: id,
       password: pwd,
+      first_name: '',
       birthday: '',
       email: '',
       phone_num: '',
     }),
-  });
+  })
+    .then(res => {
+      return res.status < 400 ? res.json() : null;
+    })
+    .catch(e => {
+      console.log(e);
+      return null;
+    });
 
   return result;
 }

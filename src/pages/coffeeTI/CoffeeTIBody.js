@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import CoffeeTIContainer from '../styled/CoffeeTIContainer';
 import CoffeeTIResult from './CoffeeTIResult';
@@ -80,13 +80,14 @@ const CoffeeTIBody = () => {
   });
 
   const info = getUserInfo();
+  const navigate = useNavigate();
 
   return page === 1 ? (
     <CoffeeTIContainer>
       <section>
         <p>coffeeTI</p>
         {localStorage.getItem('token') == null ? (
-          alert('로그인을 하셔야 이용하실 수 있습니다.')
+          (alert('로그인을 하셔야 이용하실 수 있습니다.'), navigate('../login'))
         ) : (
           <></>
         )}

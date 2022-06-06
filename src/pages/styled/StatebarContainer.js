@@ -41,7 +41,7 @@ const HomeContainer = styled.div`
                 margin-left: 70px;
                 font-family: 'Cafe24';
                 font-style: normal;
-                font-weight: 400;
+                font-weight: 700;
                 line-height: 70px;
             }
             .coffeeTI{
@@ -49,7 +49,7 @@ const HomeContainer = styled.div`
                 margin-left: 70px;
                 font-family: 'Cafe24';
                 font-style: normal;
-                font-weight: 400;
+                font-weight: 700;
                 line-height: 70px;
             }
             .notice{
@@ -57,7 +57,7 @@ const HomeContainer = styled.div`
                 margin-left: 70px;
                 font-family: 'Cafe24';
                 font-style: normal;
-                font-weight: 400;
+                font-weight: 700;
                 line-height: 70px;
             }
             .login{
@@ -107,12 +107,13 @@ const HomeContainer = styled.div`
                 font-size: 12px;
                 font-family: 'Cafe24';
                 font-style: normal;
-                font-weight: 400;
+                font-weight: 700;
                 line-height: 70px;
             }
       
             img{
                 position: relative;
+                float: right;
                 width: 40px;
                 height: 25px;
             }

@@ -8,7 +8,6 @@ import StatebarContainer from '../styled/StatebarContainer';
 import { getUserInfo, hashTagPost } from '../../api/constant';
 import hashTag from '../img/hashTag.png';
 import hashTaghover from '../img/hashTagHover.png';
-import CafeList from './CafeList';
 
 const HashTagContainer = styled.div`
   .hashTagBox {
@@ -131,13 +130,18 @@ const flavorValue = ['과일', '꽃', '초콜릿', '견과류'];
 
 const HashFillter = () => {
   const value = [1, 2, 3, 4, 5];
-  const [body, setBody] = useState('');
-  const [sour, setSour] = useState('');
+  const [body, setBody] = useState('3');
+  const [sour, setSour] = useState('3');
   const [flavor, setFlavor] = useState('');
-  const [selectValue, setSelectValue] = useState(null);
-  const [parking, setParking] = useState('False');
-  console.log('FF', { body, sour, flavor, parking });
+  const [FlavorHover, setFlavorHover] = useState('');
+  const [parking, setParking] = useState('True');
+  const [parkingText, setParkingText] = useState('주차불가');
   const navigate = useNavigate();
+
+  const setOnClickParking = () => {
+    parking === 'True' ? setParking('False') : setParking('True');
+    parking === 'True' ? setParkingText('주차가능') : setParkingText('주차불가');
+  };
 
   return (
     <HashTagContainer>
@@ -168,8 +172,10 @@ const HashFillter = () => {
               key={i}
               className='flavor'
               value={v}
+              style={{ background: FlavorHover == i ? '#2C5E5E' : '#4A9E9E' }}
               onClick={e => {
                 setFlavor(v);
+                setFlavorHover(i);
               }}
             >
               {v}
@@ -180,16 +186,18 @@ const HashFillter = () => {
         <div className='etcBox'>
           <div>
             <div className='etcTitle'>기타</div>
-            <div className='parking' onClick={() => setParking('True')}>
-              {parking ? '주차가능' : '주차불가'}
+            <div
+              className='parking'
+              style={{ background: parking == 'True' ? '#4A9E9E' : '#2C5E5E' }}
+              onClick={() => setOnClickParking()}
+            >
+              {parkingText}
             </div>
           </div>
         </div>
         <button
           className='searchBtn'
           onClick={e => {
-            console.log('FF', { body, sour, flavor, parking });
-
             hashTagPost(body, sour, flavor, parking)
               .then(res => {
                 navigate(`/search?data=${btoa(JSON.stringify(res?.shop_id ?? []))}`);
