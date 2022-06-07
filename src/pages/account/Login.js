@@ -2,6 +2,15 @@ import { useState } from 'react';
 import LoginContainer from '../styled/LoginContainer';
 import { Link, useNavigate } from 'react-router-dom';
 import { PostLogin } from '../../api/constant';
+import styled from 'styled-components';
+
+const Error = styled.div`
+  position: relative;
+  margin-top: 30px;
+  font-family: 'Cafe24';
+  font-size: 14px;
+  color: red;
+`;
 
 const Login = () => {
   const navigate = useNavigate();
@@ -32,10 +41,15 @@ const Login = () => {
           onClick={e => {
             PostLogin(id, pwd)
               .then(res => {
-                navigate('/dangwonkeoyeo');
-                window.location.reload();
+                if (localStorage.getItem('token')) {
+                  navigate('/dangwonkeoyeo');
+                  window.location.reload();
+                }
               })
-              .catch(e => console.log('login error', e), setError(e));
+              .catch(
+                e => console.log('login error', e),
+                setError('존재하지 않는 아이디나 비밀번호 입니다.'),
+              );
           }}
           onMouseOver={() => setLoginBtnHover('#306666')}
           onMouseLeave={() => setLoginBtnHover('#4ea6a6')}
@@ -43,6 +57,7 @@ const Login = () => {
         >
           LOGIN
         </button>
+        <Error>{error}</Error>
         <div className='find'>
           <Link to={'/find'} style={{ textDecoration: 'none', color: 'black' }}>
             아이디/비밀번호 찾기

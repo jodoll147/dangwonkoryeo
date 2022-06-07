@@ -90,14 +90,6 @@ const LoginContainer = styled.div`
       cursor: pointer;
     }
 
-    .error {
-      position: relative;
-      margin-top: 30px;
-      font-family: 'Cafe24';
-      font-size: 14px;
-      color: red;
-    }
-
     .find {
       position: relative;
       margin-top: 30px;

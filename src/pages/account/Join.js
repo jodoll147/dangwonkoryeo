@@ -33,22 +33,11 @@ const Join = () => {
     });
   }, []);
 
-  useEffect(() => {
-    console.log({ phone });
-  }, [phone]);
+  useEffect(() => {}, [phone]);
 
   const idCheckOnClick = () => {
     console.log({ users, id });
     const findUser = users.find(v => v.id === id);
-    // users.map(username => {
-    //   if (username.id === id) {
-    //     setUseId(false);
-    //     setId('');
-    //     return;
-    //   } else {
-    //     setUseId(true);
-    //   }
-    // });
 
     findUser ? alert('사용할 수 없는 아이디입니다.') : alert('사용할 수 있는 아이디입니다.');
   };
@@ -127,7 +116,6 @@ const Join = () => {
             <input
               type={'date'}
               onChange={e => {
-                console.log('birth', e.target.value);
                 setBirth(e.target.value);
               }}
             />
@@ -155,16 +143,14 @@ const Join = () => {
                 alert('휴대폰 번호를 입력하세요.');
                 return;
               }
-              console.log({ id, name, pwd, email, phone: phone.join('') });
 
               PostRegister(id, name, pwd, email, phone.join(''), birth)
                 .then(res => {
-                  console.log('res', res);
                   if (res) {
                     alert('회원가입이 완료되었습니다.', e);
                     navigate('/login');
                   } else {
-                    alert('오류가 발생했습니다.');
+                    alert('오류가 발생했습니다.', e);
                   }
                 })
                 .catch(e => {

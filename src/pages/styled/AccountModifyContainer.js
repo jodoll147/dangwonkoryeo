@@ -27,7 +27,18 @@ const AccountModifyContainer = styled.div`
           margin-left: 362px;
           margin-right: 10px;
         }
-        .name {
+        .nameBtn {
+          position: relative;
+          margin-left: 10px;
+          width: 50px;
+          height: 24px;
+          background: #ccd9d9;
+          border-radius: 5px;
+          font-family: 'Cafe24Bold';
+          color: #f2f2f2;
+          text-align: center;
+          line-height: 24px;
+          cursor: pointer;
         }
       }
       .idBox {

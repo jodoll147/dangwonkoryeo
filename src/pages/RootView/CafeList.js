@@ -5,6 +5,7 @@ import HashTag from '../tag/HashTag';
 import fullHeart from '../img/fullHeart.png';
 import heart from '../img/heart.png';
 import cafeImg from '../img/cafeImg.png';
+import { set } from 'date-fns';
 
 const Cafe = props => {
   const { cafe, favorCafe, userFavorCafe, info, loc, dis } = props;

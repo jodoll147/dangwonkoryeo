@@ -281,6 +281,23 @@ export async function hashTagModifyPost(isBean, shop, name, body, acid, flavor) 
   return result;
 }
 
+// 회원정보 수정
+export async function changeUserPost(username, birthday, email, phone_num) {
+  const result = await callAPI(`${API_SERVER}/auth/changeuser`, {
+    method: 'POST',
+    body: JSON.stringify({
+      username: username,
+      password: '',
+      first_name: '',
+      birthday: birthday,
+      email: email,
+      phone_num: phone_num,
+    }),
+  });
+
+  return result;
+}
+
 // 비밀번호 재설정
 export async function pwdResetPost(id, pwd) {
   const result = await fetch(`${API_SERVER}/auth/changepw`, {

@@ -111,7 +111,6 @@ const MyPage = () => {
           });
           getShopList().then(res => {
             if (res) {
-              console.log({ res });
               setFavorShop(
                 res
                   .filter(v => favorCafe.includes(v.id))
@@ -141,6 +140,7 @@ const MyPage = () => {
       }
     });
   }, []);
+
   const shopList = favorShop.map(v => (
     <CafeContainer>
       <div className='cafeBox'>
@@ -170,6 +170,7 @@ const MyPage = () => {
         <div className='nameBox'>
           <div className='name'>이름</div>
           <div className='userName'>{info?.username}</div>
+          <Link to='/accountmodify'>계정 수정</Link>
         </div>
         <div className='coffeeTIBox'>
           <div className='coffeeTI'>커피티아이</div>

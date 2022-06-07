@@ -14,7 +14,6 @@ import NoticeWrite from './pages/notice/NoticeWrite';
 import Business from './pages/business/Business';
 import ShopAdd from './pages/business/ShopAdd';
 import CoffeeTIFirst from './pages/coffeeTI/CoffeeTIFirst';
-import CoffeeTIResult from './pages/coffeeTI/CoffeeTIResult';
 import CoffeeTIBody from './pages/coffeeTI/CoffeeTIBody';
 import ShopModify from './pages/business/ShopModify';
 import NoticeContent from './pages/notice/NoticeContent';
